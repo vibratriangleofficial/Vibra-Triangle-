@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="description" content="VIBRA TRIANGLE — Connect, Create, Discover and Earn.">
+  <title>VIBRA TRIANGLE</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    :root {
+      --bg: #0B0F19;
+      --card: #151B2B;
+      --card2: #1B2336;
+      --blue: #2563EB;
+      --purple: #7C3AED;
+      --pink: #EC4899;
+      --white: #F8FAFC;
+      --muted: #94A3B8;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11,15,25,0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
+      font-weight: 900;
+    }
+
+    .logo span {
+      background: linear-gradient(90deg, #60A5FA, #A78BFA, #F472B6);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .desktop-nav a:hover {
+      color: white;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--card);
+      color: white;
+      border: 1px solid var(--border);
+    }
+
+    .login-btn {
+      padding: 10px 17px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: white;
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 20px 45px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 50px;
+      background: rgba(124,58,237,.15);
+      color: #C4B5FD;
+      border: 1px solid rgba(124,58,237,.3);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 75px);
+      line-height: .98;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #60A5FA, #A78BFA, #F472B6);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn {
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: white;
+      font-weight: 800;
+    }
+
+    .secondary-btn {
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: white;
+      font-weight: 700;
+    }
+
+    .triangle-box {
+      min-height: 330px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(37,99,235,.35), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(236,72,153,.25), transparent 40%),
+        var(--card);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 175px solid #7C3AED;
+      filter: drop-shadow(0 0 35px rgba(124,58,237,.65));
+      position: relative;
+    }
+
+    .triangle::after {
+      content: "";
+      position: absolute;
+      left: -65px;
+      top: 45px;
+      width: 0;
+      height: 0;
+      border-left: 65px solid transparent;
+      border-right: 65px solid transparent;
+      border-bottom: 115px solid #0B0F19;
+    }
+
+    /* SECTION */
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 22px;
+      gap: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .service {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      transition: .25s;
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+      border-color: rgba(124,58,237,.5);
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* FEED */
+
+    .feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .post {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .post-image {
+      height: 190px;
+      display: grid;
+      place-items: center;
+      font-size: 48px;
+      background: linear-gradient(135deg, #172554, #312E81);
+    }
+
+    .post:nth-child(2) .post-image {
+      background: linear-gradient(135deg, #4C1D95, #831843);
+    }
+
+    .post:nth-child(3) .post-image {
+      background: linear-gradient(135deg, #0F766E, #1E3A8A);
+    }
+
+    .post-content {
+      padding: 18px;
+    }
+
+    .post-content h3 {
+      margin-bottom: 8px;
+    }
+
+    .post-content p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .post-meta {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* EARN */
+
+    .earn {
+      background:
+        linear-gradient(135deg, rgba(37,99,235,.18), rgba(124,58,237,.15)),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .earn h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .earn p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .earn-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .earn-item {
+      padding: 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+    }
+
+    /* AD */
+
+    .ad-space {
+      max-width: 1200px;
+      margin: 20px auto;
+      min-height: 90px;
+      border: 1px dashed rgba(255,255,255,.15);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #64748B;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid var(--border);
+      background: #080B12;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px 25px;
+      color: #64748B;
+      font-size: 12px;
+    }
+
+    /* MOBILE NAV */
+
+    .mobile-nav {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feed {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .earn {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        height: 62px;
+        padding: 0 14px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .login-btn {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .triangle-box {
+        min-height: 250px;
+      }
+
+      .services,
+      .feed {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 35px 14px;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 6px;
+      }
+
+      .earn {
+        padding: 25px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: 65px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: rgba(11,15,25,.96);
+        backdrop-filter: blur(15px);
+        border-top: 1px solid var(--border);
+      }
+
+      .mobile-nav a {
+        color: #94A3B8;
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .mobile-nav a span {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 2px;
+      }
+
+      body {
+        padding-bottom: 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a href="#" class="logo">
+      <div class="logo-icon">△</div>
+      <span>VIBRA TRIANGLE</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#home">Home</a>
+      <a href="#services">Explore</a>
+      <a href="#videos">Videos</a>
+      <a href="#earn">Earn</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" onclick="showMessage('Search coming soon')">⌕</button>
+      <button class="icon-btn" onclick="showMessage('Notifications coming soon')">🔔</button>
+      <button class="login-btn" onclick="showMessage('Login system coming in the next phase')">
+        Login
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main id="home">
+
+  <section class="hero">
+
+    <div>
+      <div class="badge">THE NEXT DIGITAL COMMUNITY</div>
+
+      <h1>
+        Welcome to
+        <span class="gradient-text">VIBRA TRIANGLE</span>
+      </h1>
+
+      <p>
+        Connect with people, discover videos, create websites,
+        explore opportunities and build your digital future —
+        all in one platform.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="primary-btn" onclick="showMessage('Registration will be available soon')">
+          Get Started
+        </button>
+
+        <button class="secondary-btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+          Explore Platform
+        </button>
+      </div>
+    </div>
+
+    <div class="triangle-box">
+      <div class="triangle"></div>
+    </div>
+
+  </section>
+
+
+  <div class="ad-space">
+    ADVERTISEMENT SPACE
+  </div>
+
+
+  <section class="section" id="services">
+
+    <div class="section-title">
+      <div>
+        <h2>Everything in one place</h2>
+        <p>Explore what VIBRA TRIANGLE is being built to offer.</p>
+      </div>
+    </div>
+
+    <div class="services">
+
+      <div class="service">
+        <div class="service-icon">💬</div>
+        <h3>Vibra Chat</h3>
+        <p>Connect with friends and communities through private and group conversations.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🎬</div>
+        <h3>Vibra Videos</h3>
+        <p>Discover and share short-form video content from creators around the platform.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🎁</div>
+        <h3>Gift Cards</h3>
+        <p>A dedicated marketplace experience for gift-card transactions and offers.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🌐</div>
+        <h3>Website Builder</h3>
+        <p>Create and publish your own website using simple tools and templates.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">👥</div>
+        <h3>Referrals</h3>
+        <p>Invite people and track eligible referral rewards and partner offers.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">📊</div>
+        <h3>Surveys</h3>
+        <p>Discover available surveys and earn eligible rewards for completed research.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🤖</div>
+        <h3>AI Counselling</h3>
+        <p>Talk with an AI assistant for general guidance, reflection and everyday support.</p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">💰</div>
+        <h3>Earn & Partners</h3>
+        <p>Explore advertising, affiliate, referral and partnership opportunities.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section" id="videos">
+
+    <div class="section-title">
+      <div>
+        <h2>Trending on Vibra</h2>
+        <p>A preview of the future video and community feed.</p>
+      </div>
+
+      <button class="secondary-btn" onclick="showMessage('Video platform coming soon')">
+        View All
+      </button>
+    </div>
+
+    <div class="feed">
+
+      <article class="post">
+        <div class="post-image">🎥</div>
+        <div class="post-content">
+          <h3>Discover something new</h3>
+          <p>Short videos, creators and communities will live here.</p>
+          <div class="post-meta">
+            <span>♡ 0</span>
+            <span>💬 0</span>
+            <span>Share</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-image">✨</div>
+        <div class="post-content">
+          <h3>Create & Share</h3>
+          <p>Build your audience and share your creativity with the community.</p>
+          <div class="post-meta">
+            <span>♡ 0</span>
+            <span>💬 0</span>
+            <span>Share</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-image">🚀</div>
+        <div class="post-content">
+          <h3>Your digital journey</h3>
+          <p>Connect, create, discover and explore opportunities.</p>
+          <div class="post-meta">
+            <span>♡ 0</span>
+            <span>💬 0</span>
+            <span>Share</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section class="section" id="earn">
+
+    <div class="earn">
+
+      <div>
+        <h2>Earn with VIBRA TRIANGLE</h2>
+
+        <p>
+          The platform is designed to eventually support several
+          legitimate monetization channels for users, creators and partners.
+        </p>
+
+        <br>
+
+        <button class="primary-btn" onclick="showMessage('Earn features will be connected after the platform backend is ready')">
+          Explore Earning
+        </button>
+      </div>
+
+      <div class="earn-list">
+
+        <div class="earn-item">
+          💰 <strong>Affiliate commissions</strong>
+        </div>
+
+        <div class="earn-item">
+          🤝 <strong>Partner programs</strong>
+        </div>
+
+        <div class="earn-item">
+          👥 <strong>Referral rewards</strong>
+        </div>
+
+        <div class="earn-item">
+          📊 <strong>Eligible survey rewards</strong>
+        </div>
+
+        <div class="earn-item">
+          📢 <strong>Advertising opportunities</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      <div class="logo">
+        <div class="logo-icon">△</div>
+        <span>VIBRA TRIANGLE</span>
+      </div>
+
+      <br>
+
+      <p style="color:#64748B;font-size:13px;line-height:1.6;">
+        Connect. Create. Discover. Earn.
+        <br>
+        The digital platform we're building together.
+      </p>
+    </div>
+
+    <div>
+      <h3>Platform</h3>
+      <a href="#services">Explore</a>
+      <a href="#videos">Videos</a>
+      <a href="#earn">Earn</a>
+      <a href="#">Website Builder</a>
+    </div>
+
+    <div>
+      <h3>Community</h3>
+      <a href="#">Chat</a>
+      <a href="#">Referrals</a>
+      <a href="#">Surveys</a>
+      <a href="#">AI Assistant</a>
+    </div>
+
+    <div>
+      <h3>Company</h3>
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 VIBRA TRIANGLE. All rights reserved.
+  </div>
+
+</footer>
+
+
+<nav class="mobile-nav">
+
+  <a href="#home">
+    <span>🏠</span>
+    Home
+  </a>
+
+  <a href="#videos">
+    <span>🎬</span>
+    Videos
+  </a>
+
+  <a href="#" onclick="showMessage('Chat coming soon')">
+    <span>💬</span>
+    Chat
+  </a>
+
+  <a href="#earn">
+    <span>💰</span>
+    Earn
+  </a>
+
+  <a href="#" onclick="showMessage('Profile coming soon')">
+    <span>👤</span>
+    Profile
+  </a>
+
+</nav>
+
+
+<script>
+
+  function showMessage(message) {
+    alert(message);
+  }
+
+</script>
+
+</body>
+  </html>
