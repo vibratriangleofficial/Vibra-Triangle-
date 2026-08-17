@@ -9,68 +9,90 @@
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
 
     :root {
       --bg: #0B0F19;
+      --surface: #101625;
       --card: #151B2B;
       --card2: #1B2336;
       --blue: #2563EB;
       --purple: #7C3AED;
       --pink: #EC4899;
-      --white: #F8FAFC;
+      --text: #F8FAFC;
       --muted: #94A3B8;
-      --border: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,.09);
+      --success: #22C55E;
+      --danger: #EF4444;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: var(--bg);
-      color: var(--white);
+      background:
+        radial-gradient(circle at 5% 0%, rgba(37,99,235,.12), transparent 28%),
+        radial-gradient(circle at 95% 10%, rgba(124,58,237,.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
       min-height: 100vh;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
     button {
-      border: none;
       cursor: pointer;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(11,15,25,0.92);
-      backdrop-filter: blur(15px);
+      background: rgba(11,15,25,.90);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
-      max-width: 1200px;
+      max-width: 1250px;
+      height: 68px;
       margin: auto;
-      height: 70px;
+      padding: 0 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      gap: 15px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 20px;
+      gap: 9px;
+      font-size: 18px;
       font-weight: 900;
-      letter-spacing: .5px;
+      white-space: nowrap;
     }
 
     .logo-icon {
@@ -79,19 +101,30 @@
       display: grid;
       place-items: center;
       border-radius: 10px;
-      background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
-      font-weight: 900;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple),
+        var(--pink)
+      );
+      box-shadow: 0 8px 25px rgba(124,58,237,.25);
     }
 
-    .logo span {
-      background: linear-gradient(90deg, #60A5FA, #A78BFA, #F472B6);
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        #60A5FA,
+        #A78BFA,
+        #F472B6
+      );
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
     .desktop-nav {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       color: var(--muted);
       font-size: 14px;
     }
@@ -103,154 +136,185 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .icon-btn {
       width: 38px;
       height: 38px;
       border-radius: 50%;
+      border: 1px solid var(--border);
       background: var(--card);
       color: white;
-      border: 1px solid var(--border);
     }
 
-    .login-btn {
-      padding: 10px 17px;
+    .auth-btn {
+      padding: 10px 16px;
+      border: 0;
       border-radius: 10px;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
       color: white;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    /* HERO */
+    .user-pill {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .avatar {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      font-weight: 800;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: auto;
-      padding: 65px 20px 45px;
+      padding: 65px 18px 45px;
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 45px;
       align-items: center;
     }
 
     .badge {
       display: inline-block;
       padding: 7px 12px;
-      border-radius: 50px;
-      background: rgba(124,58,237,.15);
-      color: #C4B5FD;
+      margin-bottom: 18px;
+      border-radius: 30px;
       border: 1px solid rgba(124,58,237,.3);
-      font-size: 13px;
-      margin-bottom: 20px;
+      background: rgba(124,58,237,.14);
+      color: #C4B5FD;
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 7vw, 75px);
+      font-size: clamp(42px, 7vw, 76px);
       line-height: .98;
       margin-bottom: 22px;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #60A5FA, #A78BFA, #F472B6);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
     .hero p {
-      max-width: 600px;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
+      max-width: 630px;
       margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 11px;
     }
 
-    .primary-btn {
-      padding: 14px 22px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      color: white;
+    .primary-btn,
+    .secondary-btn {
+      padding: 13px 19px;
+      border-radius: 11px;
       font-weight: 800;
     }
 
-    .secondary-btn {
-      padding: 14px 22px;
-      border-radius: 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
+    .primary-btn {
+      border: 0;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
       color: white;
-      font-weight: 700;
+    }
+
+    .secondary-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: white;
     }
 
     .triangle-box {
-      min-height: 330px;
-      border-radius: 30px;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(37,99,235,.35), transparent 40%),
-        radial-gradient(circle at 70% 70%, rgba(236,72,153,.25), transparent 40%),
-        var(--card);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
+      min-height: 340px;
       position: relative;
       overflow: hidden;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(
+          circle at 25% 20%,
+          rgba(37,99,235,.35),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 75% 75%,
+          rgba(236,72,153,.25),
+          transparent 40%
+        ),
+        var(--card);
     }
 
     .triangle {
       width: 0;
       height: 0;
-      border-left: 100px solid transparent;
-      border-right: 100px solid transparent;
-      border-bottom: 175px solid #7C3AED;
-      filter: drop-shadow(0 0 35px rgba(124,58,237,.65));
-      position: relative;
+      border-left: 105px solid transparent;
+      border-right: 105px solid transparent;
+      border-bottom: 185px solid var(--purple);
+      filter: drop-shadow(
+        0 0 40px rgba(124,58,237,.7)
+      );
     }
 
-    .triangle::after {
-      content: "";
-      position: absolute;
-      left: -65px;
-      top: 45px;
-      width: 0;
-      height: 0;
-      border-left: 65px solid transparent;
-      border-right: 65px solid transparent;
-      border-bottom: 115px solid #0B0F19;
-    }
-
-    /* SECTION */
+    /* =========================
+       SECTIONS
+    ========================= */
 
     .section {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 42px 18px;
     }
 
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 22px;
-      gap: 15px;
+    .section-heading {
+      margin-bottom: 20px;
     }
 
-    .section-title h2 {
-      font-size: 28px;
+    .section-heading h2 {
+      margin-bottom: 6px;
+      font-size: 29px;
     }
 
-    .section-title p {
+    .section-heading p {
       color: var(--muted);
       font-size: 14px;
     }
 
-    /* SERVICES */
+    /* =========================
+       SERVICES
+    ========================= */
 
     .services {
       display: grid;
@@ -259,162 +323,161 @@
     }
 
     .service {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
+      min-height: 175px;
       padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--card);
       transition: .25s;
     }
 
     .service:hover {
       transform: translateY(-4px);
-      border-color: rgba(124,58,237,.5);
+      border-color: rgba(124,58,237,.45);
     }
 
     .service-icon {
-      font-size: 28px;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
+      font-size: 29px;
     }
 
     .service h3 {
-      margin-bottom: 8px;
+      margin-bottom: 7px;
+      font-size: 17px;
     }
 
     .service p {
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* FEED */
+    /* =========================
+       FEATURE CARDS
+    ========================= */
 
-    .feed {
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
     }
 
-    .post {
-      background: var(--card);
+    .feature-card {
+      min-height: 190px;
+      padding: 23px;
+      border-radius: 20px;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      overflow: hidden;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(37,99,235,.08),
+          rgba(124,58,237,.08)
+        ),
+        var(--card);
     }
 
-    .post-image {
-      height: 190px;
-      display: grid;
-      place-items: center;
-      font-size: 48px;
-      background: linear-gradient(135deg, #172554, #312E81);
+    .feature-card .big-icon {
+      font-size: 38px;
+      margin-bottom: 13px;
     }
 
-    .post:nth-child(2) .post-image {
-      background: linear-gradient(135deg, #4C1D95, #831843);
-    }
-
-    .post:nth-child(3) .post-image {
-      background: linear-gradient(135deg, #0F766E, #1E3A8A);
-    }
-
-    .post-content {
-      padding: 18px;
-    }
-
-    .post-content h3 {
+    .feature-card h3 {
       margin-bottom: 8px;
     }
 
-    .post-content p {
+    .feature-card p {
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    .post-meta {
-      margin-top: 15px;
-      display: flex;
-      justify-content: space-between;
-      color: var(--muted);
-      font-size: 12px;
-    }
+    /* =========================
+       EARN
+    ========================= */
 
-    /* EARN */
-
-    .earn {
-      background:
-        linear-gradient(135deg, rgba(37,99,235,.18), rgba(124,58,237,.15)),
-        var(--card);
-      border: 1px solid var(--border);
-      border-radius: 25px;
-      padding: 35px;
+    .earn-box {
+      padding: 32px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      gap: 25px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(37,99,235,.17),
+          rgba(124,58,237,.14)
+        ),
+        var(--card);
     }
 
-    .earn h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
+    .earn-box h2 {
+      margin-bottom: 10px;
+      font-size: 31px;
     }
 
-    .earn p {
+    .earn-box p {
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .earn-list {
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .earn-item {
-      padding: 15px;
+      padding: 14px;
       border-radius: 12px;
-      background: rgba(255,255,255,.04);
       border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
     }
 
-    /* AD */
+    /* =========================
+       AD
+    ========================= */
 
     .ad-space {
-      max-width: 1200px;
-      margin: 20px auto;
+      max-width: 1250px;
       min-height: 90px;
-      border: 1px dashed rgba(255,255,255,.15);
-      border-radius: 14px;
+      margin: 15px auto;
       display: grid;
       place-items: center;
+      border: 1px dashed rgba(255,255,255,.13);
+      border-radius: 14px;
       color: #64748B;
-      font-size: 12px;
+      font-size: 11px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      margin-top: 50px;
+      margin-top: 45px;
       border-top: 1px solid var(--border);
       background: #080B12;
     }
 
     .footer-inner {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 38px 18px;
       display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
-      gap: 30px;
+      grid-template-columns: 2fr repeat(3,1fr);
+      gap: 25px;
     }
 
     footer h3 {
-      margin-bottom: 15px;
+      margin-bottom: 13px;
+      font-size: 15px;
     }
 
     footer a {
       display: block;
+      margin-bottom: 9px;
       color: var(--muted);
       font-size: 13px;
-      margin-bottom: 10px;
     }
 
     footer a:hover {
@@ -422,53 +485,230 @@
     }
 
     .copyright {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: auto;
-      padding: 15px 20px 25px;
+      padding: 0 18px 25px;
       color: #64748B;
       font-size: 12px;
     }
 
-    /* MOBILE NAV */
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.show {
+      display: grid;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 430px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 25px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: #101625;
+      box-shadow: 0 25px 80px rgba(0,0,0,.5);
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .modal-top h2 {
+      font-size: 24px;
+    }
+
+    .close {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: white;
+    }
+
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      margin-bottom: 18px;
+      border-radius: 11px;
+      background: var(--card);
+    }
+
+    .auth-tab {
+      padding: 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .auth-tab.active {
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      color: white;
+    }
+
+    .form {
+      display: grid;
+      gap: 13px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-group label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 13px;
+      outline: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      color: white;
+    }
+
+    .form-group input:focus {
+      border-color: var(--purple);
+    }
+
+    .form-submit {
+      padding: 13px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      color: white;
+      font-weight: 800;
+    }
+
+    .message {
+      min-height: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* =========================
+       PROFILE MODAL
+    ========================= */
+
+    .profile-box {
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 75px;
+      height: 75px;
+      margin: 5px auto 15px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .profile-email {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .logout-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(239,68,68,.3);
+      background: rgba(239,68,68,.08);
+      color: #FCA5A5;
+      font-weight: 800;
+    }
+
+    /* =========================
+       MOBILE NAV
+    ========================= */
 
     .mobile-nav {
       display: none;
     }
 
-    @media (max-width: 900px) {
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:950px) {
+
+      .desktop-nav {
+        display: none;
+      }
+
       .hero {
         grid-template-columns: 1fr;
       }
 
       .services {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
       }
 
-      .feed {
-        grid-template-columns: 1fr 1fr;
+      .feature-grid {
+        grid-template-columns: repeat(2,1fr);
       }
 
-      .earn {
+      .earn-box {
         grid-template-columns: 1fr;
       }
 
       .footer-inner {
         grid-template-columns: 1fr 1fr;
       }
-
-      .desktop-nav {
-        display: none;
-      }
     }
 
-    @media (max-width: 600px) {
+    @media(max-width:600px) {
+
       .header-inner {
         height: 62px;
-        padding: 0 14px;
+        padding: 0 13px;
       }
 
       .logo {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .logo-icon {
@@ -476,16 +716,21 @@
         height: 32px;
       }
 
-      .login-btn {
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .auth-btn {
         display: none;
       }
 
       .hero {
-        padding-top: 45px;
+        padding: 45px 14px 30px;
       }
 
       .hero h1 {
-        font-size: 48px;
+        font-size: 47px;
       }
 
       .hero p {
@@ -496,56 +741,52 @@
         min-height: 250px;
       }
 
-      .services,
-      .feed {
-        grid-template-columns: 1fr;
-      }
-
       .section {
         padding: 35px 14px;
       }
 
-      .section-title {
-        display: block;
+      .services,
+      .feature-grid {
+        grid-template-columns: 1fr;
       }
 
-      .section-title p {
-        margin-top: 6px;
-      }
-
-      .earn {
-        padding: 25px;
+      .earn-box {
+        padding: 24px;
       }
 
       .footer-inner {
         grid-template-columns: 1fr;
       }
 
+      .user-pill {
+        display: none !important;
+      }
+
       .mobile-nav {
         position: fixed;
-        bottom: 0;
         left: 0;
         right: 0;
-        z-index: 200;
+        bottom: 0;
+        z-index: 300;
         height: 65px;
         display: flex;
-        justify-content: space-around;
         align-items: center;
-        background: rgba(11,15,25,.96);
+        justify-content: space-around;
+        background: rgba(11,15,25,.97);
         backdrop-filter: blur(15px);
         border-top: 1px solid var(--border);
       }
 
       .mobile-nav a {
-        color: #94A3B8;
-        font-size: 11px;
+        color: var(--muted);
         text-align: center;
+        font-size: 10px;
       }
 
-      .mobile-nav a span {
+      .mobile-nav span {
         display: block;
-        font-size: 20px;
         margin-bottom: 2px;
+        font-size: 19px;
       }
 
       body {
@@ -557,336 +798,339 @@
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
   <div class="header-inner">
 
-    <a href="#" class="logo">
+    <a href="#home" class="logo">
+
       <div class="logo-icon">△</div>
-      <span>VIBRA TRIANGLE</span>
+
+      <span class="gradient">
+        VIBRA TRIANGLE
+      </span>
+
     </a>
 
+
     <nav class="desktop-nav">
+
       <a href="#home">Home</a>
       <a href="#services">Explore</a>
-      <a href="#videos">Videos</a>
+      <a href="#features">Features</a>
       <a href="#earn">Earn</a>
+
     </nav>
 
+
     <div class="header-actions">
-      <button class="icon-btn" onclick="showMessage('Search coming soon')">⌕</button>
-      <button class="icon-btn" onclick="showMessage('Notifications coming soon')">🔔</button>
-      <button class="login-btn" onclick="showMessage('Login system coming in the next phase')">
+
+      <button
+        class="icon-btn"
+        onclick="showInfo('Search')">
+        ⌕
+      </button>
+
+      <button
+        class="icon-btn"
+        onclick="showInfo('Notifications')">
+        🔔
+      </button>
+
+      <div
+        class="user-pill"
+        id="userPill">
+
+        <div
+          class="avatar"
+          id="userAvatar">
+          V
+        </div>
+
+        <span id="userName">
+          User
+        </span>
+
+      </div>
+
+      <button
+        class="auth-btn"
+        id="authButton"
+        onclick="openAuth()">
         Login
       </button>
+
     </div>
 
   </div>
+
 </header>
 
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main id="home">
+
+
+  <!-- HERO -->
 
   <section class="hero">
 
     <div>
-      <div class="badge">THE NEXT DIGITAL COMMUNITY</div>
+
+      <div class="badge">
+        CONNECT • CREATE • DISCOVER • EARN
+      </div>
 
       <h1>
         Welcome to
-        <span class="gradient-text">VIBRA TRIANGLE</span>
+        <span class="gradient">
+          VIBRA TRIANGLE
+        </span>
       </h1>
 
       <p>
-        Connect with people, discover videos, create websites,
-        explore opportunities and build your digital future —
-        all in one platform.
+        A growing digital platform where people can
+        connect, discover content, create websites,
+        explore opportunities and build their digital future. Just believe.
       </p>
 
       <div class="hero-buttons">
-        <button class="primary-btn" onclick="showMessage('Registration will be available soon')">
-          Get Started
+
+        <button
+          class="primary-btn"
+          onclick="openAuth()">
+          Create Account
         </button>
 
-        <button class="secondary-btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+        <button
+          class="secondary-btn"
+          onclick="scrollToSection('services')">
           Explore Platform
         </button>
+
       </div>
+
     </div>
 
+
     <div class="triangle-box">
+
       <div class="triangle"></div>
+
     </div>
 
   </section>
 
+
+  <!-- AD PLACEHOLDER -->
 
   <div class="ad-space">
     ADVERTISEMENT SPACE
   </div>
 
 
-  <section class="section" id="services">
+  <!-- SERVICES -->
 
-    <div class="section-title">
-      <div>
-        <h2>Everything in one place</h2>
-        <p>Explore what VIBRA TRIANGLE is being built to offer.</p>
-      </div>
+  <section
+    class="section"
+    id="services">
+
+    <div class="section-heading">
+
+      <h2>
+        Everything in one place
+      </h2>
+
+      <p>
+        The major services planned for VIBRA TRIANGLE.
+      </p>
+
     </div>
+
 
     <div class="services">
 
-      <div class="service">
-        <div class="service-icon">💬</div>
-        <h3>Vibra Chat</h3>
-        <p>Connect with friends and communities through private and group conversations.</p>
-      </div>
 
-      <div class="service">
-        <div class="service-icon">🎬</div>
-        <h3>Vibra Videos</h3>
-        <p>Discover and share short-form video content from creators around the platform.</p>
-      </div>
+      <div
+        class="service"
+        onclick="showInfo('Vibra Chat')">
 
-      <div class="service">
-        <div class="service-icon">🎁</div>
-        <h3>Gift Cards</h3>
-        <p>A dedicated marketplace experience for gift-card transactions and offers.</p>
-      </div>
-
-      <div class="service">
-        <div class="service-icon">🌐</div>
-        <h3>Website Builder</h3>
-        <p>Create and publish your own website using simple tools and templates.</p>
-      </div>
-
-      <div class="service">
-        <div class="service-icon">👥</div>
-        <h3>Referrals</h3>
-        <p>Invite people and track eligible referral rewards and partner offers.</p>
-      </div>
-
-      <div class="service">
-        <div class="service-icon">📊</div>
-        <h3>Surveys</h3>
-        <p>Discover available surveys and earn eligible rewards for completed research.</p>
-      </div>
-
-      <div class="service">
-        <div class="service-icon">🤖</div>
-        <h3>AI Counselling</h3>
-        <p>Talk with an AI assistant for general guidance, reflection and everyday support.</p>
-      </div>
-
-      <div class="service">
-        <div class="service-icon">💰</div>
-        <h3>Earn & Partners</h3>
-        <p>Explore advertising, affiliate, referral and partnership opportunities.</p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section" id="videos">
-
-    <div class="section-title">
-      <div>
-        <h2>Trending on Vibra</h2>
-        <p>A preview of the future video and community feed.</p>
-      </div>
-
-      <button class="secondary-btn" onclick="showMessage('Video platform coming soon')">
-        View All
-      </button>
-    </div>
-
-    <div class="feed">
-
-      <article class="post">
-        <div class="post-image">🎥</div>
-        <div class="post-content">
-          <h3>Discover something new</h3>
-          <p>Short videos, creators and communities will live here.</p>
-          <div class="post-meta">
-            <span>♡ 0</span>
-            <span>💬 0</span>
-            <span>Share</span>
-          </div>
+        <div class="service-icon">
+          💬
         </div>
-      </article>
 
-      <article class="post">
-        <div class="post-image">✨</div>
-        <div class="post-content">
-          <h3>Create & Share</h3>
-          <p>Build your audience and share your creativity with the community.</p>
-          <div class="post-meta">
-            <span>♡ 0</span>
-            <span>💬 0</span>
-            <span>Share</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="post">
-        <div class="post-image">🚀</div>
-        <div class="post-content">
-          <h3>Your digital journey</h3>
-          <p>Connect, create, discover and explore opportunities.</p>
-          <div class="post-meta">
-            <span>♡ 0</span>
-            <span>💬 0</span>
-            <span>Share</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <section class="section" id="earn">
-
-    <div class="earn">
-
-      <div>
-        <h2>Earn with VIBRA TRIANGLE</h2>
+        <h3>
+          Vibra Chat
+        </h3>
 
         <p>
-          The platform is designed to eventually support several
-          legitimate monetization channels for users, creators and partners.
+          Private messaging, group conversations
+          and community communication.
         </p>
 
-        <br>
-
-        <button class="primary-btn" onclick="showMessage('Earn features will be connected after the platform backend is ready')">
-          Explore Earning
-        </button>
       </div>
 
-      <div class="earn-list">
 
-        <div class="earn-item">
-          💰 <strong>Affiliate commissions</strong>
+      <div
+        class="service"
+        onclick="showInfo('Vibra Videos')">
+
+        <div class="service-icon">
+          🎬
         </div>
 
-        <div class="earn-item">
-          🤝 <strong>Partner programs</strong>
-        </div>
+        <h3>
+          Vibra Videos
+        </h3>
 
-        <div class="earn-item">
-          👥 <strong>Referral rewards</strong>
-        </div>
-
-        <div class="earn-item">
-          📊 <strong>Eligible survey rewards</strong>
-        </div>
-
-        <div class="earn-item">
-          📢 <strong>Advertising opportunities</strong>
-        </div>
+        <p>
+          Short-form videos, creators, likes,
+          comments and sharing.
+        </p>
 
       </div>
+
+
+      <div
+        class="service"
+        onclick="showInfo('Gift Cards')">
+
+        <div class="service-icon">
+          🎁
+        </div>
+
+        <h3>
+          Gift Cards
+        </h3>
+
+        <p>
+          A dedicated marketplace for eligible
+          gift-card transactions.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="showInfo('Website Builder')">
+
+        <div class="service-icon">
+          🌐
+        </div>
+
+        <h3>
+          Website Builder
+        </h3>
+
+        <p>
+          Create websites using templates
+          and publishing tools.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="showInfo('Referral Program')">
+
+        <div class="service-icon">
+          👥
+        </div>
+
+        <h3>
+          Referrals
+        </h3>
+
+        <p>
+          Invite users and track legitimate
+          referral rewards.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="showInfo('Surveys')">
+
+        <div class="service-icon">
+          📊
+        </div>
+
+        <h3>
+          Surveys
+        </h3>
+
+        <p>
+          Access eligible surveys and rewards
+          through supported providers.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="showInfo('AI Counselling')">
+
+        <div class="service-icon">
+          🤖
+        </div>
+
+        <h3>
+          AI Counselling
+        </h3>
+
+        <p>
+          AI-powered general guidance and
+          personal reflection support.
+        </p>
+
+      </div>
+
+
+      <div
+        class="service"
+        onclick="showInfo('Earn & Partners')">
+
+        <div class="service-icon">
+          💰
+        </div>
+
+        <h3>
+          Earn & Partners
+        </h3>
+
+        <p>
+          Affiliate offers, partnerships,
+          referrals and advertising.
+        </p>
+
+      </div>
+
 
     </div>
 
   </section>
 
-</main>
 
+  <!-- FEATURE ROADMAP -->
 
-<footer>
+  <section
+    class="section"
+    id="features">
 
-  <div class="footer-inner">
+    <div class="section-heading">
 
-    <div>
-      <div class="logo">
-        <div class="logo-icon">△</div>
-        <span>VIBRA TRIANGLE</span>
-      </div>
-
-      <br>
-
-      <p style="color:#64748B;font-size:13px;line-height:1.6;">
-        Connect. Create. Discover. Earn.
-        <br>
-        The digital platform we're building together.
-      </p>
-    </div>
-
-    <div>
-      <h3>Platform</h3>
-      <a href="#services">Explore</a>
-      <a href="#videos">Videos</a>
-      <a href="#earn">Earn</a>
-      <a href="#">Website Builder</a>
-    </div>
-
-    <div>
-      <h3>Community</h3>
-      <a href="#">Chat</a>
-      <a href="#">Referrals</a>
-      <a href="#">Surveys</a>
-      <a href="#">AI Assistant</a>
-    </div>
-
-    <div>
-      <h3>Company</h3>
-      <a href="#">About</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
-    </div>
-
-  </div>
-
-  <div class="copyright">
-    © 2026 VIBRA TRIANGLE. All rights reserved.
-  </div>
-
-</footer>
-
-
-<nav class="mobile-nav">
-
-  <a href="#home">
-    <span>🏠</span>
-    Home
-  </a>
-
-  <a href="#videos">
-    <span>🎬</span>
-    Videos
-  </a>
-
-  <a href="#" onclick="showMessage('Chat coming soon')">
-    <span>💬</span>
-    Chat
-  </a>
-
-  <a href="#earn">
-    <span>💰</span>
-    Earn
-  </a>
-
-  <a href="#" onclick="showMessage('Profile coming soon')">
-    <span>👤</span>
-    Profile
-  </a>
-
-</nav>
-
-
-<script>
-
-  function showMessage(message) {
-    alert(message);
-  }
-
-</script>
-
-</body>
-  </html>
+      <h2>
+        VIBRA TRIANGLE ecosystem
+   
