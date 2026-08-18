@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b1020">
+<meta name="theme-color" content="#080b16">
 
 <title>VIBRA TRIANGLE</title>
 
@@ -12,36 +12,35 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif;
 }
 
 body{
-  background:#0b1020;
-  color:white;
-  min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:#080b16;
+  color:#fff;
 }
 
 header{
   position:sticky;
   top:0;
-  z-index:10;
-  background:#10172b;
-  border-bottom:1px solid #26304a;
+  z-index:1000;
+  background:#11172a;
+  border-bottom:1px solid #29324a;
 }
 
 .header{
   max-width:1200px;
   margin:auto;
-  padding:14px 18px;
+  padding:15px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
 .logo{
-  font-size:20px;
-  font-weight:bold;
-  color:#8b7cff;
+  font-size:19px;
+  font-weight:900;
+  color:#9b8cff;
 }
 
 nav{
@@ -52,20 +51,28 @@ nav{
 nav a{
   color:#cbd5e1;
   text-decoration:none;
-  font-size:14px;
 }
 
 button{
+  font:inherit;
   cursor:pointer;
 }
 
-.login{
+.headerBtn{
+  padding:10px 17px;
   border:0;
-  padding:10px 16px;
   border-radius:9px;
-  color:white;
-  font-weight:bold;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:#fff;
+  background:#6d4aff;
+}
+
+.logoutBtn{
+  display:none;
+  padding:10px 17px;
+  border:0;
+  border-radius:9px;
+  color:#fff;
+  background:#dc3654;
 }
 
 .hero{
@@ -81,26 +88,21 @@ button{
 .badge{
   display:inline-block;
   padding:8px 12px;
-  border-radius:20px;
-  background:#1c1640;
-  color:#b9a9ff;
-  font-size:12px;
   margin-bottom:18px;
+  border-radius:20px;
+  background:#20184b;
+  color:#bcaeff;
+  font-size:12px;
 }
 
 h1{
-  font-size:clamp(42px,7vw,75px);
+  font-size:clamp(43px,7vw,75px);
   line-height:1;
   margin-bottom:20px;
 }
 
 .gradient{
-  background:linear-gradient(
-    90deg,
-    #60a5fa,
-    #a78bfa,
-    #f472b6
-  );
+  background:linear-gradient(90deg,#4da3ff,#9d7cff,#ff70b9);
   -webkit-background-clip:text;
   color:transparent;
 }
@@ -108,47 +110,42 @@ h1{
 .hero p{
   color:#94a3b8;
   line-height:1.7;
-  font-size:16px;
-  max-width:600px;
   margin-bottom:25px;
 }
 
-.hero-buttons{
+.actions{
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
+  gap:10px;
 }
 
 .primary,
 .secondary{
-  padding:13px 18px;
+  padding:13px 19px;
   border-radius:10px;
   font-weight:bold;
 }
 
 .primary{
   border:0;
+  background:#6d4aff;
   color:white;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
 }
 
 .secondary{
-  border:1px solid #293550;
+  background:#172038;
   color:white;
-  background:#151d32;
+  border:1px solid #33405c;
 }
 
 .visual{
-  min-height:330px;
+  min-height:320px;
   border-radius:25px;
-  border:1px solid #293550;
-  background:
-    radial-gradient(circle at 30% 25%,#243d91,transparent 30%),
-    radial-gradient(circle at 75% 75%,#54226c,transparent 30%),
-    #11192b;
+  background:#111a31;
+  border:1px solid #293653;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 }
 
 .triangle{
@@ -156,8 +153,19 @@ h1{
   height:0;
   border-left:100px solid transparent;
   border-right:100px solid transparent;
-  border-bottom:180px solid #7c3aed;
-  filter:drop-shadow(0 0 35px #7c3aed);
+  border-bottom:175px solid #7c4dff;
+  filter:drop-shadow(0 0 35px #7c4dff);
+}
+
+.ad{
+  max-width:1200px;
+  min-height:90px;
+  margin:15px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px dashed #334155;
+  color:#64748b;
 }
 
 .section{
@@ -167,8 +175,8 @@ h1{
 }
 
 .section h2{
-  font-size:30px;
   margin-bottom:8px;
+  font-size:30px;
 }
 
 .subtitle{
@@ -185,15 +193,16 @@ h1{
 .card{
   padding:22px;
   min-height:170px;
-  border-radius:17px;
-  border:1px solid #293550;
-  background:#121a2d;
+  border-radius:16px;
+  background:#121a2e;
+  border:1px solid #293653;
+  cursor:pointer;
   transition:.2s;
 }
 
 .card:hover{
   transform:translateY(-4px);
-  border-color:#7c3aed;
+  border-color:#7c4dff;
 }
 
 .icon{
@@ -207,211 +216,194 @@ h1{
 
 .card p{
   color:#94a3b8;
-  line-height:1.5;
   font-size:13px;
+  line-height:1.5;
 }
 
-.earn{
-  border:1px solid #293550;
-  border-radius:20px;
-  padding:30px;
-  background:linear-gradient(
-    135deg,
-    #13234b,
-    #21153e
-  );
-}
-
-.earn p{
-  color:#cbd5e1;
-  line-height:1.6;
-  margin:10px 0 20px;
-}
-
-.earn-list{
-  display:grid;
-  gap:10px;
-}
-
-.earn-item{
-  padding:13px;
-  border-radius:10px;
-  background:#ffffff0a;
-  border:1px solid #ffffff12;
-}
-
-.ad{
+.account{
+  display:none;
   max-width:1200px;
-  min-height:90px;
-  margin:15px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#64748b;
-  border:1px dashed #334155;
-  border-radius:12px;
-  font-size:12px;
+  margin:0 auto;
+  padding:15px 18px;
+}
+
+.accountBox{
+  padding:20px;
+  border-radius:15px;
+  background:#121a2e;
+  border:1px solid #293653;
+}
+
+.accountBox span{
+  color:#9b8cff;
+}
+
+.earnBox{
+  padding:30px;
+  border-radius:20px;
+  background:#141d36;
+  border:1px solid #293653;
+}
+
+.earnBox p{
+  color:#94a3b8;
+  line-height:1.6;
+  margin:12px 0 20px;
+}
+
+.earnItem{
+  padding:13px;
+  margin-top:9px;
+  background:#ffffff08;
+  border:1px solid #ffffff12;
+  border-radius:9px;
 }
 
 footer{
+  padding:40px 18px;
   margin-top:40px;
-  padding:35px 18px;
   text-align:center;
-  background:#080c17;
-  border-top:1px solid #293550;
+  background:#050811;
+  border-top:1px solid #293653;
 }
 
 footer p{
   color:#64748b;
-  font-size:13px;
   margin-top:10px;
+  font-size:13px;
 }
 
-/* MODAL */
+/* AUTH MODAL */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:100;
-  background:#000b;
+  z-index:9999;
   display:none;
   align-items:center;
   justify-content:center;
   padding:20px;
+  background:rgba(0,0,0,.82);
 }
 
-.modal.show{
+.modal.active{
   display:flex;
 }
 
-.modal-box{
+.modalBox{
   width:100%;
   max-width:420px;
-  background:#121a2d;
-  border:1px solid #334155;
-  border-radius:18px;
   padding:25px;
+  border-radius:18px;
+  background:#121a2e;
+  border:1px solid #394663;
 }
 
-.modal-header{
+.modalTop{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   margin-bottom:20px;
 }
 
-.close{
-  width:34px;
-  height:34px;
+.closeBtn{
+  width:35px;
+  height:35px;
   border-radius:50%;
   border:1px solid #334155;
-  background:#1a2438;
-  color:white;
+  background:#1b263e;
+  color:#fff;
   font-size:20px;
 }
 
 .tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
   gap:5px;
-  background:#0b1020;
-  padding:4px;
-  border-radius:9px;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .tab{
+  flex:1;
+  padding:11px;
   border:0;
-  padding:10px;
-  border-radius:7px;
-  background:transparent;
+  border-radius:8px;
+  background:#1b263e;
   color:#94a3b8;
 }
 
 .tab.active{
-  background:#2563eb;
+  background:#6d4aff;
   color:white;
 }
 
-.form{
-  display:grid;
-  gap:13px;
+.formGroup{
+  margin-bottom:14px;
 }
 
-label{
+.formGroup label{
+  display:block;
+  margin-bottom:6px;
   color:#94a3b8;
   font-size:12px;
 }
 
-input{
+.formGroup input{
   width:100%;
-  margin-top:6px;
   padding:13px;
   border-radius:9px;
   border:1px solid #334155;
+  background:#080d1a;
+  color:#fff;
   outline:none;
-  background:#0b1020;
-  color:white;
 }
 
-.submit{
-  border:0;
+.submitBtn{
+  width:100%;
   padding:13px;
+  border:0;
   border-radius:9px;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
+  background:#6d4aff;
+  color:#fff;
   font-weight:bold;
 }
 
 .message{
-  color:#94a3b8;
+  margin-top:12px;
   text-align:center;
-  font-size:12px;
-  min-height:18px;
+  color:#94a3b8;
+  font-size:13px;
+  line-height:1.5;
 }
 
 @media(max-width:850px){
 
-  nav{
-    display:none;
-  }
+.hero{
+  grid-template-columns:1fr;
+}
 
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:45px;
-  }
+.grid{
+  grid-template-columns:repeat(2,1fr);
+}
 
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+nav{
+  display:none;
+}
 
 }
 
 @media(max-width:520px){
 
-  .hero{
-    padding-left:14px;
-    padding-right:14px;
-  }
+.grid{
+  grid-template-columns:1fr;
+}
 
-  .section{
-    padding-left:14px;
-    padding-right:14px;
-  }
+.hero{
+  padding-top:45px;
+}
 
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .visual{
-    min-height:250px;
-  }
-
-  .triangle{
-    border-left-width:75px;
-    border-right-width:75px;
-    border-bottom-width:135px;
-  }
+.visual{
+  min-height:240px;
+}
 
 }
 </style>
@@ -434,11 +426,21 @@ input{
 <a href="#about">About</a>
 </nav>
 
+<div>
+
 <button
-class="login"
-onclick="openLogin()">
+class="headerBtn"
+id="loginButton">
 Login
 </button>
+
+<button
+class="logoutBtn"
+id="logoutButton">
+Logout
+</button>
+
+</div>
 
 </div>
 
@@ -463,22 +465,22 @@ VIBRA TRIANGLE
 </h1>
 
 <p>
-A digital community where people can connect,
-discover videos, create websites, participate in
-earning opportunities and explore new digital tools.
+A digital platform for connecting with people,
+discovering content, creating websites and
+exploring legitimate digital opportunities.
 </p>
 
-<div class="hero-buttons">
+<div class="actions">
 
 <button
 class="primary"
-onclick="openLogin()">
+id="createButton">
 Create Account
 </button>
 
 <button
 class="secondary"
-onclick="document.getElementById('services').scrollIntoView()">
+id="exploreButton">
 Explore Platform
 </button>
 
@@ -500,6 +502,32 @@ ADVERTISEMENT SPACE
 </div>
 
 
+<!-- ACCOUNT -->
+
+<section
+class="account"
+id="accountSection">
+
+<div class="accountBox">
+
+<h3>
+Welcome back 👋
+</h3>
+
+<p>
+You are signed in as:
+<span id="userEmail">
+-
+</span>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
 <section
 class="section"
 id="services">
@@ -509,161 +537,57 @@ Explore VIBRA TRIANGLE
 </h2>
 
 <p class="subtitle">
-Our planned platform features.
+These are the planned platform features.
 </p>
 
 <div class="grid">
 
-
-<div
-class="card"
-onclick="feature('Chat')">
-
-<div class="icon">
-💬
+<div class="card" data-feature="Chat">
+<div class="icon">💬</div>
+<h3>Chat</h3>
+<p>Private messaging and community communication.</p>
 </div>
 
-<h3>
-Chat
-</h3>
-
-<p>
-Connect with friends and communities.
-</p>
-
+<div class="card" data-feature="Videos">
+<div class="icon">🎬</div>
+<h3>Videos</h3>
+<p>Discover and share short-form videos.</p>
 </div>
 
-
-<div
-class="card"
-onclick="feature('Videos')">
-
-<div class="icon">
-🎬
+<div class="card" data-feature="Gift Cards">
+<div class="icon">🎁</div>
+<h3>Gift Cards</h3>
+<p>A dedicated gift-card marketplace.</p>
 </div>
 
-<h3>
-Videos
-</h3>
-
-<p>
-Discover and share short-form videos.
-</p>
-
+<div class="card" data-feature="Website Builder">
+<div class="icon">🌐</div>
+<h3>Website Builder</h3>
+<p>Create websites inside VIBRA TRIANGLE.</p>
 </div>
 
-
-<div
-class="card"
-onclick="feature('Gift Cards')">
-
-<div class="icon">
-🎁
+<div class="card" data-feature="Referrals">
+<div class="icon">👥</div>
+<h3>Referrals</h3>
+<p>Invite users and track referral activity.</p>
 </div>
 
-<h3>
-Gift Cards
-</h3>
-
-<p>
-A dedicated marketplace section.
-</p>
-
+<div class="card" data-feature="Surveys">
+<div class="icon">📊</div>
+<h3>Surveys</h3>
+<p>Eligible surveys and reward opportunities.</p>
 </div>
 
-
-<div
-class="card"
-onclick="feature('Website Builder')">
-
-<div class="icon">
-🌐
+<div class="card" data-feature="AI Counselling">
+<div class="icon">🤖</div>
+<h3>AI Counselling</h3>
+<p>AI-powered general guidance.</p>
 </div>
 
-<h3>
-Website Builder
-</h3>
-
-<p>
-Create websites inside the platform.
-</p>
-
-</div>
-
-
-<div
-class="card"
-onclick="feature('Referrals')">
-
-<div class="icon">
-👥
-</div>
-
-<h3>
-Referrals
-</h3>
-
-<p>
-Invite users and participate in referral campaigns.
-</p>
-
-</div>
-
-
-<div
-class="card"
-onclick="feature('Surveys')">
-
-<div class="icon">
-📊
-</div>
-
-<h3>
-Surveys
-</h3>
-
-<p>
-Complete eligible surveys for rewards.
-</p>
-
-</div>
-
-
-<div
-class="card"
-onclick="feature('AI Counselling')">
-
-<div class="icon">
-🤖
-</div>
-
-<h3>
-AI Counselling
-</h3>
-
-<p>
-AI-powered general guidance and support.
-</p>
-
-</div>
-
-
-<div
-class="card"
-onclick="feature('Affiliate & Partners')">
-
-<div class="icon">
-💰
-</div>
-
-<h3>
-Affiliate & Partners
-</h3>
-
-<p>
-Affiliate offers, partnerships and advertising.
-</p>
-
+<div class="card" data-feature="Affiliate & Partners">
+<div class="icon">💰</div>
+<h3>Affiliate & Partners</h3>
+<p>Advertising, affiliate offers and partnerships.</p>
 </div>
 
 </div>
@@ -675,41 +599,23 @@ Affiliate offers, partnerships and advertising.
 class="section"
 id="earn">
 
-<div class="earn">
+<div class="earnBox">
 
 <h2>
-Earn with VIBRA TRIANGLE
+Earn With VIBRA TRIANGLE
 </h2>
 
 <p>
-The platform can eventually support legitimate
+VIBRA TRIANGLE can eventually support legitimate
 advertising, affiliate commissions, referral programs,
-partnerships and other approved monetization channels.
+surveys and partnerships.
 </p>
 
-<div class="earn-list">
-
-<div class="earn-item">
-📢 Advertising
-</div>
-
-<div class="earn-item">
-🔗 Affiliate commissions
-</div>
-
-<div class="earn-item">
-👥 Referral programs
-</div>
-
-<div class="earn-item">
-📊 Survey rewards
-</div>
-
-<div class="earn-item">
-🤝 Business partnerships
-</div>
-
-</div>
+<div class="earnItem">📢 Advertising</div>
+<div class="earnItem">🔗 Affiliate commissions</div>
+<div class="earnItem">👥 Referral programs</div>
+<div class="earnItem">📊 Survey rewards</div>
+<div class="earnItem">🤝 Partnerships</div>
 
 </div>
 
@@ -721,13 +627,11 @@ class="section"
 id="about">
 
 <h2>
-About
+About VIBRA TRIANGLE
 </h2>
 
 <p class="subtitle">
-VIBRA TRIANGLE is being developed step by step.
-We will activate each major feature only after its
-real backend and required third-party services are ready.
+The platform is being developed step by step.
 </p>
 
 </section>
@@ -752,23 +656,23 @@ Connect • Create • Discover • Earn
 </footer>
 
 
-<!-- LOGIN / SIGNUP -->
+<!-- AUTH -->
 
 <div
 class="modal"
-id="loginModal">
+id="authModal">
 
-<div class="modal-box">
+<div class="modalBox">
 
-<div class="modal-header">
+<div class="modalTop">
 
 <h2 id="modalTitle">
 Welcome
 </h2>
 
 <button
-class="close"
-onclick="closeLogin()">
+class="closeBtn"
+id="closeButton">
 ×
 </button>
 
@@ -778,73 +682,76 @@ onclick="closeLogin()">
 <div class="tabs">
 
 <button
-id="loginTab"
 class="tab active"
-onclick="switchMode('login')">
+id="loginTab">
 Login
 </button>
 
 <button
-id="signupTab"
 class="tab"
-onclick="switchMode('signup')">
+id="signupTab">
 Sign Up
 </button>
 
 </div>
 
 
-<form
-class="form"
-onsubmit="submitAuth(event)">
-
+<form id="authForm">
 
 <div
-id="nameField"
+class="formGroup"
+id="nameGroup"
 style="display:none;">
 
 <label>
-Full name
+Full Name
+</label>
 
 <input
-id="name"
+id="nameInput"
 type="text"
-placeholder="Your name">
-</label>
+placeholder="Your full name">
 
 </div>
 
 
+<div class="formGroup">
+
 <label>
 Email
+</label>
 
 <input
-id="email"
+id="emailInput"
 type="email"
 placeholder="you@example.com"
 required>
-</label>
 
+</div>
+
+
+<div class="formGroup">
 
 <label>
 Password
+</label>
 
 <input
-id="password"
+id="passwordInput"
 type="password"
-placeholder="Password"
+placeholder="At least 6 characters"
 required
 minlength="6">
-</label>
+
+</div>
 
 
 <button
-class="submit"
-id="submitButton"
-type="submit">
+class="submitBtn"
+type="submit"
+id="submitButton">
 Login
 </button>
-
 
 <div
 class="message"
@@ -858,45 +765,482 @@ id="message">
 </div>
 
 
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
-/*
-========================================
-VIBRA TRIANGLE
-BASIC WORKING VERSION
-========================================
-*/
+/* ================================
+   YOUR SUPABASE CONNECTION
+   ================================ */
+
+const SUPABASE_URL =
+"https://oogzzdjpubmkspoatual.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_d2bxEuO0rnpYz2VgEMbLhA_eHl3Jqp1";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+/* ================================
+   ELEMENTS
+   ================================ */
+
+const authModal =
+document.getElementById("authModal");
+
+const loginButton =
+document.getElementById("loginButton");
+
+const logoutButton =
+document.getElementById("logoutButton");
+
+const createButton =
+document.getElementById("createButton");
+
+const exploreButton =
+document.getElementById("exploreButton");
+
+const closeButton =
+document.getElementById("closeButton");
+
+const loginTab =
+document.getElementById("loginTab");
+
+const signupTab =
+document.getElementById("signupTab");
+
+const authForm =
+document.getElementById("authForm");
+
+const nameGroup =
+document.getElementById("nameGroup");
+
+const nameInput =
+document.getElementById("nameInput");
+
+const emailInput =
+document.getElementById("emailInput");
+
+const passwordInput =
+document.getElementById("passwordInput");
+
+const submitButton =
+document.getElementById("submitButton");
+
+const message =
+document.getElementById("message");
+
+const accountSection =
+document.getElementById("accountSection");
+
+const userEmail =
+document.getElementById("userEmail");
 
 let mode = "login";
 
 
-function openLogin(){
+/* ================================
+   OPEN LOGIN
+   ================================ */
 
-  document
-  .getElementById("loginModal")
-  .classList.add("show");
+loginButton.onclick = function(){
+
+mode = "login";
+
+updateAuthWindow();
+
+authModal.classList.add("active");
+
+};
+
+
+/* ================================
+   OPEN SIGNUP
+   ================================ */
+
+createButton.onclick = function(){
+
+mode = "signup";
+
+updateAuthWindow();
+
+authModal.classList.add("active");
+
+};
+
+
+/* ================================
+   CLOSE
+   ================================ */
+
+closeButton.onclick = function(){
+
+authModal.classList.remove("active");
+
+message.textContent = "";
+
+};
+
+
+/* ================================
+   TABS
+   ================================ */
+
+loginTab.onclick = function(){
+
+mode = "login";
+
+updateAuthWindow();
+
+};
+
+
+signupTab.onclick = function(){
+
+mode = "signup";
+
+updateAuthWindow();
+
+};
+
+
+/* ================================
+   AUTH WINDOW
+   ================================ */
+
+function updateAuthWindow(){
+
+message.textContent = "";
+
+if(mode === "signup"){
+
+loginTab.classList.remove("active");
+
+signupTab.classList.add("active");
+
+nameGroup.style.display = "block";
+
+submitButton.textContent =
+"Create Account";
+
+document.getElementById(
+"modalTitle"
+).textContent =
+"Create Account";
+
+}else{
+
+signupTab.classList.remove("active");
+
+loginTab.classList.add("active");
+
+nameGroup.style.display = "none";
+
+submitButton.textContent =
+"Login";
+
+document.getElementById(
+"modalTitle"
+).textContent =
+"Welcome";
+
+}
 
 }
 
 
-function closeLogin(){
+/* ================================
+   SIGN UP / LOGIN
+   ================================ */
 
-  document
-  .getElementById("loginModal")
-  .classList.remove("show");
+authForm.onsubmit = async function(event){
+
+event.preventDefault();
+
+message.textContent =
+"Please wait...";
+
+submitButton.disabled = true;
+
+
+const email =
+emailInput.value.trim();
+
+const password =
+passwordInput.value;
+
+try{
+
+if(mode === "signup"){
+
+const fullName =
+nameInput.value.trim();
+
+
+const {
+data,
+error
+} =
+await supabaseClient.auth.signUp({
+
+email: email,
+
+password: password,
+
+options:{
+data:{
+full_name: fullName
+}
+}
+
+});
+
+
+if(error){
+
+throw error;
 
 }
 
 
-function switchMode(newMode){
+/*
+If email confirmation is enabled,
+Supabase may not create an active
+session until the email is verified.
+*/
 
-  mode = newMode;
+if(data.user){
 
-  const loginTab =
-    document.getElementById("loginTab");
+message.textContent =
+"Account created! Check your email if verification is required.";
 
-  const signupTab =
-    document.getElementById("signupTab");
+}
 
-  const nameField =
-    document.getElementById("nameField");
+}else{
+
+
+const {
+data,
+error
+} =
+await supabaseClient.auth.signInWithPassword({
+
+email: email,
+
+password: password
+
+});
+
+
+if(error){
+
+throw error;
+
+}
+
+
+message.textContent =
+"Login successful!";
+
+authModal.classList.remove("active");
+
+}
+
+}catch(error){
+
+message.textContent =
+error.message;
+
+}finally{
+
+submitButton.disabled = false;
+
+}
+
+};
+
+
+/* ================================
+   LOGOUT
+   ================================ */
+
+logoutButton.onclick = async function(){
+
+const {
+error
+} =
+await supabaseClient.auth.signOut();
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+updateUI(null);
+
+};
+
+
+/* ================================
+   UPDATE UI
+   ================================ */
+
+function updateUI(user){
+
+if(user){
+
+loginButton.style.display =
+"none";
+
+logoutButton.style.display =
+"inline-block";
+
+createButton.style.display =
+"none";
+
+accountSection.style.display =
+"block";
+
+userEmail.textContent =
+user.email || "User";
+
+}else{
+
+loginButton.style.display =
+"inline-block";
+
+logoutButton.style.display =
+"none";
+
+createButton.style.display =
+"inline-block";
+
+accountSection.style.display =
+"none";
+
+userEmail.textContent =
+"-";
+
+}
+
+}
+
+
+/* ================================
+   CHECK CURRENT SESSION
+   ================================ */
+
+async function checkSession(){
+
+const {
+data,
+error
+} =
+await supabaseClient.auth.getSession();
+
+if(error){
+
+console.error(error);
+
+return;
+
+}
+
+updateUI(
+data.session
+? data.session.user
+: null
+);
+
+}
+
+
+/* ================================
+   LISTEN FOR AUTH CHANGES
+   ================================ */
+
+supabaseClient.auth.onAuthStateChange(
+function(event, session){
+
+updateUI(
+session
+? session.user
+: null
+);
+
+});
+
+
+/* ================================
+   EXPLORE BUTTON
+   ================================ */
+
+exploreButton.onclick = function(){
+
+document
+.getElementById("services")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+};
+
+
+/* ================================
+   FEATURE CARDS
+   ================================ */
+
+document
+.querySelectorAll(".card")
+.forEach(function(card){
+
+card.onclick = function(){
+
+const feature =
+card.getAttribute("data-feature");
+
+alert(
+feature +
+"\n\nThis feature is coming next."
+);
+
+};
+
+});
+
+
+/* ================================
+   CLOSE MODAL OUTSIDE
+   ================================ */
+
+authModal.onclick = function(event){
+
+if(event.target === authModal){
+
+authModal.classList.remove(
+"active"
+);
+
+}
+
+};
+
+
+/* START */
+
+checkSession();
+
+</script>
+
+</body>
+</html>
