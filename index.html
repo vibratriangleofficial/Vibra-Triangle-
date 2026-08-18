@@ -2,416 +2,370 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080b16">
-
 <title>VIBRA TRIANGLE</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#080b16;
-    color:#fff;
-    min-height:100vh;
-}
-
-button,input{
-    font:inherit;
+  font-family:Arial,sans-serif;
+  background:#080b16;
+  color:#fff;
+  min-height:100vh;
 }
 
 button{
-    cursor:pointer;
+  border:0;
+  cursor:pointer;
+  font:inherit;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
 header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:#11172a;
-    border-bottom:1px solid #29324a;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#0c1020;
+  border-bottom:1px solid #202743;
+  padding:14px 18px;
 }
 
-.header{
-    max-width:1200px;
-    margin:auto;
-    padding:15px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .logo{
-    font-size:19px;
-    font-weight:900;
-    color:#9b8cff;
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-nav{
-    display:flex;
-    gap:20px;
+.logo span{
+  color:#00e5ff;
 }
 
-nav a{
-    color:#cbd5e1;
-    text-decoration:none;
+.menu{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
 }
 
-.headerBtn,
-.logoutBtn{
-    padding:10px 17px;
-    border:0;
-    border-radius:9px;
-    color:white;
+.menu button{
+  background:#151b31;
+  color:#cbd2ea;
+  padding:9px 12px;
+  border-radius:10px;
 }
 
-.headerBtn{
-    background:#6d4aff;
-}
-
-.logoutBtn{
-    background:#dc3654;
-    display:none;
+.menu button:hover{
+  background:#00bcd4;
+  color:#001014;
 }
 
 .hero{
-    max-width:1200px;
-    margin:auto;
-    padding:70px 18px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
+  max-width:1100px;
+  margin:auto;
+  padding:55px 18px 30px;
+  text-align:center;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 12px;
-    margin-bottom:18px;
-    border-radius:20px;
-    background:#20184b;
-    color:#bcaeff;
-    font-size:12px;
+.hero h1{
+  font-size:clamp(38px,8vw,75px);
+  line-height:1;
+  margin-bottom:18px;
 }
 
-h1{
-    font-size:clamp(43px,7vw,75px);
-    line-height:1;
-    margin-bottom:20px;
-}
-
-.gradient{
-    background:linear-gradient(90deg,#4da3ff,#9d7cff,#ff70b9);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+.hero h1 span{
+  color:#00e5ff;
 }
 
 .hero p{
-    color:#94a3b8;
-    line-height:1.7;
-    margin-bottom:25px;
+  max-width:650px;
+  margin:auto;
+  color:#aeb7d0;
+  line-height:1.7;
 }
 
-.actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.primary,
-.secondary{
-    padding:13px 19px;
-    border-radius:10px;
-    font-weight:bold;
+.hero-buttons{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
 .primary{
-    border:0;
-    background:#6d4aff;
-    color:white;
+  background:#00e5ff;
+  color:#001014;
+  padding:13px 20px;
+  border-radius:12px;
+  font-weight:bold;
 }
 
 .secondary{
-    background:#172038;
-    color:white;
-    border:1px solid #33405c;
-}
-
-.visual{
-    min-height:320px;
-    border-radius:25px;
-    background:#111a31;
-    border:1px solid #293653;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.triangle{
-    width:0;
-    height:0;
-    border-left:100px solid transparent;
-    border-right:100px solid transparent;
-    border-bottom:175px solid #7c4dff;
-    filter:drop-shadow(0 0 35px #7c4dff);
+  background:#171d34;
+  color:#fff;
+  padding:13px 20px;
+  border-radius:12px;
 }
 
 .ad{
-    max-width:1200px;
-    min-height:90px;
-    margin:15px auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px dashed #334155;
-    color:#64748b;
+  max-width:1000px;
+  min-height:80px;
+  margin:20px auto;
+  border:1px dashed #39415f;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#69738f;
 }
 
-.account{
-    display:none;
-    max-width:1200px;
-    margin:auto;
-    padding:15px 18px;
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 18px;
 }
 
-.accountBox{
-    padding:20px;
-    border-radius:15px;
-    background:#121a2e;
-    border:1px solid #293653;
+.section-title{
+  margin-bottom:20px;
 }
 
-.accountBox span{
-    color:#9b8cff;
+.section-title h2{
+  font-size:27px;
 }
 
-.section{
-    max-width:1200px;
-    margin:auto;
-    padding:45px 18px;
-}
-
-.section h2{
-    margin-bottom:8px;
-    font-size:30px;
-}
-
-.subtitle{
-    color:#94a3b8;
-    margin-bottom:25px;
+.section-title p{
+  color:#8993af;
+  margin-top:6px;
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
 
 .card{
-    padding:22px;
-    min-height:170px;
-    border-radius:16px;
-    background:#121a2e;
-    border:1px solid #293653;
-    cursor:pointer;
-    transition:.2s;
+  background:#101528;
+  border:1px solid #202743;
+  border-radius:17px;
+  padding:20px;
+  transition:.2s;
 }
 
 .card:hover{
-    transform:translateY(-4px);
-    border-color:#7c4dff;
+  transform:translateY(-3px);
+  border-color:#00bcd4;
 }
 
 .icon{
-    font-size:30px;
-    margin-bottom:14px;
+  font-size:30px;
+  margin-bottom:12px;
 }
 
 .card h3{
-    margin-bottom:8px;
+  margin-bottom:8px;
 }
 
 .card p{
-    color:#94a3b8;
-    font-size:13px;
-    line-height:1.5;
+  color:#8f99b4;
+  line-height:1.5;
+  font-size:14px;
 }
 
-.earnBox{
-    padding:30px;
-    border-radius:20px;
-    background:#141d36;
-    border:1px solid #293653;
+.card button{
+  margin-top:16px;
+  width:100%;
+  padding:11px;
+  border-radius:10px;
+  background:#19203a;
+  color:#fff;
 }
 
-.earnBox p{
-    color:#94a3b8;
-    line-height:1.6;
-    margin:12px 0 20px;
+.card button:hover{
+  background:#00bcd4;
+  color:#001014;
 }
 
-.earnItem{
-    padding:13px;
-    margin-top:9px;
-    background:#ffffff08;
-    border:1px solid #ffffff12;
-    border-radius:9px;
+.panel{
+  display:none;
+  max-width:800px;
+  margin:20px auto;
+  padding:22px;
+  background:#101528;
+  border:1px solid #26304e;
+  border-radius:18px;
 }
 
-footer{
-    padding:40px 18px;
-    margin-top:40px;
-    text-align:center;
-    background:#050811;
-    border-top:1px solid #293653;
+.panel.active{
+  display:block;
 }
 
-footer p{
-    color:#64748b;
-    margin-top:10px;
-    font-size:13px;
+.panel h2{
+  margin-bottom:10px;
 }
 
-/* AUTH MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.82);
+.panel p{
+  color:#9aa4be;
+  line-height:1.6;
 }
 
-.modal.active{
-    display:flex;
+.close{
+  float:right;
+  background:#252d49;
+  color:#fff;
+  border-radius:8px;
+  padding:6px 10px;
 }
 
-.modalBox{
-    width:100%;
-    max-width:420px;
-    padding:25px;
-    border-radius:18px;
-    background:#121a2e;
-    border:1px solid #394663;
+.form{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
 }
 
-.modalTop{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:20px;
+input,textarea,select{
+  width:100%;
+  background:#080d1d;
+  border:1px solid #2b3452;
+  color:#fff;
+  padding:13px;
+  border-radius:10px;
+  outline:none;
 }
 
-.closeBtn{
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    border:1px solid #334155;
-    background:#1b263e;
-    color:#fff;
-    font-size:20px;
+input:focus,textarea:focus,select:focus{
+  border-color:#00e5ff;
 }
 
-.tabs{
-    display:flex;
-    gap:5px;
-    margin-bottom:20px;
+.form button{
+  background:#00e5ff;
+  color:#001014;
+  padding:13px;
+  border-radius:10px;
+  font-weight:bold;
 }
 
-.tab{
-    flex:1;
-    padding:11px;
-    border:0;
-    border-radius:8px;
-    background:#1b263e;
-    color:#94a3b8;
+.balance{
+  font-size:34px;
+  font-weight:bold;
+  color:#00e5ff;
+  margin:15px 0;
 }
 
-.tab.active{
-    background:#6d4aff;
-    color:white;
-}
-
-.formGroup{
-    margin-bottom:14px;
-}
-
-.formGroup label{
-    display:block;
-    margin-bottom:6px;
-    color:#94a3b8;
-    font-size:12px;
-}
-
-.formGroup input{
-    width:100%;
-    padding:13px;
-    border-radius:9px;
-    border:1px solid #334155;
-    background:#080d1a;
-    color:#fff;
-    outline:none;
-}
-
-.submitBtn{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:9px;
-    background:#6d4aff;
-    color:#fff;
-    font-weight:bold;
-}
-
-.submitBtn:disabled{
-    opacity:.6;
+.chat-box{
+  height:260px;
+  overflow-y:auto;
+  background:#080d1d;
+  padding:15px;
+  border-radius:12px;
+  margin:15px 0;
 }
 
 .message{
-    margin-top:12px;
-    text-align:center;
-    color:#94a3b8;
-    font-size:13px;
-    line-height:1.5;
+  padding:10px 12px;
+  background:#18203a;
+  border-radius:12px;
+  margin-bottom:8px;
+  width:max-content;
+  max-width:85%;
 }
 
-@media(max-width:850px){
-
-    .hero{
-        grid-template-columns:1fr;
-    }
-
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    nav{
-        display:none;
-    }
+.message.me{
+  margin-left:auto;
+  background:#006b7a;
 }
 
-@media(max-width:520px){
+.chat-input{
+  display:flex;
+  gap:8px;
+}
 
-    .grid{
-        grid-template-columns:1fr;
-    }
+.chat-input input{
+  flex:1;
+}
 
-    .hero{
-        padding-top:45px;
-    }
+.chat-input button{
+  background:#00e5ff;
+  color:#001014;
+  border-radius:10px;
+  padding:0 16px;
+}
 
-    .visual{
-        min-height:240px;
-    }
+.video{
+  aspect-ratio:16/9;
+  background:#070a14;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+footer{
+  margin-top:40px;
+  padding:30px 18px;
+  text-align:center;
+  color:#68728d;
+  border-top:1px solid #202743;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(100px);
+  background:#fff;
+  color:#111;
+  padding:13px 18px;
+  border-radius:12px;
+  z-index:5000;
+  opacity:0;
+  transition:.3s;
+  box-shadow:0 10px 30px #0008;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:700px){
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .menu{
+    width:100%;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+  }
+
+  .menu button{
+    white-space:nowrap;
+  }
+
+  .hero{
+    padding-top:35px;
+  }
 }
 </style>
 </head>
@@ -419,676 +373,564 @@ footer p{
 <body>
 
 <header>
+  <div class="nav">
+    <div class="logo">VIBRA <span>TRIANGLE</span></div>
 
-<div class="header">
-
-<div class="logo">
-△ VIBRA TRIANGLE
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#services">Explore</a>
-<a href="#earn">Earn</a>
-<a href="#about">About</a>
-</nav>
-
-<div>
-
-<button class="headerBtn" id="loginButton">
-Login
-</button>
-
-<button class="logoutBtn" id="logoutButton">
-Logout
-</button>
-
-</div>
-
-</div>
-
+    <div class="menu">
+      <button onclick="goHome()">Home</button>
+      <button onclick="openPanel('chat')">Chat</button>
+      <button onclick="openPanel('videos')">Videos</button>
+      <button onclick="openPanel('earn')">Earn</button>
+      <button onclick="openPanel('account')">Account</button>
+    </div>
+  </div>
 </header>
-
 
 <main id="home">
 
 <section class="hero">
+  <h1>Welcome to <span>VIBRA</span></h1>
 
-<div>
+  <p>
+    One platform for social connection, entertainment,
+    digital earning, websites, rewards and more.
+  </p>
 
-<div class="badge">
-CONNECT • CREATE • DISCOVER • EARN
-</div>
+  <div class="hero-buttons">
+    <button class="primary" onclick="openPanel('account')">
+      Get Started
+    </button>
 
-<h1>
-Welcome to
-<span class="gradient">
-VIBRA TRIANGLE
-</span>
-</h1>
-
-<p>
-A digital platform for connecting with people,
-discovering content, creating websites and
-exploring legitimate digital opportunities.
-</p>
-
-<div class="actions">
-
-<button class="primary" id="createButton">
-Create Account
-</button>
-
-<button class="secondary" id="exploreButton">
-Explore Platform
-</button>
-
-</div>
-
-</div>
-
-<div class="visual">
-<div class="triangle"></div>
-</div>
-
+    <button class="secondary" onclick="openPanel('features')">
+      Explore VIBRA
+    </button>
+  </div>
 </section>
-
 
 <div class="ad">
-ADVERTISEMENT SPACE
+  ADVERTISEMENT SPACE
 </div>
 
+<section>
+  <div class="section-title">
+    <h2>VIBRA Services</h2>
+    <p>Explore everything available on the platform.</p>
+  </div>
 
-<section class="account" id="accountSection">
+  <div class="grid">
 
-<div class="accountBox">
+    <div class="card">
+      <div class="icon">💬</div>
+      <h3>VIBRA Chat</h3>
+      <p>Chat and connect with people through the VIBRA platform.</p>
+      <button onclick="openPanel('chat')">Open Chat</button>
+    </div>
 
-<h3>Welcome back 👋</h3>
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>VIBRA Videos</h3>
+      <p>Watch and discover short-form entertainment content.</p>
+      <button onclick="openPanel('videos')">Watch Videos</button>
+    </div>
 
-<p>
-Signed in as:
-<span id="userEmail">-</span>
-</p>
+    <div class="card">
+      <div class="icon">🎁</div>
+      <h3>Gift Cards</h3>
+      <p>Gift-card marketplace interface for future verified transactions.</p>
+      <button onclick="openPanel('gift')">Gift Cards</button>
+    </div>
 
-</div>
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Website Builder</h3>
+      <p>Create and customize your own simple website.</p>
+      <button onclick="openPanel('builder')">Build Website</button>
+    </div>
 
-</section>
+    <div class="card">
+      <div class="icon">👥</div>
+      <h3>Referrals</h3>
+      <p>Invite people and track your referral activity.</p>
+      <button onclick="openPanel('referral')">Referral Center</button>
+    </div>
 
+    <div class="card">
+      <div class="icon">📋</div>
+      <h3>Surveys</h3>
+      <p>Participate in available surveys and rewards programs.</p>
+      <button onclick="openPanel('survey')">View Surveys</button>
+    </div>
 
-<section class="section" id="services">
+    <div class="card">
+      <div class="icon">🤖</div>
+      <h3>AI Counselling</h3>
+      <p>Get general AI-powered guidance and conversation support.</p>
+      <button onclick="openPanel('ai')">Open AI</button>
+    </div>
 
-<h2>Explore VIBRA TRIANGLE</h2>
+    <div class="card">
+      <div class="icon">💰</div>
+      <h3>Earn & Partners</h3>
+      <p>Explore advertising, affiliate and partnership opportunities.</p>
+      <button onclick="openPanel('earn')">Start Earning</button>
+    </div>
 
-<p class="subtitle">
-Tap a feature to explore it.
-</p>
-
-<div class="grid">
-
-<div class="card" id="chatCard">
-<div class="icon">💬</div>
-<h3>Chat</h3>
-<p>Private messaging with other VIBRA TRIANGLE users.</p>
-</div>
-
-<div class="card">
-<div class="icon">🎬</div>
-<h3>Videos</h3>
-<p>Discover and share short-form videos.</p>
-</div>
-
-<div class="card">
-<div class="icon">🎁</div>
-<h3>Gift Cards</h3>
-<p>A dedicated gift-card marketplace.</p>
-</div>
-
-<div class="card">
-<div class="icon">🌐</div>
-<h3>Website Builder</h3>
-<p>Create websites inside VIBRA TRIANGLE.</p>
-</div>
-
-<div class="card">
-<div class="icon">👥</div>
-<h3>Referrals</h3>
-<p>Invite users and track referral activity.</p>
-</div>
-
-<div class="card">
-<div class="icon">📊</div>
-<h3>Surveys</h3>
-<p>Eligible surveys and reward opportunities.</p>
-</div>
-
-<div class="card">
-<div class="icon">🤖</div>
-<h3>AI Counselling</h3>
-<p>AI-powered general guidance.</p>
-</div>
-
-<div class="card">
-<div class="icon">💰</div>
-<h3>Affiliate & Partners</h3>
-<p>Advertising, affiliate offers and partnerships.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section" id="earn">
-
-<div class="earnBox">
-
-<h2>Earn With VIBRA TRIANGLE</h2>
-
-<p>
-VIBRA TRIANGLE can eventually support legitimate
-advertising, affiliate commissions, referral programs,
-surveys and partnerships.
-</p>
-
-<div class="earnItem">📢 Advertising</div>
-<div class="earnItem">🔗 Affiliate commissions</div>
-<div class="earnItem">👥 Referral programs</div>
-<div class="earnItem">📊 Survey rewards</div>
-<div class="earnItem">🤝 Partnerships</div>
-
-</div>
-
-</section>
-
-
-<section class="section" id="about">
-
-<h2>About VIBRA TRIANGLE</h2>
-
-<p class="subtitle">
-The platform is being developed step by step.
-</p>
-
+  </div>
 </section>
 
 </main>
 
+<!-- FEATURES -->
+
+<div class="panel" id="features">
+  <button class="close" onclick="closePanels()">X</button>
+  <h2>Explore VIBRA</h2>
+  <p>
+    VIBRA TRIANGLE brings social features, entertainment,
+    digital tools and earning opportunities together.
+  </p>
+</div>
+
+<!-- CHAT -->
+
+<div class="panel" id="chat">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>💬 VIBRA Chat</h2>
+  <p>Demo chat interface.</p>
+
+  <div class="chat-box" id="chatBox">
+    <div class="message">Welcome to VIBRA Chat 👋</div>
+  </div>
+
+  <div class="chat-input">
+    <input id="chatInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- VIDEOS -->
+
+<div class="panel" id="videos">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>🎬 VIBRA Videos</h2>
+  <p>Video section interface.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="video">▶</div>
+      <h3>Featured Video</h3>
+      <p>Your video content can be connected here later.</p>
+    </div>
+
+    <div class="card">
+      <div class="video">▶</div>
+      <h3>Trending</h3>
+      <p>Trending videos will appear here.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- GIFT CARDS -->
+
+<div class="panel" id="gift">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>🎁 Gift Cards</h2>
+
+  <p>
+    Gift-card marketplace interface.
+    Real purchases should be connected to a legitimate
+    payment and gift-card provider before going live.
+  </p>
+
+  <div class="form">
+    <select>
+      <option>Select Gift Card</option>
+      <option>Gaming Gift Card</option>
+      <option>Shopping Gift Card</option>
+      <option>Entertainment Gift Card</option>
+    </select>
+
+    <button onclick="notify('Gift card checkout will be connected later.')">
+      Continue
+    </button>
+  </div>
+</div>
+
+<!-- WEBSITE BUILDER -->
+
+<div class="panel" id="builder">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>🌐 Website Builder</h2>
+
+  <p>Create a simple page preview.</p>
+
+  <div class="form">
+
+    <input id="siteName" placeholder="Website name">
+
+    <textarea id="siteText"
+      placeholder="Write something about your website"></textarea>
+
+    <button onclick="buildSite()">Preview Website</button>
+
+  </div>
+
+  <div id="sitePreview"></div>
+</div>
+
+<!-- REFERRALS -->
+
+<div class="panel" id="referral">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>👥 Referral Center</h2>
+
+  <p>Your referral code:</p>
+
+  <div class="balance">VIBRA2026</div>
+
+  <button class="primary"
+    onclick="copyReferral()">
+    Copy Referral Code
+  </button>
+
+  <p id="referralStatus" style="margin-top:15px;"></p>
+</div>
+
+<!-- SURVEYS -->
+
+<div class="panel" id="survey">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>📋 Surveys</h2>
+
+  <div class="card">
+    <h3>Available Survey</h3>
+    <p>Sample survey opportunity.</p>
+
+    <button onclick="notify('Survey system will be connected to a real provider later.')">
+      Start Survey
+    </button>
+  </div>
+</div>
+
+<!-- AI -->
+
+<div class="panel" id="ai">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>🤖 AI Counselling</h2>
+
+  <p>
+    Ask for general guidance, ideas or everyday advice.
+  </p>
+
+  <div class="form">
+
+    <textarea id="aiInput"
+      placeholder="What would you like to talk about?"></textarea>
+
+    <button onclick="aiReply()">Ask AI</button>
+
+    <div id="aiAnswer"></div>
+
+  </div>
+</div>
+
+<!-- EARN -->
+
+<div class="panel" id="earn">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>💰 Earn & Partners</h2>
+
+  <div class="balance">₦0.00</div>
+
+  <p>
+    Your earning dashboard is ready for future integration
+    with legitimate advertising, affiliate, referral and
+    partner systems.
+  </p>
+
+  <div class="grid" style="margin-top:20px">
+
+    <div class="card">
+      <h3>Ads</h3>
+      <p>Advertising opportunities.</p>
+      <button onclick="notify('Advertising integration coming next.')">
+        Learn More
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Affiliate</h3>
+      <p>Partner referral opportunities.</p>
+      <button onclick="notify('Affiliate system will be connected later.')">
+        Explore
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Partners</h3>
+      <p>Business partnership opportunities.</p>
+      <button onclick="notify('Partner applications will be connected later.')">
+        Apply
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ACCOUNT -->
+
+<div class="panel" id="account">
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>👤 VIBRA Account</h2>
+
+  <p>Demo account interface.</p>
+
+  <div class="form">
+
+    <input id="username" placeholder="Username">
+
+    <input id="email"
+      type="email"
+      placeholder="Email">
+
+    <button onclick="createAccount()">
+      Create Account
+    </button>
+
+  </div>
+
+  <p id="accountStatus" style="margin-top:15px;"></p>
+</div>
 
 <footer>
-
-<strong class="gradient">
-△ VIBRA TRIANGLE
-</strong>
-
-<p>
-Connect • Create • Discover • Earn
-</p>
-
-<p>
-© 2026 VIBRA TRIANGLE
-</p>
-
+  <p>© 2026 VIBRA TRIANGLE</p>
+  <p style="margin-top:8px">
+    Connect • Create • Discover • Earn
+  </p>
 </footer>
 
-
-<!-- LOGIN / SIGNUP -->
-
-<div class="modal" id="authModal">
-
-<div class="modalBox">
-
-<div class="modalTop">
-
-<h2 id="modalTitle">
-Welcome
-</h2>
-
-<button class="closeBtn" id="closeButton">
-×
-</button>
-
-</div>
-
-
-<div class="tabs">
-
-<button class="tab active" id="loginTab">
-Login
-</button>
-
-<button class="tab" id="signupTab">
-Sign Up
-</button>
-
-</div>
-
-
-<form id="authForm">
-
-<div class="formGroup" id="nameGroup" style="display:none">
-
-<label>
-Full Name
-</label>
-
-<input
-id="nameInput"
-type="text"
-placeholder="Your full name"
->
-
-</div>
-
-
-<div class="formGroup">
-
-<label>
-Email
-</label>
-
-<input
-id="emailInput"
-type="email"
-placeholder="you@example.com"
-required
->
-
-</div>
-
-
-<div class="formGroup">
-
-<label>
-Password
-</label>
-
-<input
-id="passwordInput"
-type="password"
-placeholder="At least 6 characters"
-required
-minlength="6"
->
-
-</div>
-
-
-<button
-class="submitBtn"
-id="submitButton"
-type="submit"
->
-Login
-</button>
-
-
-<div
-class="message"
-id="message"
-></div>
-
-</form>
-
-</div>
-
-</div>
-
-
-<!-- SUPABASE -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<div class="toast" id="toast"></div>
 
 <script>
 
-const SUPABASE_URL =
-"https://oogzzdjpubmkspoatual.supabase.co";
+function openPanel(id){
 
-const SUPABASE_KEY =
-"sb_publishable_d2bxEuO0rnpYz2VgEMbLhA_eHl3Jqp1";
+  closePanels();
 
-const supabaseClient =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
+  const panel=document.getElementById(id);
 
+  if(panel){
+    panel.classList.add("active");
 
-let authMode = "login";
+    setTimeout(function(){
+      panel.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+    },50);
+  }
+}
 
+function closePanels(){
 
-const authModal =
-document.getElementById("authModal");
+  document.querySelectorAll(".panel").forEach(function(panel){
+    panel.classList.remove("active");
+  });
+}
 
-const loginButton =
-document.getElementById("loginButton");
+function goHome(){
 
-const logoutButton =
-document.getElementById("logoutButton");
+  closePanels();
 
-const createButton =
-document.getElementById("createButton");
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
 
-const closeButton =
-document.getElementById("closeButton");
+function notify(message){
 
-const loginTab =
-document.getElementById("loginTab");
+  const toast=document.getElementById("toast");
 
-const signupTab =
-document.getElementById("signupTab");
+  toast.textContent=message;
+  toast.classList.add("show");
 
-const authForm =
-document.getElementById("authForm");
+  setTimeout(function(){
+    toast.classList.remove("show");
+  },2500);
+}
 
-const nameGroup =
-document.getElementById("nameGroup");
+function sendMessage(){
 
-const nameInput =
-document.getElementById("nameInput");
+  const input=document.getElementById("chatInput");
+  const box=document.getElementById("chatBox");
 
-const emailInput =
-document.getElementById("emailInput");
+  const text=input.value.trim();
 
-const passwordInput =
-document.getElementById("passwordInput");
+  if(!text){
+    notify("Type a message first.");
+    return;
+  }
 
-const submitButton =
-document.getElementById("submitButton");
+  const message=document.createElement("div");
 
-const message =
-document.getElementById("message");
+  message.className="message me";
+  message.textContent=text;
 
-const accountSection =
-document.getElementById("accountSection");
+  box.appendChild(message);
 
-const userEmail =
-document.getElementById("userEmail");
+  input.value="";
 
+  box.scrollTop=box.scrollHeight;
 
-function updateAuthForm(){
+  setTimeout(function(){
 
-if(authMode === "signup"){
+    const reply=document.createElement("div");
 
-loginTab.classList.remove("active");
-signupTab.classList.add("active");
+    reply.className="message";
+    reply.textContent="VIBRA: Message received 👍";
 
-nameGroup.style.display = "block";
+    box.appendChild(reply);
 
-submitButton.textContent =
-"Create Account";
+    box.scrollTop=box.scrollHeight;
 
-document.getElementById("modalTitle")
-.textContent =
-"Create Account";
+  },600);
+}
 
-}else{
+function buildSite(){
 
-signupTab.classList.remove("active");
-loginTab.classList.add("active");
+  const name=document.getElementById("siteName").value.trim();
+  const text=document.getElementById("siteText").value.trim();
+  const preview=document.getElementById("sitePreview");
 
-nameGroup.style.display = "none";
+  if(!name){
+    notify("Enter a website name.");
+    return;
+  }
 
-submitButton.textContent =
-"Login";
+  preview.innerHTML=
+    '<div class="card" style="margin-top:20px">'+
+    '<h2>'+escapeHTML(name)+'</h2>'+
+    '<p style="margin-top:10px">'+
+    escapeHTML(text || "Welcome to my website.")+
+    '</p>'+
+    '</div>';
 
-document.getElementById("modalTitle")
-.textContent =
-"Welcome";
+  notify("Website preview created!");
+}
+
+function escapeHTML(text){
+
+  const div=document.createElement("div");
+
+  div.textContent=text;
+
+  return div.innerHTML;
+}
+
+function copyReferral(){
+
+  const code="VIBRA2026";
+
+  if(navigator.clipboard){
+
+    navigator.clipboard.writeText(code)
+    .then(function(){
+
+      document.getElementById("referralStatus").textContent=
+        "Referral code copied successfully.";
+
+    })
+    .catch(function(){
+
+      notify("Your referral code is: "+code);
+
+    });
+
+  }else{
+
+    notify("Your referral code is: "+code);
+
+  }
+}
+
+function aiReply(){
+
+  const input=document.getElementById("aiInput");
+  const answer=document.getElementById("aiAnswer");
+
+  const text=input.value.trim();
+
+  if(!text){
+    notify("Write something first.");
+    return;
+  }
+
+  answer.innerHTML=
+    '<div class="card" style="margin-top:15px">'+
+    '<h3>VIBRA AI</h3>'+
+    '<p style="margin-top:10px">'+
+    'Thanks for sharing. Take a moment to think about the situation '+
+    'and consider the safest and most practical next step. '+
+    'For serious or urgent problems, consider speaking with a '+
+    'qualified professional or someone you trust.'+
+    '</p>'+
+    '</div>';
+}
+
+function createAccount(){
+
+  const username=document.getElementById("username").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const status=document.getElementById("accountStatus");
+
+  if(!username || !email){
+
+    status.textContent="Please enter your username and email.";
+
+    return;
+  }
+
+  localStorage.setItem(
+    "vibra_username",
+    username
+  );
+
+  localStorage.setItem(
+    "vibra_email",
+    email
+  );
+
+  status.textContent=
+    "Account profile saved on this device.";
+
+  notify("Welcome to VIBRA, "+username+"!");
 
 }
 
-message.textContent = "";
+document.addEventListener("DOMContentLoaded",function(){
 
-}
+  const savedUser=
+    localStorage.getItem("vibra_username");
 
+  if(savedUser){
 
-loginButton.addEventListener("click",function(){
+    document.getElementById("username").value=savedUser;
 
-authMode = "login";
-
-updateAuthForm();
-
-authModal.classList.add("active");
+  }
 
 });
-
-
-createButton.addEventListener("click",function(){
-
-authMode = "signup";
-
-updateAuthForm();
-
-authModal.classList.add("active");
-
-});
-
-
-closeButton.addEventListener("click",function(){
-
-authModal.classList.remove("active");
-
-});
-
-
-loginTab.addEventListener("click",function(){
-
-authMode = "login";
-
-updateAuthForm();
-
-});
-
-
-signupTab.addEventListener("click",function(){
-
-authMode = "signup";
-
-updateAuthForm();
-
-});
-
-
-authForm.addEventListener("submit",async function(event){
-
-event.preventDefault();
-
-submitButton.disabled = true;
-
-message.textContent =
-"Please wait...";
-
-
-try{
-
-const email =
-emailInput.value.trim();
-
-const password =
-passwordInput.value;
-
-
-if(authMode === "signup"){
-
-const fullName =
-nameInput.value.trim();
-
-
-const result =
-await supabaseClient.auth.signUp({
-
-email:email,
-
-password:password,
-
-options:{
-data:{
-full_name:fullName
-}
-}
-
-});
-
-
-if(result.error){
-throw result.error;
-}
-
-
-message.textContent =
-"Account created. Check your email to confirm your account.";
-
-}else{
-
-const result =
-await supabaseClient.auth.signInWithPassword({
-
-email:email,
-
-password:password
-
-});
-
-
-if(result.error){
-throw result.error;
-}
-
-
-authModal.classList.remove("active");
-
-}
-
-}catch(error){
-
-message.textContent =
-error.message || "Something went wrong.";
-
-}finally{
-
-submitButton.disabled = false;
-
-}
-
-});
-
-
-logoutButton.addEventListener("click",async function(){
-
-const result =
-await supabaseClient.auth.signOut();
-
-if(result.error){
-
-alert(result.error.message);
-
-}
-
-});
-
-
-function updatePage(user){
-
-if(user){
-
-loginButton.style.display = "none";
-
-logoutButton.style.display = "inline-block";
-
-createButton.style.display = "none";
-
-accountSection.style.display = "block";
-
-userEmail.textContent =
-user.email || "User";
-
-}else{
-
-loginButton.style.display = "inline-block";
-
-logoutButton.style.display = "none";
-
-createButton.style.display = "inline-block";
-
-accountSection.style.display = "none";
-
-userEmail.textContent = "-";
-
-}
-
-}
-
-
-async function loadSession(){
-
-const result =
-await supabaseClient.auth.getSession();
-
-if(result.error){
-
-console.error(result.error);
-
-return;
-
-}
-
-const session =
-result.data.session;
-
-updatePage(
-session ? session.user : null
-);
-
-}
-
-
-supabaseClient.auth.onAuthStateChange(
-function(event,session){
-
-updatePage(
-session ? session.user : null
-);
-
-}
-);
-
-
-document.getElementById("exploreButton")
-.addEventListener("click",function(){
-
-document.getElementById("services")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-});
-
-
-document.querySelectorAll(".card")
-.forEach(function(card){
-
-card.addEventListener("click",function(){
-
-if(card.id === "chatCard"){
-
-alert(
-"Chat is the next feature we will activate."
-);
-
-}else{
-
-alert(
-"This feature is coming next."
-);
-
-}
-
-});
-
-});
-
-
-loadSession();
 
 </script>
 
