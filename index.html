@@ -2,570 +2,416 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080b16">
+
 <title>VIBRA TRIANGLE</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,sans-serif;
-background:#080b16;
-color:#fff;
-min-height:100vh
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-button,input{font:inherit}
-button{cursor:pointer}
+body{
+    font-family:Arial,sans-serif;
+    background:#080b16;
+    color:#fff;
+    min-height:100vh;
+}
+
+button,input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
 
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#11172a;
-border-bottom:1px solid #29324a
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#11172a;
+    border-bottom:1px solid #29324a;
 }
 
 .header{
-max-width:1200px;
-margin:auto;
-padding:15px 18px;
-display:flex;
-align-items:center;
-justify-content:space-between
+    max-width:1200px;
+    margin:auto;
+    padding:15px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-font-size:19px;
-font-weight:900;
-color:#9b8cff
+    font-size:19px;
+    font-weight:900;
+    color:#9b8cff;
 }
 
 nav{
-display:flex;
-gap:20px
+    display:flex;
+    gap:20px;
 }
 
 nav a{
-color:#cbd5e1;
-text-decoration:none
+    color:#cbd5e1;
+    text-decoration:none;
 }
 
 .headerBtn,
 .logoutBtn{
-padding:10px 17px;
-border:0;
-border-radius:9px;
-color:white
+    padding:10px 17px;
+    border:0;
+    border-radius:9px;
+    color:white;
 }
 
-.headerBtn{background:#6d4aff}
-.logoutBtn{background:#dc3654;display:none}
+.headerBtn{
+    background:#6d4aff;
+}
+
+.logoutBtn{
+    background:#dc3654;
+    display:none;
+}
 
 .hero{
-max-width:1200px;
-margin:auto;
-padding:70px 18px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center
+    max-width:1200px;
+    margin:auto;
+    padding:70px 18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
 }
 
 .badge{
-display:inline-block;
-padding:8px 12px;
-margin-bottom:18px;
-border-radius:20px;
-background:#20184b;
-color:#bcaeff;
-font-size:12px
+    display:inline-block;
+    padding:8px 12px;
+    margin-bottom:18px;
+    border-radius:20px;
+    background:#20184b;
+    color:#bcaeff;
+    font-size:12px;
 }
 
 h1{
-font-size:clamp(43px,7vw,75px);
-line-height:1;
-margin-bottom:20px
+    font-size:clamp(43px,7vw,75px);
+    line-height:1;
+    margin-bottom:20px;
 }
 
 .gradient{
-background:linear-gradient(90deg,#4da3ff,#9d7cff,#ff70b9);
--webkit-background-clip:text;
-color:transparent
+    background:linear-gradient(90deg,#4da3ff,#9d7cff,#ff70b9);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-color:#94a3b8;
-line-height:1.7;
-margin-bottom:25px
+    color:#94a3b8;
+    line-height:1.7;
+    margin-bottom:25px;
 }
 
 .actions{
-display:flex;
-flex-wrap:wrap;
-gap:10px
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-.primary,.secondary{
-padding:13px 19px;
-border-radius:10px;
-font-weight:bold
+.primary,
+.secondary{
+    padding:13px 19px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
 .primary{
-border:0;
-background:#6d4aff;
-color:white
+    border:0;
+    background:#6d4aff;
+    color:white;
 }
 
 .secondary{
-background:#172038;
-color:white;
-border:1px solid #33405c
+    background:#172038;
+    color:white;
+    border:1px solid #33405c;
 }
 
 .visual{
-min-height:320px;
-border-radius:25px;
-background:#111a31;
-border:1px solid #293653;
-display:flex;
-align-items:center;
-justify-content:center
+    min-height:320px;
+    border-radius:25px;
+    background:#111a31;
+    border:1px solid #293653;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .triangle{
-width:0;
-height:0;
-border-left:100px solid transparent;
-border-right:100px solid transparent;
-border-bottom:175px solid #7c4dff;
-filter:drop-shadow(0 0 35px #7c4dff)
+    width:0;
+    height:0;
+    border-left:100px solid transparent;
+    border-right:100px solid transparent;
+    border-bottom:175px solid #7c4dff;
+    filter:drop-shadow(0 0 35px #7c4dff);
 }
 
 .ad{
-max-width:1200px;
-min-height:90px;
-margin:15px auto;
-display:flex;
-align-items:center;
-justify-content:center;
-border:1px dashed #334155;
-color:#64748b
+    max-width:1200px;
+    min-height:90px;
+    margin:15px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px dashed #334155;
+    color:#64748b;
 }
 
 .account{
-display:none;
-max-width:1200px;
-margin:auto;
-padding:15px 18px
+    display:none;
+    max-width:1200px;
+    margin:auto;
+    padding:15px 18px;
 }
 
 .accountBox{
-padding:20px;
-border-radius:15px;
-background:#121a2e;
-border:1px solid #293653
+    padding:20px;
+    border-radius:15px;
+    background:#121a2e;
+    border:1px solid #293653;
 }
 
-.accountBox span{color:#9b8cff}
+.accountBox span{
+    color:#9b8cff;
+}
 
 .section{
-max-width:1200px;
-margin:auto;
-padding:45px 18px
+    max-width:1200px;
+    margin:auto;
+    padding:45px 18px;
 }
 
 .section h2{
-margin-bottom:8px;
-font-size:30px
+    margin-bottom:8px;
+    font-size:30px;
 }
 
 .subtitle{
-color:#94a3b8;
-margin-bottom:25px
+    color:#94a3b8;
+    margin-bottom:25px;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
 .card{
-padding:22px;
-min-height:170px;
-border-radius:16px;
-background:#121a2e;
-border:1px solid #293653;
-cursor:pointer;
-transition:.2s
+    padding:22px;
+    min-height:170px;
+    border-radius:16px;
+    background:#121a2e;
+    border:1px solid #293653;
+    cursor:pointer;
+    transition:.2s;
 }
 
 .card:hover{
-transform:translateY(-4px);
-border-color:#7c4dff
+    transform:translateY(-4px);
+    border-color:#7c4dff;
 }
 
 .icon{
-font-size:30px;
-margin-bottom:14px
+    font-size:30px;
+    margin-bottom:14px;
 }
 
-.card h3{margin-bottom:8px}
+.card h3{
+    margin-bottom:8px;
+}
 
 .card p{
-color:#94a3b8;
-font-size:13px;
-line-height:1.5
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.5;
 }
 
 .earnBox{
-padding:30px;
-border-radius:20px;
-background:#141d36;
-border:1px solid #293653
+    padding:30px;
+    border-radius:20px;
+    background:#141d36;
+    border:1px solid #293653;
 }
 
 .earnBox p{
-color:#94a3b8;
-line-height:1.6;
-margin:12px 0 20px
+    color:#94a3b8;
+    line-height:1.6;
+    margin:12px 0 20px;
 }
 
 .earnItem{
-padding:13px;
-margin-top:9px;
-background:#ffffff08;
-border:1px solid #ffffff12;
-border-radius:9px
+    padding:13px;
+    margin-top:9px;
+    background:#ffffff08;
+    border:1px solid #ffffff12;
+    border-radius:9px;
 }
 
 footer{
-padding:40px 18px;
-margin-top:40px;
-text-align:center;
-background:#050811;
-border-top:1px solid #293653
+    padding:40px 18px;
+    margin-top:40px;
+    text-align:center;
+    background:#050811;
+    border-top:1px solid #293653;
 }
 
 footer p{
-color:#64748b;
-margin-top:10px;
-font-size:13px
+    color:#64748b;
+    margin-top:10px;
+    font-size:13px;
 }
 
-
-/* AUTH */
+/* AUTH MODAL */
 
 .modal{
-position:fixed;
-inset:0;
-z-index:9999;
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-background:rgba(0,0,0,.82)
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.82);
 }
 
-.modal.active{display:flex}
+.modal.active{
+    display:flex;
+}
 
 .modalBox{
-width:100%;
-max-width:420px;
-padding:25px;
-border-radius:18px;
-background:#121a2e;
-border:1px solid #394663
+    width:100%;
+    max-width:420px;
+    padding:25px;
+    border-radius:18px;
+    background:#121a2e;
+    border:1px solid #394663;
 }
 
 .modalTop{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:20px
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
 }
 
 .closeBtn{
-width:35px;
-height:35px;
-border-radius:50%;
-border:1px solid #334155;
-background:#1b263e;
-color:#fff;
-font-size:20px
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:1px solid #334155;
+    background:#1b263e;
+    color:#fff;
+    font-size:20px;
 }
 
 .tabs{
-display:flex;
-gap:5px;
-margin-bottom:20px
+    display:flex;
+    gap:5px;
+    margin-bottom:20px;
 }
 
 .tab{
-flex:1;
-padding:11px;
-border:0;
-border-radius:8px;
-background:#1b263e;
-color:#94a3b8
+    flex:1;
+    padding:11px;
+    border:0;
+    border-radius:8px;
+    background:#1b263e;
+    color:#94a3b8;
 }
 
 .tab.active{
-background:#6d4aff;
-color:white
+    background:#6d4aff;
+    color:white;
 }
 
-.formGroup{margin-bottom:14px}
+.formGroup{
+    margin-bottom:14px;
+}
 
 .formGroup label{
-display:block;
-margin-bottom:6px;
-color:#94a3b8;
-font-size:12px
+    display:block;
+    margin-bottom:6px;
+    color:#94a3b8;
+    font-size:12px;
 }
 
 .formGroup input{
-width:100%;
-padding:13px;
-border-radius:9px;
-border:1px solid #334155;
-background:#080d1a;
-color:#fff;
-outline:none
+    width:100%;
+    padding:13px;
+    border-radius:9px;
+    border:1px solid #334155;
+    background:#080d1a;
+    color:#fff;
+    outline:none;
 }
 
 .submitBtn{
-width:100%;
-padding:13px;
-border:0;
-border-radius:9px;
-background:#6d4aff;
-color:#fff;
-font-weight:bold
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:#6d4aff;
+    color:#fff;
+    font-weight:bold;
+}
+
+.submitBtn:disabled{
+    opacity:.6;
 }
 
 .message{
-margin-top:12px;
-text-align:center;
-color:#94a3b8;
-font-size:13px;
-line-height:1.5
-}
-
-
-/* CHAT */
-
-.chatModal{
-position:fixed;
-inset:0;
-z-index:9998;
-display:none;
-background:#080b16
-}
-
-.chatModal.active{display:block}
-
-.chatApp{
-height:100vh;
-display:flex;
-flex-direction:column
-}
-
-.chatHeader{
-height:65px;
-padding:0 16px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:#11172a;
-border-bottom:1px solid #29324a
-}
-
-.chatHeader h2{
-font-size:18px
-}
-
-.chatClose{
-background:#1b263e;
-border:1px solid #334155;
-color:white;
-border-radius:8px;
-padding:8px 12px
-}
-
-.chatBody{
-flex:1;
-display:grid;
-grid-template-columns:280px 1fr;
-min-height:0
-}
-
-.userPanel{
-background:#0d1322;
-border-right:1px solid #29324a;
-overflow-y:auto
-}
-
-.userTitle{
-padding:16px;
-font-weight:bold
-}
-
-.searchBox{
-padding:0 12px 12px
-}
-
-.searchBox input{
-width:100%;
-padding:11px;
-border-radius:9px;
-border:1px solid #334155;
-background:#121a2e;
-color:white;
-outline:none
-}
-
-.userItem{
-padding:13px 16px;
-border-bottom:1px solid #ffffff08;
-cursor:pointer
-}
-
-.userItem:hover{
-background:#172038
-}
-
-.userItem strong{
-display:block
-}
-
-.userItem small{
-color:#64748b
-}
-
-.chatWindow{
-display:flex;
-flex-direction:column;
-min-width:0
-}
-
-.chatWith{
-padding:15px;
-background:#11172a;
-border-bottom:1px solid #29324a
-}
-
-.chatMessages{
-flex:1;
-overflow-y:auto;
-padding:18px;
-display:flex;
-flex-direction:column;
-gap:10px
-}
-
-.emptyChat{
-margin:auto;
-text-align:center;
-color:#64748b
-}
-
-.bubble{
-max-width:75%;
-padding:10px 13px;
-border-radius:14px;
-line-height:1.4;
-word-wrap:break-word
-}
-
-.mine{
-align-self:flex-end;
-background:#6d4aff;
-border-bottom-right-radius:4px
-}
-
-.theirs{
-align-self:flex-start;
-background:#18233a;
-border-bottom-left-radius:4px
-}
-
-.bubbleTime{
-display:block;
-font-size:9px;
-opacity:.6;
-margin-top:4px
-}
-
-.chatComposer{
-display:flex;
-gap:8px;
-padding:12px;
-background:#11172a;
-border-top:1px solid #29324a
-}
-
-.chatComposer input{
-flex:1;
-padding:12px;
-border-radius:10px;
-border:1px solid #334155;
-background:#080d1a;
-color:white;
-outline:none
-}
-
-.sendBtn{
-padding:12px 18px;
-border:0;
-border-radius:10px;
-background:#6d4aff;
-color:white;
-font-weight:bold
+    margin-top:12px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.5;
 }
 
 @media(max-width:850px){
 
-.hero{grid-template-columns:1fr}
+    .hero{
+        grid-template-columns:1fr;
+    }
 
-.grid{grid-template-columns:repeat(2,1fr)}
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-nav{display:none}
-
-}
-
-@media(max-width:650px){
-
-.chatBody{
-grid-template-columns:1fr
-}
-
-.userPanel{
-display:block;
-height:180px;
-border-right:0;
-border-bottom:1px solid #29324a
-}
-
-.chatWindow{
-height:calc(100vh - 245px)
-}
-
+    nav{
+        display:none;
+    }
 }
 
 @media(max-width:520px){
 
-.grid{grid-template-columns:1fr}
+    .grid{
+        grid-template-columns:1fr;
+    }
 
-.hero{padding-top:45px}
+    .hero{
+        padding-top:45px;
+    }
 
-.visual{min-height:240px}
-
-.bubble{max-width:85%}
-
+    .visual{
+        min-height:240px;
+    }
 }
 </style>
 </head>
@@ -576,7 +422,9 @@ height:calc(100vh - 245px)
 
 <div class="header">
 
-<div class="logo">△ VIBRA TRIANGLE</div>
+<div class="logo">
+△ VIBRA TRIANGLE
+</div>
 
 <nav>
 <a href="#home">Home</a>
@@ -677,7 +525,7 @@ Tap a feature to explore it.
 
 <div class="grid">
 
-<div class="card" data-feature="Chat" id="chatCard">
+<div class="card" id="chatCard">
 <div class="icon">💬</div>
 <h3>Chat</h3>
 <p>Private messaging with other VIBRA TRIANGLE users.</p>
@@ -772,14 +620,18 @@ The platform is being developed step by step.
 △ VIBRA TRIANGLE
 </strong>
 
-<p>Connect • Create • Discover • Earn</p>
+<p>
+Connect • Create • Discover • Earn
+</p>
 
-<p>© 2026 VIBRA TRIANGLE</p>
+<p>
+© 2026 VIBRA TRIANGLE
+</p>
 
 </footer>
 
 
-<!-- AUTH MODAL -->
+<!-- LOGIN / SIGNUP -->
 
 <div class="modal" id="authModal">
 
@@ -787,11 +639,16 @@ The platform is being developed step by step.
 
 <div class="modalTop">
 
-<h2 id="modalTitle">Welcome</h2>
+<h2 id="modalTitle">
+Welcome
+</h2>
 
-<button class="closeBtn" id="closeButton">×</button>
+<button class="closeBtn" id="closeButton">
+×
+</button>
 
 </div>
+
 
 <div class="tabs">
 
@@ -805,119 +662,70 @@ Sign Up
 
 </div>
 
+
 <form id="authForm">
 
 <div class="formGroup" id="nameGroup" style="display:none">
 
-<label>Full Name</label>
+<label>
+Full Name
+</label>
 
 <input
 id="nameInput"
 type="text"
-placeholder="Your full name">
+placeholder="Your full name"
+>
+
 </div>
+
 
 <div class="formGroup">
 
-<label>Email</label>
+<label>
+Email
+</label>
 
 <input
 id="emailInput"
 type="email"
 placeholder="you@example.com"
-required>
+required
+>
 
 </div>
 
+
 <div class="formGroup">
 
-<label>Password</label>
+<label>
+Password
+</label>
 
 <input
 id="passwordInput"
 type="password"
 placeholder="At least 6 characters"
 required
-minlength="6">
+minlength="6"
+>
 
 </div>
 
-<button class="submitBtn" id="submitButton" type="submit">
+
+<button
+class="submitBtn"
+id="submitButton"
+type="submit"
+>
 Login
 </button>
 
-<div class="message" id="message"></div>
 
-</form>
-
-</div>
-</div>
-
-
-<!-- CHAT -->
-
-<div class="chatModal" id="chatModal">
-
-<div class="chatApp">
-
-<div class="chatHeader">
-
-<h2>💬 VIBRA CHAT</h2>
-
-<button class="chatClose" id="chatClose">
-Close
-</button>
-
-</div>
-
-<div class="chatBody">
-
-<div class="userPanel">
-
-<div class="userTitle">
-People
-</div>
-
-<div class="searchBox">
-
-<input
-id="userSearch"
-type="search"
-placeholder="Search users...">
-
-</div>
-
-<div id="userList"></div>
-
-</div>
-
-
-<div class="chatWindow">
-
-<div class="chatWith" id="chatWith">
-Select someone to start chatting
-</div>
-
-<div class="chatMessages" id="chatMessages">
-
-<div class="emptyChat">
-Select a user to begin a private conversation.
-</div>
-
-</div>
-
-<form class="chatComposer" id="chatForm">
-
-<input
-id="chatInput"
-type="text"
-maxlength="5000"
-placeholder="Write a message..."
-autocomplete="off">
-
-<button class="sendBtn" type="submit">
-Send
-</button>
+<div
+class="message"
+id="message"
+></div>
 
 </form>
 
@@ -925,18 +733,12 @@ Send
 
 </div>
 
-</div>
 
-</div>
-
+<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-
-/* ========================================
-   SUPABASE
-======================================== */
 
 const SUPABASE_URL =
 "https://oogzzdjpubmkspoatual.supabase.co";
@@ -945,24 +747,14 @@ const SUPABASE_KEY =
 "sb_publishable_d2bxEuO0rnpYz2VgEMbLhA_eHl3Jqp1";
 
 const supabaseClient =
-supabase.createClient(
+window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
 
 
-/* ========================================
-   VARIABLES
-======================================== */
+let authMode = "login";
 
-let currentUser = null;
-let selectedUser = null;
-let realtimeChannel = null;
-
-
-/* ========================================
-   ELEMENTS
-======================================== */
 
 const authModal =
 document.getElementById("authModal");
@@ -971,4 +763,334 @@ const loginButton =
 document.getElementById("loginButton");
 
 const logoutButton =
-document.getElementById("logout
+document.getElementById("logoutButton");
+
+const createButton =
+document.getElementById("createButton");
+
+const closeButton =
+document.getElementById("closeButton");
+
+const loginTab =
+document.getElementById("loginTab");
+
+const signupTab =
+document.getElementById("signupTab");
+
+const authForm =
+document.getElementById("authForm");
+
+const nameGroup =
+document.getElementById("nameGroup");
+
+const nameInput =
+document.getElementById("nameInput");
+
+const emailInput =
+document.getElementById("emailInput");
+
+const passwordInput =
+document.getElementById("passwordInput");
+
+const submitButton =
+document.getElementById("submitButton");
+
+const message =
+document.getElementById("message");
+
+const accountSection =
+document.getElementById("accountSection");
+
+const userEmail =
+document.getElementById("userEmail");
+
+
+function updateAuthForm(){
+
+if(authMode === "signup"){
+
+loginTab.classList.remove("active");
+signupTab.classList.add("active");
+
+nameGroup.style.display = "block";
+
+submitButton.textContent =
+"Create Account";
+
+document.getElementById("modalTitle")
+.textContent =
+"Create Account";
+
+}else{
+
+signupTab.classList.remove("active");
+loginTab.classList.add("active");
+
+nameGroup.style.display = "none";
+
+submitButton.textContent =
+"Login";
+
+document.getElementById("modalTitle")
+.textContent =
+"Welcome";
+
+}
+
+message.textContent = "";
+
+}
+
+
+loginButton.addEventListener("click",function(){
+
+authMode = "login";
+
+updateAuthForm();
+
+authModal.classList.add("active");
+
+});
+
+
+createButton.addEventListener("click",function(){
+
+authMode = "signup";
+
+updateAuthForm();
+
+authModal.classList.add("active");
+
+});
+
+
+closeButton.addEventListener("click",function(){
+
+authModal.classList.remove("active");
+
+});
+
+
+loginTab.addEventListener("click",function(){
+
+authMode = "login";
+
+updateAuthForm();
+
+});
+
+
+signupTab.addEventListener("click",function(){
+
+authMode = "signup";
+
+updateAuthForm();
+
+});
+
+
+authForm.addEventListener("submit",async function(event){
+
+event.preventDefault();
+
+submitButton.disabled = true;
+
+message.textContent =
+"Please wait...";
+
+
+try{
+
+const email =
+emailInput.value.trim();
+
+const password =
+passwordInput.value;
+
+
+if(authMode === "signup"){
+
+const fullName =
+nameInput.value.trim();
+
+
+const result =
+await supabaseClient.auth.signUp({
+
+email:email,
+
+password:password,
+
+options:{
+data:{
+full_name:fullName
+}
+}
+
+});
+
+
+if(result.error){
+throw result.error;
+}
+
+
+message.textContent =
+"Account created. Check your email to confirm your account.";
+
+}else{
+
+const result =
+await supabaseClient.auth.signInWithPassword({
+
+email:email,
+
+password:password
+
+});
+
+
+if(result.error){
+throw result.error;
+}
+
+
+authModal.classList.remove("active");
+
+}
+
+}catch(error){
+
+message.textContent =
+error.message || "Something went wrong.";
+
+}finally{
+
+submitButton.disabled = false;
+
+}
+
+});
+
+
+logoutButton.addEventListener("click",async function(){
+
+const result =
+await supabaseClient.auth.signOut();
+
+if(result.error){
+
+alert(result.error.message);
+
+}
+
+});
+
+
+function updatePage(user){
+
+if(user){
+
+loginButton.style.display = "none";
+
+logoutButton.style.display = "inline-block";
+
+createButton.style.display = "none";
+
+accountSection.style.display = "block";
+
+userEmail.textContent =
+user.email || "User";
+
+}else{
+
+loginButton.style.display = "inline-block";
+
+logoutButton.style.display = "none";
+
+createButton.style.display = "inline-block";
+
+accountSection.style.display = "none";
+
+userEmail.textContent = "-";
+
+}
+
+}
+
+
+async function loadSession(){
+
+const result =
+await supabaseClient.auth.getSession();
+
+if(result.error){
+
+console.error(result.error);
+
+return;
+
+}
+
+const session =
+result.data.session;
+
+updatePage(
+session ? session.user : null
+);
+
+}
+
+
+supabaseClient.auth.onAuthStateChange(
+function(event,session){
+
+updatePage(
+session ? session.user : null
+);
+
+}
+);
+
+
+document.getElementById("exploreButton")
+.addEventListener("click",function(){
+
+document.getElementById("services")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+
+document.querySelectorAll(".card")
+.forEach(function(card){
+
+card.addEventListener("click",function(){
+
+if(card.id === "chatCard"){
+
+alert(
+"Chat is the next feature we will activate."
+);
+
+}else{
+
+alert(
+"This feature is coming next."
+);
+
+}
+
+});
+
+});
+
+
+loadSession();
+
+</script>
+
+</body>
+</html>
