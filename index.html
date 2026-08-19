@@ -1,54 +1,291 @@
-<!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VIBRA TRIANGLE</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07101f">
+<title>VIBRA TRIANGLE</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#070a12;color:#fff;font-family:Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}
-.auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at top,#17264a,#070a12 55%)}.box{width:min(390px,100%);padding:28px;background:#0e1422;border:1px solid #26334e;border-radius:24px}.logo{text-align:center;font-size:27px;font-weight:900}.logo span,.balance{color:#20e6ff}.sub,.muted{color:#8994aa}.sub{text-align:center;margin:8px 0 25px}.form{display:grid;gap:12px}input{padding:14px;border-radius:12px;border:1px solid #293651;background:#080d18;color:#fff;outline:0}.btn{border:0;border-radius:12px;padding:14px;font-weight:800}.primary{background:#20e6ff;color:#001016}.secondary{background:#172033;color:#fff}.link{background:none;border:0;color:#20e6ff}
-.app{display:none;min-height:100vh;padding-bottom:82px}.top{height:62px;position:sticky;top:0;z-index:5;background:#080c15ee;border-bottom:1px solid #202b43;display:flex;align-items:center;justify-content:space-between;padding:0 15px}.brand{font-weight:900}.brand span{color:#20e6ff}.top button{background:#121a2b;border:1px solid #26334e;color:#fff;border-radius:10px;padding:9px}
-.page{display:none;max-width:900px;margin:auto;padding:20px}.page.active{display:block}.hero{padding:20px 0}.hero h1{font-size:42px;margin:8px 0}.hero h1 span{color:#20e6ff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.card{background:#0e1422;border:1px solid #202b43;border-radius:18px;padding:17px}.card h3{margin:8px 0}.card button{width:100%;margin-top:12px}.icon{font-size:30px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#090d17f5;border-top:1px solid #202b43;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px}.bottom button{border:0;background:none;color:#78849e;font-size:11px}.bottom b{display:block;font-size:21px}.bottom .on{color:#20e6ff}.back{border:1px solid #26334e;background:#121a2b;color:#fff;border-radius:10px;padding:9px;margin-bottom:15px}.balance{font-size:36px;font-weight:900;margin:12px 0}.profile{display:flex;gap:14px;align-items:center}.avatar{width:65px;height:65px;border-radius:18px;background:#17233b;display:grid;place-items:center;font-size:28px}.chat{height:270px;overflow:auto;background:#080d18;border:1px solid #202b43;border-radius:15px;padding:12px}.bubble{background:#172033;padding:10px;border-radius:12px;margin:7px 0;max-width:80%}.me{margin-left:auto;background:#075b6c}.row{display:flex;gap:8px;margin-top:10px}.row input{flex:1}.toast{position:fixed;bottom:100px;left:50%;transform:translate(-50%,20px);opacity:0;background:#fff;color:#111;padding:12px 15px;border-radius:11px;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
-</style></head><body>
-<div id="auth" class="auth"><div class="box"><div class="logo">VIBRA <span>TRIANGLE</span></div><div class="sub">Connect • Create • Discover • Earn</div>
-<div id="login" class="form"><input id="le" type="email" placeholder="Email address"><input id="lp" type="password" placeholder="Password"><button type="button" class="btn primary" id="loginBtn">Log in</button><button type="button" class="link" id="signupLink">Create account</button></div>
-<div id="signup" class="form" style="display:none"><input id="sn" placeholder="Full name"><input id="se" type="email" placeholder="Email address"><input id="sp" type="password" placeholder="Password"><button type="button" class="btn primary" id="signupBtn">Create account</button><button type="button" class="btn secondary" id="backBtn">Back to login</button></div></div></div>
-<div id="app" class="app"><div class="top"><div class="brand">VIBRA <span>TRIANGLE</span></div><button type="button" id="profileBtn">👤</button></div>
-<section id="home" class="page active"><div class="hero"><small id="welcome">WELCOME</small><h1>Live your <span>VIBRA.</span></h1><p class="muted">Your social, rewards and digital experience.</p></div><div class="grid">
-<div class="card"><div class="icon">💬</div><h3>Chat</h3><p class="muted">Connect with people.</p><button class="btn secondary" data-go="chat">Open</button></div>
-<div class="card"><div class="icon">🎬</div><h3>Videos</h3><p class="muted">Discover content.</p><button class="btn secondary" data-go="videos">Open</button></div>
-<div class="card"><div class="icon">🎁</div><h3>Gift Cards</h3><p class="muted">Browse gift cards.</p><button class="btn secondary" data-go="gifts">Open</button></div>
-<div class="card"><div class="icon">📋</div><h3>Surveys + Rewards</h3><p class="muted">Complete eligible rewards.</p><button class="btn secondary" data-go="surveys">Open</button></div>
-<div class="card"><div class="icon">👥</div><h3>Referrals</h3><p class="muted">Invite and earn.</p><button class="btn secondary" data-go="referrals">Open</button></div>
-<div class="card"><div class="icon">🌐</div><h3>Website Builder</h3><p class="muted">Build a website preview.</p><button class="btn secondary" data-go="builder">Open</button></div>
-<div class="card"><div class="icon">🤖</div><h3>AI</h3><p class="muted">Ask for guidance.</p><button class="btn secondary" data-go="ai">Open</button></div>
-<div class="card"><div class="icon">💰</div><h3>Wallet</h3><p class="muted">Money and transactions.</p><button class="btn primary" data-go="wallet">Open wallet</button></div></div></section>
-<section id="chat" class="page"><button class="back" data-go="home">← Home</button><h2>💬 Chat</h2><div id="chatbox" class="chat"><div class="bubble">Welcome to VIBRA Chat 👋</div></div><div class="row"><input id="msg" placeholder="Write a message"><button class="btn primary" id="send">Send</button></div></section>
-<section id="videos" class="page"><button class="back" data-go="home">← Home</button><h2>🎬 Videos</h2><div class="grid"><div class="card"><div class="icon">▶️</div><h3>Featured video</h3><p class="muted">Video feed placeholder.</p></div><div class="card"><div class="icon">🔥</div><h3>Trending</h3><p class="muted">Trending content placeholder.</p></div></div></section>
-<section id="gifts" class="page"><button class="back" data-go="home">← Home</button><h2>🎁 Gift Cards</h2><div class="grid"><div class="card"><h3>🎮 Gaming</h3><p class="muted">Gaming cards.</p><button class="btn secondary" data-demo="Gift-card checkout">View cards</button></div><div class="card"><h3>🛍️ Shopping</h3><p class="muted">Shopping cards.</p><button class="btn secondary" data-demo="Gift-card checkout">View cards</button></div></div></section>
-<section id="me" class="page"><button class="back" data-go="home">← Home</button><div class="profile"><div class="avatar">👤</div><div><h2 id="name">VIBRA User</h2><div id="mail" class="muted"></div><b>⭐ Level 1</b><div class="muted">680 / 1,000 XP</div></div></div><div class="grid" style="margin-top:15px"><div class="card"><h3>💰 Wallet</h3><button class="btn secondary" data-go="wallet">Open</button></div><div class="card"><h3>💳 Payments</h3><button class="btn secondary" data-go="payments">Open</button></div><div class="card"><h3>📋 Rewards</h3><button class="btn secondary" data-go="surveys">Open</button></div><div class="card"><h3>👥 Referrals</h3><button class="btn secondary" data-go="referrals">Open</button></div><div class="card"><h3>⚙️ Settings</h3><button class="btn secondary" data-go="settings">Open</button></div></div><button class="btn secondary" style="width:100%;margin-top:14px" id="logout">Log out</button></section>
-<section id="wallet" class="page"><button class="back" data-go="me">← Me</button><h2>💰 Wallet</h2><div class="card"><div class="muted">Available balance</div><div class="balance">₦0.00</div><button class="btn primary" data-demo="Add money is demo-only in Phase 1.">＋ Add money</button><button class="btn secondary" data-demo="Withdrawals are not live until secure backend integration.">↗ Withdraw</button></div><h3>Recent activity</h3><div class="card"><b>No transactions yet</b><p class="muted">Transactions will appear here when the payment backend is connected.</p></div></section>
-<section id="payments" class="page"><button class="back" data-go="me">← Me</button><h2>💳 Payments</h2><div class="grid"><div class="card"><b>Total paid</b><div class="balance">₦0</div></div><div class="card"><b>Total received</b><div class="balance">₦0</div></div></div></section>
-<section id="surveys" class="page"><button class="back" data-go="home">← Home</button><h2>📋 Surveys + Rewards</h2><div class="grid"><div class="card"><h3>Quick opinion</h3><p class="muted">About 5 minutes</p><b>₦500 reward</b><button class="btn secondary" data-demo="Survey provider will be connected later.">Check eligibility</button></div><div class="card"><h3>Technology habits</h3><p class="muted">About 10 minutes</p><b>₦1,000 reward</b><button class="btn secondary" data-demo="Survey provider will be connected later.">Check eligibility</button></div></div></section>
-<section id="referrals" class="page"><button class="back" data-go="home">← Home</button><h2>👥 Referrals</h2><div class="card"><p class="muted">Your referral code</p><div class="balance" style="font-size:28px">VIBRA2026</div><button class="btn primary" id="copy">Copy code</button></div></section>
-<section id="builder" class="page"><button class="back" data-go="home">← Home</button><h2>🌐 Website Builder</h2><div class="card"><input id="site" placeholder="Website title"><button class="btn primary" id="build" style="margin-top:10px;width:100%">Create preview</button><div id="preview"></div></div></section>
-<section id="ai" class="page"><button class="back" data-go="home">← Home</button><h2>🤖 VIBRA AI</h2><div class="card"><input id="question" placeholder="Ask something"><button class="btn primary" id="ask" style="margin-top:10px;width:100%">Ask AI</button><p id="answer" class="muted"></p></div></section>
-<section id="settings" class="page"><button class="back" data-go="me">← Me</button><h2>⚙️ Settings</h2><div class="card"><b>Account</b><p class="muted">Real secure authentication will be added in Phase 2.</p></div></section>
-</div><nav class="bottom"><button data-go="home"><b>🏠</b>Home</button><button data-go="chat"><b>💬</b>Chat</button><button data-go="videos"><b>🎬</b>Videos</button><button data-go="gifts"><b>🎁</b>Gifts</button><button data-go="me"><b>👤</b>Me</button></nav><div id="toast" class="toast"></div>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#060b14;--panel:#0d1626;--line:#20304a;--cyan:#22d8ee;--text:#f4f7fb;--muted:#8c9ab0;--green:#29d878;--red:#ff5f6d}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}
+.hidden{display:none!important}
+
+/* AUTH */
+.auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(circle at 50% 0,#152b4d 0,#091221 42%,#050911 100%)}
+.auth-card{width:min(430px,100%);background:rgba(10,18,32,.96);border:1px solid #243550;border-radius:26px;padding:30px;box-shadow:0 25px 70px rgba(0,0,0,.45)}
+.logo{text-align:center;font-size:28px;font-weight:900;letter-spacing:.5px}
+.logo span{color:var(--cyan)}
+.tagline{text-align:center;color:var(--muted);margin:9px 0 25px}
+.auth-title{font-size:22px;margin-bottom:7px}
+.auth-help{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:18px}
+.form{display:grid;gap:12px}
+input{width:100%;background:#f4f7ff;color:#111;border:0;border-radius:13px;padding:15px;outline:none}
+input:focus{box-shadow:0 0 0 3px rgba(34,216,238,.22)}
+.btn{border:0;border-radius:13px;padding:14px;font-weight:800}
+.primary{background:var(--cyan);color:#031016}
+.secondary{background:#17243a;color:#fff;border:1px solid #2a3b58}
+.text-btn{background:none;border:0;color:var(--cyan);font-weight:700;padding:7px}
+.auth-links{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.status{display:none;border-radius:11px;padding:11px 13px;margin-bottom:13px;font-size:14px;font-weight:700}
+.status.show{display:block}
+.status.success{background:rgba(41,216,120,.12);border:1px solid rgba(41,216,120,.35);color:var(--green)}
+.status.error{background:rgba(255,95,109,.12);border:1px solid rgba(255,95,109,.35);color:var(--red)}
+.otp-note{font-size:12px;color:var(--muted);line-height:1.45}
+.otp-box{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.otp-box input{text-align:center;padding:13px 5px;font-weight:900;font-size:19px}
+
+/* APP */
+.app{display:none;min-height:100vh;padding-bottom:82px}
+.topbar{height:64px;position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(6,11,20,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.brand{font-weight:900}.brand span{color:var(--cyan)}
+.profile-btn{background:#111d31;border:1px solid #293a56;color:#fff;border-radius:11px;padding:9px 11px}
+.page{display:none;max-width:950px;margin:auto;padding:22px}.page.active{display:block}
+.hero{padding:20px 0}.hero h1{font-size:42px;margin:8px 0}.hero h1 span{color:var(--cyan)}
+.muted{color:var(--muted);line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
+.card h3{margin:8px 0}.icon{font-size:29px}
+.card .btn{width:100%;margin-top:12px}
+.back{background:#121e31;color:#fff;border:1px solid #2a3a55;border-radius:10px;padding:9px 12px;margin-bottom:16px}
+.bottom{position:fixed;bottom:0;left:0;right:0;height:76px;z-index:20;background:rgba(7,12,21,.97);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px}
+.bottom button{border:0;background:none;color:#738198;font-size:11px}
+.bottom b{display:block;font-size:21px;margin-bottom:2px}.bottom .on{color:var(--cyan)}
+.balance{font-size:38px;font-weight:900;color:var(--cyan);margin:10px 0}
+.profile{display:flex;gap:15px;align-items:center}.avatar{width:66px;height:66px;border-radius:19px;background:#17243a;display:grid;place-items:center;font-size:28px}
+.chat{height:280px;overflow:auto;background:#080e19;border:1px solid var(--line);border-radius:15px;padding:12px}
+.bubble{background:#17243a;padding:10px;border-radius:12px;margin:7px 0;max-width:80%}.me{margin-left:auto;background:#075c6c}
+.row{display:flex;gap:8px;margin-top:10px}.row input{flex:1}
+.toast{position:fixed;left:50%;bottom:94px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#111;padding:12px 16px;border-radius:12px;z-index:40;transition:.2s;font-weight:700}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:480px){.auth-card{padding:24px}.hero h1{font-size:34px}.page{padding:18px}}
+</style>
+</head>
+<body>
+
+<!-- PRIVATE LOGIN SCREEN: NO APP FOOTER HERE -->
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <div class="logo">VIBRA <span>TRIANGLE</span></div>
+    <div class="tagline">Connect • Create • Discover • Earn</div>
+
+    <div id="loginView">
+      <h2 class="auth-title">Welcome back</h2>
+      <p class="auth-help">Log in to continue to your VIBRA TRIANGLE account.</p>
+      <div id="loginStatus" class="status"></div>
+      <div class="form">
+        <input id="loginEmail" type="email" autocomplete="email" placeholder="Email address">
+        <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
+        <button type="button" class="btn primary" id="loginBtn">Log in</button>
+      </div>
+      <div class="auth-links">
+        <button type="button" class="text-btn" id="showSignup">Create account</button>
+        <button type="button" class="text-btn" id="forgotBtn">Forgot password?</button>
+      </div>
+    </div>
+
+    <div id="signupView" class="hidden">
+      <h2 class="auth-title">Create your account</h2>
+      <p class="auth-help">Enter your details. In the live backend, a verification code will be sent to your chosen email before the account is activated.</p>
+      <div id="signupStatus" class="status"></div>
+      <div class="form">
+        <input id="signupName" type="text" autocomplete="name" placeholder="Full name">
+        <input id="signupEmail" type="email" autocomplete="email" placeholder="Email address">
+        <input id="signupPassword" type="password" autocomplete="new-password" placeholder="Create password">
+        <button type="button" class="btn primary" id="createBtn">Continue</button>
+      </div>
+      <div class="auth-links">
+        <button type="button" class="text-btn" id="backLogin">← Back to login</button>
+      </div>
+    </div>
+
+    <div id="verifyView" class="hidden">
+      <h2 class="auth-title">Verify your email</h2>
+      <p class="auth-help">Enter the 6-digit verification code sent to <strong id="verifyEmail"></strong>.</p>
+      <div id="verifyStatus" class="status"></div>
+      <div class="otp-box">
+        <input maxlength="1" inputmode="numeric" class="otp">
+        <input maxlength="1" inputmode="numeric" class="otp">
+        <input maxlength="1" inputmode="numeric" class="otp">
+        <input maxlength="1" inputmode="numeric" class="otp">
+        <input maxlength="1" inputmode="numeric" class="otp">
+        <input maxlength="1" inputmode="numeric" class="otp">
+      </div>
+      <button type="button" class="btn primary" id="verifyBtn" style="width:100%;margin-top:12px">Verify email</button>
+      <p class="otp-note" style="margin-top:12px">Email delivery requires the secure backend/email service in Phase 2. This front-end is prepared for that connection.</p>
+      <button type="button" class="text-btn" id="verifyBack">← Back</button>
+    </div>
+
+    <div id="forgotView" class="hidden">
+      <h2 class="auth-title">Reset password</h2>
+      <p class="auth-help">Enter your email. The live version will send a secure password-reset link.</p>
+      <div id="forgotStatus" class="status"></div>
+      <div class="form">
+        <input id="forgotEmail" type="email" placeholder="Email address">
+        <button type="button" class="btn primary" id="forgotSend">Send reset link</button>
+      </div>
+      <button type="button" class="text-btn" id="forgotBack">← Back to login</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP: FOOTER ONLY APPEARS AFTER LOGIN -->
+<div id="app" class="app">
+  <header class="topbar">
+    <div class="brand">VIBRA <span>TRIANGLE</span></div>
+    <button type="button" class="profile-btn" id="profileBtn">👤</button>
+  </header>
+
+  <section id="home" class="page active">
+    <div class="hero"><small id="welcome">WELCOME</small><h1>Live your <span>VIBRA.</span></h1><p class="muted">Your social, rewards and digital experience.</p></div>
+    <div class="grid">
+      <div class="card"><div class="icon">💬</div><h3>Chat</h3><p class="muted">Connect with people.</p><button class="btn secondary" data-go="chat">Open</button></div>
+      <div class="card"><div class="icon">🎬</div><h3>Videos</h3><p class="muted">Discover content.</p><button class="btn secondary" data-go="videos">Open</button></div>
+      <div class="card"><div class="icon">🎁</div><h3>Gift Cards</h3><p class="muted">Browse gift cards.</p><button class="btn secondary" data-go="gifts">Open</button></div>
+      <div class="card"><div class="icon">📋</div><h3>Surveys + Rewards</h3><p class="muted">Complete eligible rewards.</p><button class="btn secondary" data-go="surveys">Open</button></div>
+      <div class="card"><div class="icon">👥</div><h3>Referrals</h3><p class="muted">Invite and earn.</p><button class="btn secondary" data-go="referrals">Open</button></div>
+      <div class="card"><div class="icon">🌐</div><h3>Website Builder</h3><p class="muted">Build a website preview.</p><button class="btn secondary" data-go="builder">Open</button></div>
+      <div class="card"><div class="icon">🤖</div><h3>AI</h3><p class="muted">AI tools and assistance.</p><button class="btn secondary" data-go="ai">Open</button></div>
+      <div class="card"><div class="icon">💰</div><h3>Wallet</h3><p class="muted">Money and transactions.</p><button class="btn primary" data-go="wallet">Open wallet</button></div>
+    </div>
+  </section>
+
+  <section id="chat" class="page"><button class="back" data-go="home">← Home</button><h2>💬 Chat</h2><div id="chatbox" class="chat"><div class="bubble">Welcome to VIBRA Chat 👋</div></div><div class="row"><input id="msg" placeholder="Write a message"><button class="btn primary" id="send">Send</button></div></section>
+
+  <section id="videos" class="page"><button class="back" data-go="home">← Home</button><h2>🎬 Videos</h2><div class="grid"><div class="card"><div class="icon">▶️</div><h3>Featured</h3><p class="muted">Video feed is ready for backend content.</p></div><div class="card"><div class="icon">🔥</div><h3>Trending</h3><p class="muted">Trending content will appear here.</p></div></div></section>
+
+  <section id="gifts" class="page"><button class="back" data-go="home">← Home</button><h2>🎁 Gift Cards</h2><div class="grid"><div class="card"><h3>🎮 Gaming</h3><p class="muted">Gift-card marketplace.</p><button class="btn secondary" data-demo="Gift-card checkout will be connected in the payment phase.">View cards</button></div><div class="card"><h3>🛍️ Shopping</h3><p class="muted">Shopping gift cards.</p><button class="btn secondary" data-demo="Gift-card checkout will be connected in the payment phase.">View cards</button></div></div></section>
+
+  <section id="me" class="page"><button class="back" data-go="home">← Home</button><div class="profile"><div class="avatar">👤</div><div><h2 id="name">VIBRA User</h2><div id="mail" class="muted"></div><b>⭐ Level 1</b><div class="muted">680 / 1,000 XP</div></div></div><div class="grid" style="margin-top:15px"><div class="card"><h3>💰 Wallet</h3><button class="btn secondary" data-go="wallet">Open</button></div><div class="card"><h3>💳 Payments</h3><button class="btn secondary" data-go="payments">Open</button></div><div class="card"><h3>📋 Rewards</h3><button class="btn secondary" data-go="surveys">Open</button></div><div class="card"><h3>👥 Referrals</h3><button class="btn secondary" data-go="referrals">Open</button></div><div class="card"><h3>⚙️ Settings</h3><button class="btn secondary" data-go="settings">Open</button></div></div><button class="btn secondary" style="width:100%;margin-top:14px" id="logout">Log out</button></section>
+
+  <section id="wallet" class="page"><button class="back" data-go="me">← Me</button><h2>💰 Wallet</h2><div class="card"><div class="muted">Available balance</div><div class="balance">₦0.00</div><button class="btn primary" data-demo="Add money will be connected to the payment backend.">＋ Add money</button><button class="btn secondary" data-demo="Withdrawals will be connected securely in the backend.">↗ Withdraw</button></div><h3 style="margin:18px 0 10px">Recent activity</h3><div class="card"><b>No transactions yet</b><p class="muted">Your transaction history will appear here.</p></div></section>
+
+  <section id="payments" class="page"><button class="back" data-go="me">← Me</button><h2>💳 Payments</h2><div class="grid"><div class="card"><b>Total paid</b><div class="balance">₦0</div></div><div class="card"><b>Total received</b><div class="balance">₦0</div></div></div><div class="card" style="margin-top:13px"><b>No transactions yet</b><p class="muted">Payment history will appear after the backend is connected.</p></div></section>
+
+  <section id="surveys" class="page"><button class="back" data-go="home">← Home</button><h2>📋 Surveys + Rewards</h2><div class="grid"><div class="card"><h3>Quick opinion</h3><p class="muted">About 5 minutes</p><b>₦500 reward</b><button class="btn secondary" data-demo="Survey provider connection is planned for the backend phase.">Check eligibility</button></div><div class="card"><h3>Technology habits</h3><p class="muted">About 10 minutes</p><b>₦1,000 reward</b><button class="btn secondary" data-demo="Survey provider connection is planned for the backend phase.">Check eligibility</button></div></div></section>
+
+  <section id="referrals" class="page"><button class="back" data-go="home">← Home</button><h2>👥 Referrals</h2><div class="card"><p class="muted">Your referral code</p><div class="balance" style="font-size:28px">VIBRA2026</div><button class="btn primary" id="copy">Copy code</button></div></section>
+
+  <section id="builder" class="page"><button class="back" data-go="home">← Home</button><h2>🌐 Website Builder</h2><div class="card"><input id="site" placeholder="Website title"><button class="btn primary" id="build" style="margin-top:10px;width:100%">Create preview</button><div id="preview"></div></div></section>
+
+  <section id="ai" class="page"><button class="back" data-go="home">← Home</button><h2>🤖 VIBRA AI</h2><div class="card"><input id="question" placeholder="Ask something"><button class="btn primary" id="ask" style="margin-top:10px;width:100%">Ask AI</button><p id="answer" class="muted" style="margin-top:12px"></p></div></section>
+
+  <section id="settings" class="page"><button class="back" data-go="me">← Me</button><h2>⚙️ Settings</h2><div class="card"><b>Account</b><p class="muted">Security, notifications and preferences will be expanded during backend development.</p></div></section>
+</div>
+
+<nav id="bottomNav" class="bottom">
+  <button data-go="home"><b>🏠</b>Home</button>
+  <button data-go="chat"><b>💬</b>Chat</button>
+  <button data-go="videos"><b>🎬</b>Videos</button>
+  <button data-go="gifts"><b>🎁</b>Gifts</button>
+  <button data-go="me"><b>👤</b>Me</button>
+</nav>
+<div id="toast" class="toast"></div>
+
 <script>
 (function(){
-function $(id){return document.getElementById(id)}
-function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2200)}
-function go(id){document.querySelectorAll(".page").forEach(function(x){x.classList.remove("active")});var p=$(id);if(p)p.classList.add("active");document.querySelectorAll(".bottom button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-go")===id)});window.scrollTo(0,0)}
-function enter(name,email){$("auth").style.display="none";$("app").style.display="block";$("name").textContent=name;$("mail").textContent=email;$("welcome").textContent="WELCOME BACK, "+name.toUpperCase();go("home")}
-$("loginBtn").onclick=function(){var e=$("le").value.trim(),p=$("lp").value;if(!e||!p){toast("Please enter your email and password.");return}localStorage.setItem("vibra",JSON.stringify({name:e.split("@")[0],email:e}));enter(e.split("@")[0],e)}
-$("signupLink").onclick=function(){$("login").style.display="none";$("signup").style.display="grid"}
-$("backBtn").onclick=function(){$("signup").style.display="none";$("login").style.display="grid"}
-$("signupBtn").onclick=function(){var n=$("sn").value.trim(),e=$("se").value.trim(),p=$("sp").value;if(!n||!e||!p){toast("Please fill in all fields.");return}localStorage.setItem("vibra",JSON.stringify({name:n,email:e}));enter(n,e)}
-document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.getAttribute("data-go"))}})
-document.querySelectorAll("[data-demo]").forEach(function(b){b.onclick=function(){toast(b.getAttribute("data-demo"))}})
-$("send").onclick=function(){var v=$("msg").value.trim();if(!v){toast("Write a message first.");return}var d=document.createElement("div");d.className="bubble me";d.textContent=v;$("chatbox").appendChild(d);$("msg").value="";setTimeout(function(){var r=document.createElement("div");r.className="bubble";r.textContent="VIBRA: Message received 👍";$("chatbox").appendChild(r)},300)}
-$("copy").onclick=function(){toast("Referral code: VIBRA2026")}
-$("build").onclick=function(){var v=$("site").value.trim();if(!v){toast("Enter a website title.");return}$("preview").innerHTML="<div class='card'><h3>"+v.replace(/[<>]/g,"")+"</h3><p class='muted'>Your website preview is ready.</p></div>";toast("Preview created.")}
-$("ask").onclick=function(){if(!$("question").value.trim()){toast("Enter a question.");return}$("answer").textContent="Phase 1 AI interface is working. The live AI service will be connected securely in the backend phase."}
-$("profileBtn").onclick=function(){go("me")}
-$("logout").onclick=function(){localStorage.removeItem("vibra");location.reload()}
-var saved=localStorage.getItem("vibra");if(saved){try{var u=JSON.parse(saved);enter(u.name,u.email)}catch(e){localStorage.removeItem("vibra")}}
-})();
-</script></body></html>
+"use strict";
+const $=id=>document.getElementById(id);
+
+function showStatus(id,msg,type){
+  const el=$(id); el.textContent=msg; el.className="status show "+type;
+}
+function clearStatus(id){const el=$(id);el.className="status";el.textContent=""}
+function toast(msg){
+  const t=$("toast");t.textContent=msg;t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2300);
+}
+function go(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  const page=$(id);if(page)page.classList.add("active");
+  document.querySelectorAll(".bottom button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));
+  window.scrollTo(0,0);
+}
+function enterApp(name,email){
+  $("authScreen").classList.add("hidden");
+  $("app").style.display="block";
+  $("bottomNav").style.display="grid";
+  $("name").textContent=name;
+  $("mail").textContent=email;
+  $("welcome").textContent="WELCOME BACK, "+name.toUpperCase();
+  go("home");
+}
+function successfulLogin(name,email){
+  showStatus("loginStatus","Login Successfully","success");
+  setTimeout(()=>enterApp(name,email),650);
+}
+
+$("loginBtn").onclick=function(){
+  const email=$("loginEmail").value.trim();
+  const pass=$("loginPassword").value;
+  clearStatus("loginStatus");
+  if(!email||!pass){
+    showStatus("loginStatus","Login Unsuccessful — please enter your email and password.","error");return;
+  }
+  localStorage.setItem("vibraUser",JSON.stringify({name:email.split("@")[0],email:email}));
+  successfulLogin(email.split("@")[0],email);
+};
+
+$("showSignup").onclick=function(){
+  $("loginView").classList.add("hidden");$("signupView").classList.remove("hidden");
+  clearStatus("loginStatus");
+};
+$("backLogin").onclick=function(){$("signupView").classList.add("hidden");$("loginView").classList.remove("hidden");};
+$("forgotBtn").onclick=function(){$("loginView").classList.add("hidden");$("forgotView").classList.remove("hidden");};
+$("forgotBack").onclick=function(){$("forgotView").classList.add("hidden");$("loginView").classList.remove("hidden");};
+
+let pendingUser=null;
+$("createBtn").onclick=function(){
+  const name=$("signupName").value.trim(),email=$("signupEmail").value.trim(),pass=$("signupPassword").value;
+  clearStatus("signupStatus");
+  if(!name||!email||!pass){
+    showStatus("signupStatus","Account creation unsuccessful — complete all fields.","error");return;
+  }
+  if(pass.length<6){
+    showStatus("signupStatus","Account creation unsuccessful — password must be at least 6 characters.","error");return;
+  }
+  pendingUser={name,email};
+  $("verifyEmail").textContent=email;
+  $("signupView").classList.add("hidden");$("verifyView").classList.remove("hidden");
+  showStatus("verifyStatus","Verification code requested. In the live version it will be emailed to you.","success");
+};
+
+document.querySelectorAll(".otp").forEach((input,i)=>{
+  input.addEventListener("input",()=>{
+    input.value=input.value.replace(/\D/g,"").slice(0,1);
+    if(input.value && i<5) document.querySelectorAll(".otp")[i+1].focus();
+  });
+});
+
+$("verifyBtn").onclick=function(){
+  const code=[...document.querySelectorAll(".otp")].map(x=>x.value).join("");
+  if(code.length!==6){
+    showStatus("verifyStatus","Verification unsuccessful — enter the 6-digit code.","error");return;
+  }
+  localStorage.setItem("vibraUser",JSON.stringify(pendingUser));
+  showStatus("verifyStatus","Login Successfully","success");
+  setTimeout(()=>enterApp(pendingUser.name,pendingUser.email),800);
+};
+
+$("verifyBack").onclick=function(){$("verifyView").classList.add("hidden");$("signupView").classList.remove("hidden");};
+$("forgotSend").onclick=function(){
+  const e=$("forgotEmail").value.trim();
+  if(!e){showStatus("forgotStatus","Request unsuccessful — enter your email.","error");return;}
+  showStatus("forgotStatus","Reset request successful. Email delivery will be handled by the secure backend.","success");
+};
+
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+document.querySelectorAll("[data-demo]").forEach(b=>b.onclick=()=>toast(b.dataset.demo));
+
+$("profileBtn").onclick=()=>go("me");
+$("logout").onclick=function(){
+  localStorage.removeItem("vibraUser");
+  $("app").style.display="none";$("bottomNav").style.display="none";
+  $("authScreen").classList.remove("hidden");
+  $("loginEmail").value="";$("loginPassword").value="";
+  go("home");
+};
+
+$("send").onclick=function(){
+  const v=$("msg").value.trim();if(!v){toast("Write a message first.");return}
+  const d=document.createElement("div");d.className="bubble me";d.textContent=v;$("chatbox").appendChild(d);$
