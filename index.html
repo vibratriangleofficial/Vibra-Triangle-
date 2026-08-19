@@ -1,139 +1,54 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#070a12">
-<title>VIBRA TRIANGLE</title>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VIBRA TRIANGLE</title>
 <style>
-:root{--bg:#070a12;--panel:#0d1220;--panel2:#12192a;--line:#202b43;--text:#f7f9ff;--muted:#8994ad;--cyan:#20e6ff;--purple:#8d6bff;--green:#35df91;--red:#ff5875}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
-
-#auth{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 50% 0,#17294a 0,#070a12 52%)}.authbox{width:min(410px,100%);background:rgba(13,18,32,.96);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 25px 80px #0008}.mark{text-align:center;font-size:29px;font-weight:900;letter-spacing:1px}.mark i{font-style:normal;color:var(--cyan)}.tag{text-align:center;color:var(--muted);margin:9px 0 24px;line-height:1.5}.form{display:grid;gap:12px}input,textarea{width:100%;border:1px solid #2a3651;background:#080d18;color:#fff;border-radius:12px;padding:13px;outline:none}input:focus,textarea:focus{border-color:var(--cyan)}.btn{border:0;border-radius:12px;padding:13px 16px;font-weight:800}.primary{background:var(--cyan);color:#001017}.ghost{background:var(--panel2);color:#fff}.authlinks{display:flex;justify-content:space-between;margin-top:13px}.link{border:0;background:none;color:var(--cyan);font-size:13px}
-
-#app{min-height:100vh;padding-bottom:90px}header{position:sticky;top:0;z-index:50;background:#070a12e8;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.top{height:64px;max-width:1100px;margin:auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:20px;font-weight:900}.brand i{font-style:normal;color:var(--cyan)}.headicons{display:flex;gap:8px}.headicons button{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:#fff}
-
-main{max-width:1100px;margin:auto;padding:18px}.page{display:none}.page.active{display:block}.welcome{padding:22px 3px 14px}.welcome small{color:var(--cyan);font-weight:700}.welcome h1{font-size:clamp(34px,8vw,60px);margin:8px 0}.welcome h1 span{color:var(--cyan)}.welcome p{color:var(--muted);max-width:650px;line-height:1.6}.quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.ad{height:76px;border:1px dashed #34415f;border-radius:16px;display:grid;place-items:center;color:#626f89;margin:14px 0 25px}.title{margin-top:28px}.title h2{margin:0;font-size:24px}.title p{margin:5px 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:13px;margin-top:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px}.service{min-height:170px}.service .ico{font-size:30px}.service h3{margin:10px 0 6px}.service p{color:var(--muted);font-size:14px;line-height:1.5}.service button{width:100%;margin-top:14px}.cardline{display:flex;align-items:center;justify-content:space-between;gap:12px}.muted{color:var(--muted)}.back{background:var(--panel2);color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:16px}.sectiontop{display:flex;justify-content:space-between;align-items:center;gap:10px}.sectiontop h2{margin:0}.pill{padding:6px 9px;border-radius:99px;background:#13233a;color:var(--cyan);font-size:12px}.balance{background:linear-gradient(135deg,#12233a,#101528);border:1px solid #294968;border-radius:22px;padding:22px;margin-top:15px}.balance small{color:var(--muted)}.money{font-size:38px;font-weight:900;color:var(--cyan);margin:7px 0}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.stat{background:#080d18;border-radius:13px;padding:13px}.stat span{font-size:12px;color:var(--muted)}.stat strong{display:block;margin-top:5px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.list{display:grid;gap:10px;margin-top:15px}.item{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px}.item small{display:block;color:var(--muted);margin-top:4px}.green{color:var(--green)}.red{color:var(--red)}
-
-.profile{display:flex;gap:15px;align-items:center;background:linear-gradient(135deg,#121b30,#0d1220);border:1px solid var(--line);border-radius:22px;padding:19px}.avatar{width:68px;height:68px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#16304b,#281c50);font-size:30px}.profile h2{margin:0 0 5px}.xpbar{height:8px;background:#080d18;border-radius:99px;overflow:hidden;margin-top:9px}.xpbar i{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--cyan),var(--purple))}
-
-.chatbox{height:320px;background:#080d18;border:1px solid var(--line);border-radius:17px;padding:12px;overflow:auto;margin-top:15px}.bubble{max-width:78%;padding:10px 12px;border-radius:14px;background:#172036;margin:7px 0}.bubble.me{margin-left:auto;background:#07596a}.chatrow{display:flex;gap:8px;margin-top:10px}.chatrow input{flex:1}.video{aspect-ratio:16/9;background:linear-gradient(135deg,#11182a,#070a12);border-radius:14px;display:grid;place-items:center;font-size:45px}.giftprice{color:var(--green);font-weight:800}.surveyreward{color:#ffd36b;font-weight:800}.profilemenu{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:15px}.profilemenu button{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:15px;color:#fff;padding:15px}.profilemenu b{display:block;font-size:16px}.profilemenu span{display:block;color:var(--muted);font-size:12px;margin-top:5px}
-
-.bottom{position:fixed;z-index:100;bottom:0;left:0;right:0;background:#080c16f2;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr)}.bottom button{background:none;border:0;color:#7f8ba7;font-size:11px;padding:4px}.bottom button strong{display:block;font-size:21px;margin-bottom:2px}.bottom button.active{color:var(--cyan)}
-
-#toast{position:fixed;z-index:300;left:50%;bottom:100px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#10131a;border-radius:12px;padding:12px 16px;transition:.25s;max-width:90%;text-align:center}#toast.show{opacity:1;transform:translate(-50%,0)}
-.modal{display:none;position:fixed;inset:0;z-index:200;background:#000b;padding:16px;align-items:center;justify-content:center}.modal.show{display:flex}.modalbox{width:min(540px,100%);background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.close{background:var(--panel2);color:#fff;border:0;border-radius:9px;padding:8px 11px}
-footer{text-align:center;color:#65708a;padding:30px 10px}
-@media(max-width:600px){main{padding:14px}.service{min-height:auto}.stats{grid-template-columns:1fr 1fr}}
-</style>
-</head>
-<body>
-
-<div id="auth">
-  <div class="authbox">
-    <div class="mark">VIBRA <i>TRIANGLE</i></div>
-    <div class="tag">Your social, rewards and digital experience.</div>
-
-    <div id="loginForm" class="form">
-      <input id="email" type="email" placeholder="Email address">
-      <input id="password" type="password" placeholder="Password">
-      <button class="btn primary" onclick="login()">Log in</button>
-      <div class="authlinks">
-        <button class="link" onclick="showSignup()">Create account</button>
-        <button class="link" onclick="toast('Password recovery will be connected during backend setup.')">Forgot password?</button>
-      </div>
-    </div>
-
-    <div id="signupForm" class="form hidden">
-      <input id="signupName" placeholder="Full name">
-      <input id="signupEmail" type="email" placeholder="Email address">
-      <input id="signupPassword" type="password" placeholder="Password">
-      <button class="btn primary" onclick="signup()">Create account</button>
-      <button class="btn ghost" onclick="showLogin()">Back to login</button>
-    </div>
-
-    <p class="muted" style="font-size:12px;text-align:center;margin:18px 0 0">Development mode: this demo stores the profile locally. Real authentication comes in Phase 2.</p>
-  </div>
-</div>
-
-<div id="app" class="hidden">
-<header><div class="top">
-  <div class="brand">VIBRA <i>TRIANGLE</i></div>
-  <div class="headicons"><button onclick="openPage('notifications')">🔔</button><button onclick="openPage('me')">👤</button></div>
-</div></header>
-
-<main>
-<!-- HOME -->
-<section id="home" class="page active">
-  <div class="welcome">
-    <small id="hello">WELCOME BACK</small>
-    <h1>Live your <span>VIBRA</span>.</h1>
-    <p>Connect with people, discover videos, earn rewards, build websites and manage your digital wallet.</p>
-    <div class="quick"><button class="btn primary" onclick="openPage('wallet')">💰 Wallet</button><button class="btn ghost" onclick="openPage('me')">👤 My account</button></div>
-  </div>
-  <div class="ad">ADVERTISEMENT SPACE</div>
-
-  <div class="title"><h2>Quick access</h2><p>Everything you use most.</p></div>
-  <div class="grid">
-    <div class="card service"><div class="ico">💬</div><h3>Chat</h3><p>Connect and communicate.</p><button class="btn ghost" onclick="openPage('chat')">Open Chat</button></div>
-    <div class="card service"><div class="ico">🎬</div><h3>Videos</h3><p>Watch and discover content.</p><button class="btn ghost" onclick="openPage('videos')">Watch Videos</button></div>
-    <div class="card service"><div class="ico">🎁</div><h3>Gift Cards</h3><p>Browse gift-card categories.</p><button class="btn ghost" onclick="openPage('gifts')">Browse Gifts</button></div>
-    <div class="card service"><div class="ico">📋</div><h3>Surveys + Rewards</h3><p>Complete eligible surveys and track rewards.</p><button class="btn ghost" onclick="openPage('surveys')">View Rewards</button></div>
-    <div class="card service"><div class="ico">👥</div><h3>Referrals</h3><p>Invite people and track your rewards.</p><button class="btn ghost" onclick="openPage('referrals')">Referral Center</button></div>
-    <div class="card service"><div class="ico">🌐</div><h3>Website Builder</h3><p>Create a simple website preview.</p><button class="btn ghost" onclick="openPage('builder')">Build</button></div>
-    <div class="card service"><div class="ico">🤖</div><h3>AI</h3><p>Ask for general guidance and ideas.</p><button class="btn ghost" onclick="openPage('ai')">Open AI</button></div>
-  </div>
-
-  <div class="title"><h2>Your activity</h2><p>A quick look at your account.</p></div>
-  <div class="grid">
-    <div class="card"><div class="cardline"><span>⭐ Level</span><b>1</b></div><p style="margin-top:9px">680 / 1,000 XP</p><div class="xpbar"><i></i></div></div>
-    <div class="card"><div class="cardline"><span>💰 Wallet</span><b>₦0.00</b></div><p style="margin-top:9px">Available balance</p></div>
-    <div class="card"><div class="cardline"><span>👥 Referrals</span><b>0</b></div><p style="margin-top:9px">People invited</p></div>
-  </div>
-</section>
-
-<!-- CHAT -->
-<section id="chat" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>💬 Chat</h2><span class="pill">VIBRA</span></div><p class="muted">Your conversations will live here.</p><div class="chatbox" id="chatbox"><div class="bubble">Welcome to VIBRA Chat 👋</div><div class="bubble">Real-time messaging will connect in Phase 2.</div></div><div class="chatrow"><input id="chatinput" placeholder="Write a message..."><button class="btn primary" onclick="sendChat()">Send</button></div></section>
-
-<!-- VIDEOS -->
-<section id="videos" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>🎬 Videos</h2><span class="pill">DISCOVER</span></div><p class="muted">Your video feed.</p><div class="grid"><div class="card"><div class="video">▶</div><h3>Featured</h3><p class="muted">Video content area.</p></div><div class="card"><div class="video">▶</div><h3>Trending</h3><p class="muted">Trending content area.</p></div><div class="card"><div class="video">▶</div><h3>Following</h3><p class="muted">Creators you follow.</p></div></div></section>
-
-<!-- GIFTS -->
-<section id="gifts" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>🎁 Gift Cards</h2><span class="pill">MARKET</span></div><p class="muted">Select a category. Real checkout will be connected later.</p><div class="grid"><div class="card"><h3>🎮 Gaming</h3><p>Gaming and entertainment cards.</p><div class="giftprice">From ₦1,000</div><button class="btn ghost" onclick="toast('Gift-card checkout is in development mode.')">View cards</button></div><div class="card"><h3>🛍️ Shopping</h3><p>Shopping and retail cards.</p><div class="giftprice">From ₦1,000</div><button class="btn ghost" onclick="toast('Gift-card checkout is in development mode.')">View cards</button></div><div class="card"><h3>🎵 Entertainment</h3><p>Entertainment subscriptions and cards.</p><div class="giftprice">From ₦1,000</div><button class="btn ghost" onclick="toast('Gift-card checkout is in development mode.')">View cards</button></div></div></section>
-
-<!-- ME -->
-<section id="me" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="profile"><div class="avatar">👤</div><div style="flex:1"><h2 id="pname">VIBRA User</h2><div id="pemail" class="muted">user@example.com</div><div style="margin-top:9px"><b>⭐ Level 1</b> · 680 XP</div><div class="xpbar"><i></i></div></div></div>
-<div class="profilemenu">
-<button onclick="openPage('wallet')">💰 <b>Wallet</b><span>Balance, add money & withdraw</span></button>
-<button onclick="openPage('payments')">💳 <b>Payments</b><span>Transactions & payment history</span></button>
-<button onclick="openPage('surveys')">📋 <b>Rewards</b><span>Survey and referral rewards</span></button>
-<button onclick="openPage('referrals')">👥 <b>Referrals</b><span>Invite and earn</span></button>
-<button onclick="openPage('builder')">🌐 <b>Website Builder</b><span>Create a site preview</span></button>
-<button onclick="openPage('ai')">🤖 <b>AI</b><span>General AI guidance</span></button>
-<button onclick="openPage('settings')">⚙️ <b>Settings</b><span>Account and security</span></button>
-<button onclick="openPage('notifications')">🔔 <b>Notifications</b><span>Updates and alerts</span></button>
-</div><button class="btn ghost" style="width:100%;margin-top:14px" onclick="logout()">Log out</button></section>
-
-<!-- WALLET -->
-<section id="wallet" class="page"><button class="back" onclick="openPage('me')">← Me</button><div class="sectiontop"><h2>💰 Wallet</h2><span class="pill">DEMO MODE</span></div><div class="balance"><small>Available balance</small><div class="money">₦0.00</div><div class="stats"><div class="stat"><span>Pending</span><strong>₦0.00</strong></div><div class="stat"><span>Total earned</span><strong>₦0.00</strong></div></div><div class="actions"><button class="btn primary" onclick="moneyModal('add')">＋ Add money</button><button class="btn ghost" onclick="moneyModal('withdraw')">↗ Withdraw</button></div></div><div class="title"><h2>Wallet activity</h2><p>Your balance sources.</p></div><div class="list"><div class="item cardline"><div><b>📋 Survey rewards</b><small>Earned from surveys</small></div><strong class="green">₦0.00</strong></div><div class="item cardline"><div><b>👥 Referral rewards</b><small>Earned from referrals</small></div><strong class="green">₦0.00</strong></div><div class="item cardline"><div><b>🎁 Gift purchases</b><small>Spent from wallet</small></div><strong>₦0.00</strong></div></div></section>
-
-<!-- PAYMENTS -->
-<section id="payments" class="page"><button class="back" onclick="openPage('me')">← Me</button><div class="sectiontop"><h2>💳 Payments</h2><span class="pill">HISTORY</span></div><div class="grid"><div class="card"><b>Total paid</b><div class="money" style="font-size:28px">₦0.00</div><p class="muted">All completed payments.</p></div><div class="card"><b>Total received</b><div class="money" style="font-size:28px">₦0.00</div><p class="muted">Rewards and credits.</p></div></div><div class="list"><div class="item"><b>No transactions yet</b><small>Completed, pending and failed transactions will appear here after the backend is connected.</small></div></div></section>
-
-<!-- REFERRALS -->
-<section id="referrals" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>👥 Referrals</h2><span class="pill">REWARDS</span></div><div class="balance"><small>Your referral code</small><div class="money" style="font-size:28px">VIBRA2026</div><button class="btn primary" onclick="copyReferral()">Copy code</button></div><div class="stats"><div class="stat"><span>People invited</span><strong>0</strong></div><div class="stat"><span>Successful referrals</span><strong>0</strong></div><div class="stat"><span>Total earned</span><strong>₦0.00</strong></div><div class="stat"><span>Pending reward</span><strong>₦0.00</strong></div></div></section>
-
-<!-- SURVEYS -->
-<section id="surveys" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>📋 Surveys + Rewards</h2><span class="pill">EARN</span></div><p class="muted">Demo opportunities for now. A legitimate survey provider will be connected later.</p><div class="list"><div class="item cardline"><div><b>Quick opinion</b><small>About 5 minutes · General audience</small></div><span class="surveyreward">₦500</span></div><div class="item cardline"><div><b>Technology habits</b><small>About 10 minutes · Eligibility required</small></div><span class="surveyreward">₦1,000</span></div><div class="item cardline"><div><b>Shopping experience</b><small>About 8 minutes · Eligibility required</small></div><span class="surveyreward">₦750</span></div></div><button class="btn primary" style="margin-top:15px" onclick="toast('Survey provider connection comes in the backend phase.')">Check available surveys</button></section>
-
-<!-- BUILDER -->
-<section id="builder" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>🌐 Website Builder</h2><span class="pill">CREATE</span></div><p class="muted">Make a simple preview from your phone.</p><div class="card" style="margin-top:15px"><div class="form"><input id="siteTitle" placeholder="Website title"><textarea id="siteDesc" placeholder="Describe your website"></textarea><button class="btn primary" onclick="previewSite()">Create preview</button></div><div id="sitePreview" style="margin-top:15px"></div></div></section>
-
-<!-- AI -->
-<section id="ai" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>🤖 VIBRA AI</h2><span class="pill">ASSIST</span></div><p class="muted">General guidance, ideas and everyday questions.</p><div class="card" style="margin-top:15px"><div class="form"><textarea id="aiq" placeholder="Ask something..."></textarea><button class="btn primary" onclick="askAI()">Ask VIBRA AI</button></div><div id="aianswer"></div></div></section>
-
-<!-- NOTIFICATIONS -->
-<section id="notifications" class="page"><button class="back" onclick="openPage('home')">← Home</button><div class="sectiontop"><h2>🔔 Notifications</h2><span class="pill">0 NEW</span></div><div class="list"><div class="item"><b>Welcome to VIBRA TRIANGLE</b><small>Your Phase 1 interface is ready. More services will activate as the backend is connected.</small></div></div></section>
-
-<!-- SETTINGS -->
-<section id="settings" class="page"><button class="back" onclick="openPage('me')">← Me</button><div class="sectiontop"><h2>⚙️ Settings</h2><span class="pill">ACCOUNT</span></div><div class="list"><div class="item cardline"><div><b>🔐 Security</b><small>Real authentication and account protection come in Pha
+*{box-sizing:border-box}body{margin:0;background:#070a12;color:#fff;font-family:Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}
+.auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at top,#17264a,#070a12 55%)}.box{width:min(390px,100%);padding:28px;background:#0e1422;border:1px solid #26334e;border-radius:24px}.logo{text-align:center;font-size:27px;font-weight:900}.logo span,.balance{color:#20e6ff}.sub,.muted{color:#8994aa}.sub{text-align:center;margin:8px 0 25px}.form{display:grid;gap:12px}input{padding:14px;border-radius:12px;border:1px solid #293651;background:#080d18;color:#fff;outline:0}.btn{border:0;border-radius:12px;padding:14px;font-weight:800}.primary{background:#20e6ff;color:#001016}.secondary{background:#172033;color:#fff}.link{background:none;border:0;color:#20e6ff}
+.app{display:none;min-height:100vh;padding-bottom:82px}.top{height:62px;position:sticky;top:0;z-index:5;background:#080c15ee;border-bottom:1px solid #202b43;display:flex;align-items:center;justify-content:space-between;padding:0 15px}.brand{font-weight:900}.brand span{color:#20e6ff}.top button{background:#121a2b;border:1px solid #26334e;color:#fff;border-radius:10px;padding:9px}
+.page{display:none;max-width:900px;margin:auto;padding:20px}.page.active{display:block}.hero{padding:20px 0}.hero h1{font-size:42px;margin:8px 0}.hero h1 span{color:#20e6ff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.card{background:#0e1422;border:1px solid #202b43;border-radius:18px;padding:17px}.card h3{margin:8px 0}.card button{width:100%;margin-top:12px}.icon{font-size:30px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#090d17f5;border-top:1px solid #202b43;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px}.bottom button{border:0;background:none;color:#78849e;font-size:11px}.bottom b{display:block;font-size:21px}.bottom .on{color:#20e6ff}.back{border:1px solid #26334e;background:#121a2b;color:#fff;border-radius:10px;padding:9px;margin-bottom:15px}.balance{font-size:36px;font-weight:900;margin:12px 0}.profile{display:flex;gap:14px;align-items:center}.avatar{width:65px;height:65px;border-radius:18px;background:#17233b;display:grid;place-items:center;font-size:28px}.chat{height:270px;overflow:auto;background:#080d18;border:1px solid #202b43;border-radius:15px;padding:12px}.bubble{background:#172033;padding:10px;border-radius:12px;margin:7px 0;max-width:80%}.me{margin-left:auto;background:#075b6c}.row{display:flex;gap:8px;margin-top:10px}.row input{flex:1}.toast{position:fixed;bottom:100px;left:50%;transform:translate(-50%,20px);opacity:0;background:#fff;color:#111;padding:12px 15px;border-radius:11px;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
+</style></head><body>
+<div id="auth" class="auth"><div class="box"><div class="logo">VIBRA <span>TRIANGLE</span></div><div class="sub">Connect • Create • Discover • Earn</div>
+<div id="login" class="form"><input id="le" type="email" placeholder="Email address"><input id="lp" type="password" placeholder="Password"><button type="button" class="btn primary" id="loginBtn">Log in</button><button type="button" class="link" id="signupLink">Create account</button></div>
+<div id="signup" class="form" style="display:none"><input id="sn" placeholder="Full name"><input id="se" type="email" placeholder="Email address"><input id="sp" type="password" placeholder="Password"><button type="button" class="btn primary" id="signupBtn">Create account</button><button type="button" class="btn secondary" id="backBtn">Back to login</button></div></div></div>
+<div id="app" class="app"><div class="top"><div class="brand">VIBRA <span>TRIANGLE</span></div><button type="button" id="profileBtn">👤</button></div>
+<section id="home" class="page active"><div class="hero"><small id="welcome">WELCOME</small><h1>Live your <span>VIBRA.</span></h1><p class="muted">Your social, rewards and digital experience.</p></div><div class="grid">
+<div class="card"><div class="icon">💬</div><h3>Chat</h3><p class="muted">Connect with people.</p><button class="btn secondary" data-go="chat">Open</button></div>
+<div class="card"><div class="icon">🎬</div><h3>Videos</h3><p class="muted">Discover content.</p><button class="btn secondary" data-go="videos">Open</button></div>
+<div class="card"><div class="icon">🎁</div><h3>Gift Cards</h3><p class="muted">Browse gift cards.</p><button class="btn secondary" data-go="gifts">Open</button></div>
+<div class="card"><div class="icon">📋</div><h3>Surveys + Rewards</h3><p class="muted">Complete eligible rewards.</p><button class="btn secondary" data-go="surveys">Open</button></div>
+<div class="card"><div class="icon">👥</div><h3>Referrals</h3><p class="muted">Invite and earn.</p><button class="btn secondary" data-go="referrals">Open</button></div>
+<div class="card"><div class="icon">🌐</div><h3>Website Builder</h3><p class="muted">Build a website preview.</p><button class="btn secondary" data-go="builder">Open</button></div>
+<div class="card"><div class="icon">🤖</div><h3>AI</h3><p class="muted">Ask for guidance.</p><button class="btn secondary" data-go="ai">Open</button></div>
+<div class="card"><div class="icon">💰</div><h3>Wallet</h3><p class="muted">Money and transactions.</p><button class="btn primary" data-go="wallet">Open wallet</button></div></div></section>
+<section id="chat" class="page"><button class="back" data-go="home">← Home</button><h2>💬 Chat</h2><div id="chatbox" class="chat"><div class="bubble">Welcome to VIBRA Chat 👋</div></div><div class="row"><input id="msg" placeholder="Write a message"><button class="btn primary" id="send">Send</button></div></section>
+<section id="videos" class="page"><button class="back" data-go="home">← Home</button><h2>🎬 Videos</h2><div class="grid"><div class="card"><div class="icon">▶️</div><h3>Featured video</h3><p class="muted">Video feed placeholder.</p></div><div class="card"><div class="icon">🔥</div><h3>Trending</h3><p class="muted">Trending content placeholder.</p></div></div></section>
+<section id="gifts" class="page"><button class="back" data-go="home">← Home</button><h2>🎁 Gift Cards</h2><div class="grid"><div class="card"><h3>🎮 Gaming</h3><p class="muted">Gaming cards.</p><button class="btn secondary" data-demo="Gift-card checkout">View cards</button></div><div class="card"><h3>🛍️ Shopping</h3><p class="muted">Shopping cards.</p><button class="btn secondary" data-demo="Gift-card checkout">View cards</button></div></div></section>
+<section id="me" class="page"><button class="back" data-go="home">← Home</button><div class="profile"><div class="avatar">👤</div><div><h2 id="name">VIBRA User</h2><div id="mail" class="muted"></div><b>⭐ Level 1</b><div class="muted">680 / 1,000 XP</div></div></div><div class="grid" style="margin-top:15px"><div class="card"><h3>💰 Wallet</h3><button class="btn secondary" data-go="wallet">Open</button></div><div class="card"><h3>💳 Payments</h3><button class="btn secondary" data-go="payments">Open</button></div><div class="card"><h3>📋 Rewards</h3><button class="btn secondary" data-go="surveys">Open</button></div><div class="card"><h3>👥 Referrals</h3><button class="btn secondary" data-go="referrals">Open</button></div><div class="card"><h3>⚙️ Settings</h3><button class="btn secondary" data-go="settings">Open</button></div></div><button class="btn secondary" style="width:100%;margin-top:14px" id="logout">Log out</button></section>
+<section id="wallet" class="page"><button class="back" data-go="me">← Me</button><h2>💰 Wallet</h2><div class="card"><div class="muted">Available balance</div><div class="balance">₦0.00</div><button class="btn primary" data-demo="Add money is demo-only in Phase 1.">＋ Add money</button><button class="btn secondary" data-demo="Withdrawals are not live until secure backend integration.">↗ Withdraw</button></div><h3>Recent activity</h3><div class="card"><b>No transactions yet</b><p class="muted">Transactions will appear here when the payment backend is connected.</p></div></section>
+<section id="payments" class="page"><button class="back" data-go="me">← Me</button><h2>💳 Payments</h2><div class="grid"><div class="card"><b>Total paid</b><div class="balance">₦0</div></div><div class="card"><b>Total received</b><div class="balance">₦0</div></div></div></section>
+<section id="surveys" class="page"><button class="back" data-go="home">← Home</button><h2>📋 Surveys + Rewards</h2><div class="grid"><div class="card"><h3>Quick opinion</h3><p class="muted">About 5 minutes</p><b>₦500 reward</b><button class="btn secondary" data-demo="Survey provider will be connected later.">Check eligibility</button></div><div class="card"><h3>Technology habits</h3><p class="muted">About 10 minutes</p><b>₦1,000 reward</b><button class="btn secondary" data-demo="Survey provider will be connected later.">Check eligibility</button></div></div></section>
+<section id="referrals" class="page"><button class="back" data-go="home">← Home</button><h2>👥 Referrals</h2><div class="card"><p class="muted">Your referral code</p><div class="balance" style="font-size:28px">VIBRA2026</div><button class="btn primary" id="copy">Copy code</button></div></section>
+<section id="builder" class="page"><button class="back" data-go="home">← Home</button><h2>🌐 Website Builder</h2><div class="card"><input id="site" placeholder="Website title"><button class="btn primary" id="build" style="margin-top:10px;width:100%">Create preview</button><div id="preview"></div></div></section>
+<section id="ai" class="page"><button class="back" data-go="home">← Home</button><h2>🤖 VIBRA AI</h2><div class="card"><input id="question" placeholder="Ask something"><button class="btn primary" id="ask" style="margin-top:10px;width:100%">Ask AI</button><p id="answer" class="muted"></p></div></section>
+<section id="settings" class="page"><button class="back" data-go="me">← Me</button><h2>⚙️ Settings</h2><div class="card"><b>Account</b><p class="muted">Real secure authentication will be added in Phase 2.</p></div></section>
+</div><nav class="bottom"><button data-go="home"><b>🏠</b>Home</button><button data-go="chat"><b>💬</b>Chat</button><button data-go="videos"><b>🎬</b>Videos</button><button data-go="gifts"><b>🎁</b>Gifts</button><button data-go="me"><b>👤</b>Me</button></nav><div id="toast" class="toast"></div>
+<script>
+(function(){
+function $(id){return document.getElementById(id)}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2200)}
+function go(id){document.querySelectorAll(".page").forEach(function(x){x.classList.remove("active")});var p=$(id);if(p)p.classList.add("active");document.querySelectorAll(".bottom button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-go")===id)});window.scrollTo(0,0)}
+function enter(name,email){$("auth").style.display="none";$("app").style.display="block";$("name").textContent=name;$("mail").textContent=email;$("welcome").textContent="WELCOME BACK, "+name.toUpperCase();go("home")}
+$("loginBtn").onclick=function(){var e=$("le").value.trim(),p=$("lp").value;if(!e||!p){toast("Please enter your email and password.");return}localStorage.setItem("vibra",JSON.stringify({name:e.split("@")[0],email:e}));enter(e.split("@")[0],e)}
+$("signupLink").onclick=function(){$("login").style.display="none";$("signup").style.display="grid"}
+$("backBtn").onclick=function(){$("signup").style.display="none";$("login").style.display="grid"}
+$("signupBtn").onclick=function(){var n=$("sn").value.trim(),e=$("se").value.trim(),p=$("sp").value;if(!n||!e||!p){toast("Please fill in all fields.");return}localStorage.setItem("vibra",JSON.stringify({name:n,email:e}));enter(n,e)}
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.getAttribute("data-go"))}})
+document.querySelectorAll("[data-demo]").forEach(function(b){b.onclick=function(){toast(b.getAttribute("data-demo"))}})
+$("send").onclick=function(){var v=$("msg").value.trim();if(!v){toast("Write a message first.");return}var d=document.createElement("div");d.className="bubble me";d.textContent=v;$("chatbox").appendChild(d);$("msg").value="";setTimeout(function(){var r=document.createElement("div");r.className="bubble";r.textContent="VIBRA: Message received 👍";$("chatbox").appendChild(r)},300)}
+$("copy").onclick=function(){toast("Referral code: VIBRA2026")}
+$("build").onclick=function(){var v=$("site").value.trim();if(!v){toast("Enter a website title.");return}$("preview").innerHTML="<div class='card'><h3>"+v.replace(/[<>]/g,"")+"</h3><p class='muted'>Your website preview is ready.</p></div>";toast("Preview created.")}
+$("ask").onclick=function(){if(!$("question").value.trim()){toast("Enter a question.");return}$("answer").textContent="Phase 1 AI interface is working. The live AI service will be connected securely in the backend phase."}
+$("profileBtn").onclick=function(){go("me")}
+$("logout").onclick=function(){localStorage.removeItem("vibra");location.reload()}
+var saved=localStorage.getItem("vibra");if(saved){try{var u=JSON.parse(saved);enter(u.name,u.email)}catch(e){localStorage.removeItem("vibra")}}
+})();
+</script></body></html>
