@@ -2,937 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#080b16">
+<meta name="description" content="VIBRA TRIANGLE">
 <title>VIBRA TRIANGLE</title>
-
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#080b16;
-  color:#fff;
-  min-height:100vh;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-  font:inherit;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#0c1020;
-  border-bottom:1px solid #202743;
-  padding:14px 18px;
-}
-
-.nav{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo{
-  font-size:21px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.logo span{
-  color:#00e5ff;
-}
-
-.menu{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.menu button{
-  background:#151b31;
-  color:#cbd2ea;
-  padding:9px 12px;
-  border-radius:10px;
-}
-
-.menu button:hover{
-  background:#00bcd4;
-  color:#001014;
-}
-
-.hero{
-  max-width:1100px;
-  margin:auto;
-  padding:55px 18px 30px;
-  text-align:center;
-}
-
-.hero h1{
-  font-size:clamp(38px,8vw,75px);
-  line-height:1;
-  margin-bottom:18px;
-}
-
-.hero h1 span{
-  color:#00e5ff;
-}
-
-.hero p{
-  max-width:650px;
-  margin:auto;
-  color:#aeb7d0;
-  line-height:1.7;
-}
-
-.hero-buttons{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.primary{
-  background:#00e5ff;
-  color:#001014;
-  padding:13px 20px;
-  border-radius:12px;
-  font-weight:bold;
-}
-
-.secondary{
-  background:#171d34;
-  color:#fff;
-  padding:13px 20px;
-  border-radius:12px;
-}
-
-.ad{
-  max-width:1000px;
-  min-height:80px;
-  margin:20px auto;
-  border:1px dashed #39415f;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#69738f;
-}
-
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 18px;
-}
-
-.section-title{
-  margin-bottom:20px;
-}
-
-.section-title h2{
-  font-size:27px;
-}
-
-.section-title p{
-  color:#8993af;
-  margin-top:6px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-
-.card{
-  background:#101528;
-  border:1px solid #202743;
-  border-radius:17px;
-  padding:20px;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  border-color:#00bcd4;
-}
-
-.icon{
-  font-size:30px;
-  margin-bottom:12px;
-}
-
-.card h3{
-  margin-bottom:8px;
-}
-
-.card p{
-  color:#8f99b4;
-  line-height:1.5;
-  font-size:14px;
-}
-
-.card button{
-  margin-top:16px;
-  width:100%;
-  padding:11px;
-  border-radius:10px;
-  background:#19203a;
-  color:#fff;
-}
-
-.card button:hover{
-  background:#00bcd4;
-  color:#001014;
-}
-
-.panel{
-  display:none;
-  max-width:800px;
-  margin:20px auto;
-  padding:22px;
-  background:#101528;
-  border:1px solid #26304e;
-  border-radius:18px;
-}
-
-.panel.active{
-  display:block;
-}
-
-.panel h2{
-  margin-bottom:10px;
-}
-
-.panel p{
-  color:#9aa4be;
-  line-height:1.6;
-}
-
-.close{
-  float:right;
-  background:#252d49;
-  color:#fff;
-  border-radius:8px;
-  padding:6px 10px;
-}
-
-.form{
-  display:grid;
-  gap:12px;
-  margin-top:18px;
-}
-
-input,textarea,select{
-  width:100%;
-  background:#080d1d;
-  border:1px solid #2b3452;
-  color:#fff;
-  padding:13px;
-  border-radius:10px;
-  outline:none;
-}
-
-input:focus,textarea:focus,select:focus{
-  border-color:#00e5ff;
-}
-
-.form button{
-  background:#00e5ff;
-  color:#001014;
-  padding:13px;
-  border-radius:10px;
-  font-weight:bold;
-}
-
-.balance{
-  font-size:34px;
-  font-weight:bold;
-  color:#00e5ff;
-  margin:15px 0;
-}
-
-.chat-box{
-  height:260px;
-  overflow-y:auto;
-  background:#080d1d;
-  padding:15px;
-  border-radius:12px;
-  margin:15px 0;
-}
-
-.message{
-  padding:10px 12px;
-  background:#18203a;
-  border-radius:12px;
-  margin-bottom:8px;
-  width:max-content;
-  max-width:85%;
-}
-
-.message.me{
-  margin-left:auto;
-  background:#006b7a;
-}
-
-.chat-input{
-  display:flex;
-  gap:8px;
-}
-
-.chat-input input{
-  flex:1;
-}
-
-.chat-input button{
-  background:#00e5ff;
-  color:#001014;
-  border-radius:10px;
-  padding:0 16px;
-}
-
-.video{
-  aspect-ratio:16/9;
-  background:#070a14;
-  border-radius:13px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:42px;
-  margin-bottom:12px;
-}
-
-footer{
-  margin-top:40px;
-  padding:30px 18px;
-  text-align:center;
-  color:#68728d;
-  border-top:1px solid #202743;
-}
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translateX(-50%) translateY(100px);
-  background:#fff;
-  color:#111;
-  padding:13px 18px;
-  border-radius:12px;
-  z-index:5000;
-  opacity:0;
-  transition:.3s;
-  box-shadow:0 10px 30px #0008;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
-
-@media(max-width:700px){
-  .nav{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .menu{
-    width:100%;
-    overflow-x:auto;
-    flex-wrap:nowrap;
-  }
-
-  .menu button{
-    white-space:nowrap;
-  }
-
-  .hero{
-    padding-top:35px;
-  }
-}
+:root{--bg:#080b16;--card:#101528;--card2:#151b31;--line:#252e4a;--text:#fff;--muted:#8f99b4;--cyan:#00e5ff;--green:#39e58c;--danger:#ff5570}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+button,input,textarea,select{font:inherit}
+button{border:0;cursor:pointer}
+.hidden{display:none!important}
+#loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(circle at 50% 0,#11264a 0,#080b16 48%)}
+.login-card{width:min(430px,100%);background:#101528;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0008}
+.brand{text-align:center;font-size:28px;font-weight:900;letter-spacing:1px;margin-bottom:8px}.brand span{color:var(--cyan)}
+.login-card>p{text-align:center;color:var(--muted);line-height:1.5;margin-bottom:22px}
+.form{display:grid;gap:12px}
+input,textarea,select{width:100%;background:#080d1d;color:#fff;border:1px solid #2b3452;border-radius:11px;padding:13px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--cyan)}
+.primary{background:var(--cyan);color:#001014;font-weight:800;padding:13px 17px;border-radius:11px}
+.secondary{background:var(--card2);color:#fff;padding:13px 17px;border-radius:11px}
+.small-actions{display:flex;justify-content:space-between;margin-top:12px;gap:10px}.linkbtn{background:none;color:var(--cyan);font-size:13px}
+#app{min-height:100vh;padding-bottom:82px}
+header{position:sticky;top:0;z-index:1000;background:#0b1020ee;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:13px 16px}
+.topbar{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}.logo{font-weight:900;font-size:20px}.logo span{color:var(--cyan)}
+.header-actions{display:flex;gap:8px}.header-actions button{background:var(--card2);color:#fff;padding:9px 11px;border-radius:10px}
+main{max-width:1100px;margin:auto;padding:18px}
+.hero{padding:34px 5px 18px}.hero h1{font-size:clamp(34px,7vw,62px);line-height:1.02}.hero h1 span{color:var(--cyan)}.hero p{color:var(--muted);max-width:650px;line-height:1.6;margin-top:12px}
+.hero-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.adspace{min-height:76px;border:1px dashed #39415f;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#65708b;margin:15px 0}
+.section{margin-top:28px}.section h2{font-size:23px}.section>p{color:var(--muted);margin-top:5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px;margin-top:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:18px}.card h3{margin:7px 0}.card p{color:var(--muted);line-height:1.5;font-size:14px}.icon{font-size:28px}.card button{width:100%;margin-top:14px;background:var(--card2);color:#fff;padding:11px;border-radius:10px}.card button:hover{background:#00bcd4;color:#001014}
+.screen{display:none}.screen.active{display:block}.back{margin:5px 0 18px;background:var(--card2);color:#fff;padding:9px 12px;border-radius:10px}
+.balance-card{background:linear-gradient(135deg,#10233b,#101528);border:1px solid #294566;border-radius:20px;padding:22px;margin-top:15px}.balance{font-size:36px;font-weight:900;color:var(--cyan);margin:8px 0}.statrow{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.stat{background:#080d1d;border-radius:13px;padding:13px}.stat small{color:var(--muted)}.stat strong{display:block;margin-top:5px}
+.bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:2000;background:#0b1020f5;backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr)}
+.bottomnav button{background:none;color:#8490ad;font-size:11px;padding:5px 2px}.bottomnav button b{display:block;font-size:20px;margin-bottom:2px}.bottomnav button.active{color:var(--cyan)}
+.list{display:grid;gap:10px;margin-top:14px}.listitem{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}.listitem p{color:var(--muted);font-size:13px;margin-top:4px}.amount{font-weight:800;color:var(--green);white-space:nowrap}
+.profile-head{display:flex;align-items:center;gap:15px;background:var(--card);border:1px solid var(--line);padding:18px;border-radius:18px}.avatar{width:64px;height:64px;border-radius:50%;background:#19304b;display:grid;place-items:center;font-size:28px}.xp{height:8px;background:#080d1d;border-radius:99px;overflow:hidden;margin-top:8px}.xp i{display:block;height:100%;width:72%;background:var(--cyan)}
+.modal{position:fixed;inset:0;background:#0009;z-index:3000;display:none;align-items:flex-end;justify-content:center;padding:15px}.modal.show{display:flex}.modal-box{width:min(620px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;max-height:90vh;overflow:auto}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.close{background:var(--card2);color:#fff;padding:8px 11px;border-radius:9px}
+.toast{position:fixed;z-index:5000;left:50%;bottom:95px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#111;padding:12px 16px;border-radius:12px;transition:.25s;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+.owner-badge{color:#ffd36a;font-size:12px}
+footer{text-align:center;color:#69738d;padding:35px 15px}
+@media(min-width:800px){.modal{align-items:center}.bottomnav{max-width:560px;left:50%;right:auto;transform:translateX(-50%);width:100%;border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0}}
 </style>
 </head>
-
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">VIBRA <span>TRIANGLE</span></div>
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="brand">VIBRA <span>TRIANGLE</span></div>
+    <p>Your social, rewards and digital platform.</p>
+    <div id="loginForm" class="form">
+      <input id="loginEmail" type="email" placeholder="Email">
+      <input id="loginPassword" type="password" placeholder="Password">
+      <button class="primary" onclick="login()">Log in</button>
+      <div class="small-actions">
+        <button class="linkbtn" onclick="showCreate()">Create account</button>
+        <button class="linkbtn" onclick="toast('Password recovery will be connected to the backend in Phase 2.')">Forgot password?</button>
+      </div>
+    </div>
+    <div id="createForm" class="form hidden">
+      <input id="newName" placeholder="Full name">
+      <input id="newEmail" type="email" placeholder="Email">
+      <input id="newPassword" type="password" placeholder="Password">
+      <button class="primary" onclick="createAccount()">Create account</button>
+      <button class="secondary" onclick="showLogin()">Back to login</button>
+    </div>
+    <p style="margin:18px 0 0;font-size:12px">Development mode: account data is stored only on this device until the backend is connected.</p>
+  </div>
+</div>
 
-    <div class="menu">
-      <button onclick="goHome()">Home</button>
-      <button onclick="openPanel('chat')">Chat</button>
-      <button onclick="openPanel('videos')">Videos</button>
-      <button onclick="openPanel('earn')">Earn</button>
-      <button onclick="openPanel('account')">Account</button>
+<div id="app" class="hidden">
+<header>
+  <div class="topbar">
+    <div class="logo">VIBRA <span>TRIANGLE</span></div>
+    <div class="header-actions">
+      <button onclick="openScreen('notifications')">🔔</button>
+      <button onclick="openScreen('me')">👤</button>
     </div>
   </div>
 </header>
 
-<main id="home">
-
-<section class="hero">
-  <h1>Welcome to <span>VIBRA</span></h1>
-
-  <p>
-    One platform for social connection, entertainment,
-    digital earning, websites, rewards and more.
-  </p>
-
-  <div class="hero-buttons">
-    <button class="primary" onclick="openPanel('account')">
-      Get Started
-    </button>
-
-    <button class="secondary" onclick="openPanel('features')">
-      Explore VIBRA
-    </button>
-  </div>
-</section>
-
-<div class="ad">
-  ADVERTISEMENT SPACE
-</div>
-
-<section>
-  <div class="section-title">
-    <h2>VIBRA Services</h2>
-    <p>Explore everything available on the platform.</p>
+<main>
+  <div id="home" class="screen active">
+    <section class="hero">
+      <h1>Welcome to <span>VIBRA</span></h1>
+      <p>Connect, watch, create, earn rewards and manage your digital experience in one place.</p>
+      <div class="hero-row"><button class="primary" onclick="openScreen('wallet')">💰 Open Wallet</button><button class="secondary" onclick="openScreen('me')">👤 My Profile</button></div>
+    </section>
+    <div class="adspace">ADVERTISEMENT SPACE</div>
+    <section class="section">
+      <h2>Explore VIBRA</h2><p>Your main services.</p>
+      <div class="grid">
+        <div class="card"><div class="icon">💬</div><h3>Chat</h3><p>Connect and chat with other users.</p><button onclick="openScreen('chat')">Open</button></div>
+        <div class="card"><div class="icon">🎬</div><h3>Videos</h3><p>Discover entertainment and video content.</p><button onclick="openScreen('videos')">Open</button></div>
+        <div class="card"><div class="icon">🎁</div><h3>Gift Cards</h3><p>Browse gift cards and manage purchases.</p><button onclick="openScreen('gifts')">Open</button></div>
+        <div class="card"><div class="icon">🌐</div><h3>Website Builder</h3><p>Create a simple website preview.</p><button onclick="openScreen('builder')">Open</button></div>
+        <div class="card"><div class="icon">👥</div><h3>Referrals</h3><p>Invite friends and track referral rewards.</p><button onclick="openScreen('referrals')">Open</button></div>
+        <div class="card"><div class="icon">📋</div><h3>Surveys + Rewards</h3><p>View available survey opportunities and rewards.</p><button onclick="openScreen('surveys')">Open</button></div>
+        <div class="card"><div class="icon">🤖</div><h3>AI</h3><p>Get general AI-powered guidance.</p><button onclick="openScreen('ai')">Open</button></div>
+      </div>
+    </section>
   </div>
 
-  <div class="grid">
+  <div id="chat" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>💬 VIBRA Chat</h2><p style="color:var(--muted);margin-top:5px">Demo interface — real-time messaging comes with the backend.</p><div class="card" style="margin-top:15px"><div id="chatBox" style="height:260px;overflow:auto;background:#080d1d;padding:12px;border-radius:12px"><div class="listitem">👋 Welcome to VIBRA Chat</div></div><div style="display:flex;gap:8px;margin-top:10px"><input id="chatInput" placeholder="Type a message"><button class="primary" onclick="sendMessage()">Send</button></div></div></div>
 
-    <div class="card">
-      <div class="icon">💬</div>
-      <h3>VIBRA Chat</h3>
-      <p>Chat and connect with people through the VIBRA platform.</p>
-      <button onclick="openPanel('chat')">Open Chat</button>
-    </div>
+  <div id="videos" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>🎬 Videos</h2><p style="color:var(--muted);margin-top:5px">Your video feed.</p><div class="grid"><div class="card"><div style="aspect-ratio:16/9;background:#080d1d;border-radius:12px;display:grid;place-items:center;font-size:42px">▶️</div><h3>Featured video</h3><p>Video upload/feed backend will be connected later.</p></div><div class="card"><div style="aspect-ratio:16/9;background:#080d1d;border-radius:12px;display:grid;place-items:center;font-size:42px">▶️</div><h3>Trending</h3><p>Trending content area.</p></div></div></div>
 
-    <div class="card">
-      <div class="icon">🎬</div>
-      <h3>VIBRA Videos</h3>
-      <p>Watch and discover short-form entertainment content.</p>
-      <button onclick="openPanel('videos')">Watch Videos</button>
-    </div>
+  <div id="gifts" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>🎁 Gift Cards</h2><p style="color:var(--muted);margin-top:5px">Choose a gift card. Purchases are demo-only until payment integration.</p><div class="grid"><div class="card"><h3>Gaming</h3><p>Gaming gift cards.</p><button onclick="toast('Gift card checkout will connect to the payment backend.')">View cards</button></div><div class="card"><h3>Shopping</h3><p>Shopping gift cards.</p><button onclick="toast('Gift card checkout will connect to the payment backend.')">View cards</button></div><div class="card"><h3>Entertainment</h3><p>Entertainment gift cards.</p><button onclick="toast('Gift card checkout will connect to the payment backend.')">View cards</button></div></div></div>
 
-    <div class="card">
-      <div class="icon">🎁</div>
-      <h3>Gift Cards</h3>
-      <p>Gift-card marketplace interface for future verified transactions.</p>
-      <button onclick="openPanel('gift')">Gift Cards</button>
-    </div>
+  <div id="builder" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>🌐 Website Builder</h2><p style="color:var(--muted);margin-top:5px">Create a simple preview.</p><div class="card" style="margin-top:15px"><div class="form"><input id="siteName" placeholder="Website name"><textarea id="siteText" placeholder="About your website"></textarea><button class="primary" onclick="buildSite()">Create preview</button></div><div id="sitePreview" style="margin-top:15px"></div></div></div>
 
-    <div class="card">
-      <div class="icon">🌐</div>
-      <h3>Website Builder</h3>
-      <p>Create and customize your own simple website.</p>
-      <button onclick="openPanel('builder')">Build Website</button>
-    </div>
+  <div id="referrals" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>👥 Referrals</h2><div class="balance-card"><small>Your referral code</small><div class="balance" style="font-size:28px">VIBRA2026</div><button class="primary" onclick="copyCode()">Copy referral code</button></div><div class="list"><div class="listitem"><div><b>Invited users</b><p>Users referred by you</p></div><strong>0</strong></div><div class="listitem"><div><b>Referral rewards</b><p>Total earned</p></div><strong class="amount">₦0.00</strong></div></div></div>
 
-    <div class="card">
-      <div class="icon">👥</div>
-      <h3>Referrals</h3>
-      <p>Invite people and track your referral activity.</p>
-      <button onclick="openPanel('referral')">Referral Center</button>
-    </div>
+  <div id="surveys" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>📋 Surveys + Rewards</h2><p style="color:var(--muted);margin-top:5px">Survey rewards are demo-only until a legitimate survey provider is connected.</p><div class="list"><div class="listitem"><div><b>Quick opinion survey</b><p>Approx. 5 minutes</p></div><span class="amount">₦500</span></div><div class="listitem"><div><b>Technology survey</b><p>Approx. 10 minutes</p></div><span class="amount">₦1,000</span></div></div></div>
 
-    <div class="card">
-      <div class="icon">📋</div>
-      <h3>Surveys</h3>
-      <p>Participate in available surveys and rewards programs.</p>
-      <button onclick="openPanel('survey')">View Surveys</button>
-    </div>
+  <div id="ai" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>🤖 VIBRA AI</h2><p style="color:var(--muted);margin-top:5px">General guidance and ideas.</p><div class="card" style="margin-top:15px"><div class="form"><textarea id="aiInput" placeholder="Ask something..."></textarea><button class="primary" onclick="askAI()">Ask AI</button></div><div id="aiAnswer"></div></div></div>
 
-    <div class="card">
-      <div class="icon">🤖</div>
-      <h3>AI Counselling</h3>
-      <p>Get general AI-powered guidance and conversation support.</p>
-      <button onclick="openPanel('ai')">Open AI</button>
-    </div>
+  <div id="me" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>👤 Me</h2><div class="profile-head" style="margin-top:15px"><div class="avatar">👤</div><div><h3 id="profileName">VIBRA User</h3><p id="profileEmail" style="color:var(--muted)">user@example.com</p><div style="margin-top:10px"><b>Level 1</b> · 720 XP</div><div class="xp"><i></i></div></div></div><div class="grid"><div class="card"><div class="icon">💰</div><h3>Wallet</h3><p>Balance, add money and withdraw.</p><button onclick="openScreen('wallet')">Open Wallet</button></div><div class="card"><div class="icon">💳</div><h3>Payments</h3><p>Payment methods and history.</p><button onclick="openScreen('payments')">Open</button></div><div class="card"><div class="icon">⭐</div><h3>Level & XP</h3><p>Track your progress and rewards.</p><button onclick="toast('Level system is ready for backend rules.')">View level</button></div><div class="card"><div class="icon">⚙️</div><h3>Settings</h3><p>Account and security settings.</p><button onclick="openScreen('settings')">Open</button></div></div><button class="secondary" style="margin-top:15px;width:100%" onclick="logout()">Log out</button></div>
 
-    <div class="card">
-      <div class="icon">💰</div>
-      <h3>Earn & Partners</h3>
-      <p>Explore advertising, affiliate and partnership opportunities.</p>
-      <button onclick="openPanel('earn')">Start Earning</button>
-    </div>
+  <div id="wallet" class="screen"><button class="back" onclick="openScreen('me')">← Me</button><h2>💰 Wallet</h2><div class="balance-card"><small>Available balance</small><div class="balance">₦0.00</div><div class="statrow"><div class="stat"><small>Pending</small><strong>₦0.00</strong></div><div class="stat"><small>Total earned</small><strong>₦0.00</strong></div></div><div class="hero-row"><button class="primary" onclick="openModal('addMoney')">Add money</button><button class="secondary" onclick="openModal('withdraw')">Withdraw</button></div></div><div class="list"><div class="listitem"><div><b>Survey rewards</b><p>Reward balance</p></div><span class="amount">₦0.00</span></div><div class="listitem"><div><b>Referral rewards</b><p>Referral earnings</p></div><span class="amount">₦0.00</span></div></div></div>
 
-  </div>
-</section>
+  <div id="payments" class="screen"><button class="back" onclick="openScreen('me')">← Me</button><h2>💳 Payments & Transactions</h2><div class="list"><div class="listitem"><div><b>No transactions yet</b><p>Your successful, pending and failed transactions will appear here.</p></div></div></div></div>
 
+  <div id="notifications" class="screen"><button class="back" onclick="goHome()">← Home</button><h2>🔔 Notifications</h2><div class="list"><div class="listitem"><div><b>Welcome to VIBRA TRIANGLE</b><p>Your account area is ready.</p></div></div></div></div>
+
+  <div id="settings" class="screen"><button class="back" onclick="openScreen('me')">← Me</button><h2>⚙️ Settings</h2><div class="list"><div class="listitem"><div><b>Account security</b><p>Security controls will be connected to backend authentication.</p></div><button class="secondary" onclick="toast('Backend security comes in Phase 2.')">Open</button></div><div class="listitem"><div><b>Payment methods</b><p>Manage payout details securely.</p></div><button class="secondary" onclick="toast('Secure payout management comes in Phase 3.')">Open</button></div></div></div>
 </main>
 
-<!-- FEATURES -->
+<footer>© 2026 VIBRA TRIANGLE<br><small>Connect • Create • Discover • Earn</small></footer>
 
-<div class="panel" id="features">
-  <button class="close" onclick="closePanels()">X</button>
-  <h2>Explore VIBRA</h2>
-  <p>
-    VIBRA TRIANGLE brings social features, entertainment,
-    digital tools and earning opportunities together.
-  </p>
+<nav class="bottomnav">
+  <button data-nav="home" onclick="openScreen('home')"><b>🏠</b>Home</button>
+  <button data-nav="chat" onclick="openScreen('chat')"><b>💬</b>Chat</button>
+  <button data-nav="videos" onclick="openScreen('videos')"><b>🎬</b>Videos</button>
+  <button data-nav="gifts" onclick="openScreen('gifts')"><b>🎁</b>Gifts</button>
+  <button data-nav="me" onclick="openScreen('me')"><b>👤</b>Me</button>
+</nav>
 </div>
 
-<!-- CHAT -->
-
-<div class="panel" id="chat">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>💬 VIBRA Chat</h2>
-  <p>Demo chat interface.</p>
-
-  <div class="chat-box" id="chatBox">
-    <div class="message">Welcome to VIBRA Chat 👋</div>
-  </div>
-
-  <div class="chat-input">
-    <input id="chatInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
-</div>
-
-<!-- VIDEOS -->
-
-<div class="panel" id="videos">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>🎬 VIBRA Videos</h2>
-  <p>Video section interface.</p>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="video">▶</div>
-      <h3>Featured Video</h3>
-      <p>Your video content can be connected here later.</p>
-    </div>
-
-    <div class="card">
-      <div class="video">▶</div>
-      <h3>Trending</h3>
-      <p>Trending videos will appear here.</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- GIFT CARDS -->
-
-<div class="panel" id="gift">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>🎁 Gift Cards</h2>
-
-  <p>
-    Gift-card marketplace interface.
-    Real purchases should be connected to a legitimate
-    payment and gift-card provider before going live.
-  </p>
-
-  <div class="form">
-    <select>
-      <option>Select Gift Card</option>
-      <option>Gaming Gift Card</option>
-      <option>Shopping Gift Card</option>
-      <option>Entertainment Gift Card</option>
-    </select>
-
-    <button onclick="notify('Gift card checkout will be connected later.')">
-      Continue
-    </button>
-  </div>
-</div>
-
-<!-- WEBSITE BUILDER -->
-
-<div class="panel" id="builder">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>🌐 Website Builder</h2>
-
-  <p>Create a simple page preview.</p>
-
-  <div class="form">
-
-    <input id="siteName" placeholder="Website name">
-
-    <textarea id="siteText"
-      placeholder="Write something about your website"></textarea>
-
-    <button onclick="buildSite()">Preview Website</button>
-
-  </div>
-
-  <div id="sitePreview"></div>
-</div>
-
-<!-- REFERRALS -->
-
-<div class="panel" id="referral">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>👥 Referral Center</h2>
-
-  <p>Your referral code:</p>
-
-  <div class="balance">VIBRA2026</div>
-
-  <button class="primary"
-    onclick="copyReferral()">
-    Copy Referral Code
-  </button>
-
-  <p id="referralStatus" style="margin-top:15px;"></p>
-</div>
-
-<!-- SURVEYS -->
-
-<div class="panel" id="survey">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>📋 Surveys</h2>
-
-  <div class="card">
-    <h3>Available Survey</h3>
-    <p>Sample survey opportunity.</p>
-
-    <button onclick="notify('Survey system will be connected to a real provider later.')">
-      Start Survey
-    </button>
-  </div>
-</div>
-
-<!-- AI -->
-
-<div class="panel" id="ai">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>🤖 AI Counselling</h2>
-
-  <p>
-    Ask for general guidance, ideas or everyday advice.
-  </p>
-
-  <div class="form">
-
-    <textarea id="aiInput"
-      placeholder="What would you like to talk about?"></textarea>
-
-    <button onclick="aiReply()">Ask AI</button>
-
-    <div id="aiAnswer"></div>
-
-  </div>
-</div>
-
-<!-- EARN -->
-
-<div class="panel" id="earn">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>💰 Earn & Partners</h2>
-
-  <div class="balance">₦0.00</div>
-
-  <p>
-    Your earning dashboard is ready for future integration
-    with legitimate advertising, affiliate, referral and
-    partner systems.
-  </p>
-
-  <div class="grid" style="margin-top:20px">
-
-    <div class="card">
-      <h3>Ads</h3>
-      <p>Advertising opportunities.</p>
-      <button onclick="notify('Advertising integration coming next.')">
-        Learn More
-      </button>
-    </div>
-
-    <div class="card">
-      <h3>Affiliate</h3>
-      <p>Partner referral opportunities.</p>
-      <button onclick="notify('Affiliate system will be connected later.')">
-        Explore
-      </button>
-    </div>
-
-    <div class="card">
-      <h3>Partners</h3>
-      <p>Business partnership opportunities.</p>
-      <button onclick="notify('Partner applications will be connected later.')">
-        Apply
-      </button>
-    </div>
-
-  </div>
-</div>
-
-<!-- ACCOUNT -->
-
-<div class="panel" id="account">
-  <button class="close" onclick="closePanels()">X</button>
-
-  <h2>👤 VIBRA Account</h2>
-
-  <p>Demo account interface.</p>
-
-  <div class="form">
-
-    <input id="username" placeholder="Username">
-
-    <input id="email"
-      type="email"
-      placeholder="Email">
-
-    <button onclick="createAccount()">
-      Create Account
-    </button>
-
-  </div>
-
-  <p id="accountStatus" style="margin-top:15px;"></p>
-</div>
-
-<footer>
-  <p>© 2026 VIBRA TRIANGLE</p>
-  <p style="margin-top:8px">
-    Connect • Create • Discover • Earn
-  </p>
-</footer>
-
-<div class="toast" id="toast"></div>
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()">X</button></div><div id="modalBody"></div></div></div>
+<div id="toastBox" class="toast"></div>
 
 <script>
-
-function openPanel(id){
-
-  closePanels();
-
-  const panel=document.getElementById(id);
-
-  if(panel){
-    panel.classList.add("active");
-
-    setTimeout(function(){
-      panel.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
-    },50);
-  }
-}
-
-function closePanels(){
-
-  document.querySelectorAll(".panel").forEach(function(panel){
-    panel.classList.remove("active");
-  });
-}
-
-function goHome(){
-
-  closePanels();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-function notify(message){
-
-  const toast=document.getElementById("toast");
-
-  toast.textContent=message;
-  toast.classList.add("show");
-
-  setTimeout(function(){
-    toast.classList.remove("show");
-  },2500);
-}
-
-function sendMessage(){
-
-  const input=document.getElementById("chatInput");
-  const box=document.getElementById("chatBox");
-
-  const text=input.value.trim();
-
-  if(!text){
-    notify("Type a message first.");
-    return;
-  }
-
-  const message=document.createElement("div");
-
-  message.className="message me";
-  message.textContent=text;
-
-  box.appendChild(message);
-
-  input.value="";
-
-  box.scrollTop=box.scrollHeight;
-
-  setTimeout(function(){
-
-    const reply=document.createElement("div");
-
-    reply.className="message";
-    reply.textContent="VIBRA: Message received 👍";
-
-    box.appendChild(reply);
-
-    box.scrollTop=box.scrollHeight;
-
-  },600);
-}
-
-function buildSite(){
-
-  const name=document.getElementById("siteName").value.trim();
-  const text=document.getElementById("siteText").value.trim();
-  const preview=document.getElementById("sitePreview");
-
-  if(!name){
-    notify("Enter a website name.");
-    return;
-  }
-
-  preview.innerHTML=
-    '<div class="card" style="margin-top:20px">'+
-    '<h2>'+escapeHTML(name)+'</h2>'+
-    '<p style="margin-top:10px">'+
-    escapeHTML(text || "Welcome to my website.")+
-    '</p>'+
-    '</div>';
-
-  notify("Website preview created!");
-}
-
-function escapeHTML(text){
-
-  const div=document.createElement("div");
-
-  div.textContent=text;
-
-  return div.innerHTML;
-}
-
-function copyReferral(){
-
-  const code="VIBRA2026";
-
-  if(navigator.clipboard){
-
-    navigator.clipboard.writeText(code)
-    .then(function(){
-
-      document.getElementById("referralStatus").textContent=
-        "Referral code copied successfully.";
-
-    })
-    .catch(function(){
-
-      notify("Your referral code is: "+code);
-
-    });
-
-  }else{
-
-    notify("Your referral code is: "+code);
-
-  }
-}
-
-function aiReply(){
-
-  const input=document.getElementById("aiInput");
-  const answer=document.getElementById("aiAnswer");
-
-  const text=input.value.trim();
-
-  if(!text){
-    notify("Write something first.");
-    return;
-  }
-
-  answer.innerHTML=
-    '<div class="card" style="margin-top:15px">'+
-    '<h3>VIBRA AI</h3>'+
-    '<p style="margin-top:10px">'+
-    'Thanks for sharing. Take a moment to think about the situation '+
-    'and consider the safest and most practical next step. '+
-    'For serious or urgent problems, consider speaking with a '+
-    'qualified professional or someone you trust.'+
-    '</p>'+
-    '</div>';
-}
-
-function createAccount(){
-
-  const username=document.getElementById("username").value.trim();
-  const email=document.getElementById("email").value.trim();
-  const status=document.getElementById("accountStatus");
-
-  if(!username || !email){
-
-    status.textContent="Please enter your username and email.";
-
-    return;
-  }
-
-  localStorage.setItem(
-    "vibra_username",
-    username
-  );
-
-  localStorage.setItem(
-    "vibra_email",
-    email
-  );
-
-  status.textContent=
-    "Account profile saved on this device.";
-
-  notify("Welcome to VIBRA, "+username+"!");
-
-}
-
-document.addEventListener("DOMContentLoaded",function(){
-
-  const savedUser=
-    localStorage.getItem("vibra_username");
-
-  if(savedUser){
-
-    document.getElementById("username").value=savedUser;
-
-  }
-
-});
-
-</script>
-
-</body>
-</html>
+const $=id=>document.getElementById(id);
+function toast(msg){const t=$("toastBox");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600)}
+function showCreate(){$("loginForm").classList.add("hidden");$("createForm").classList.remove("hidden")}
+function showLogin(){$("createForm").classList.add("hidden");$("loginForm").classList.remove("hidden")}
+function createAccount(){const n=$("newName").value.trim(),e=$("newEmail").value.trim(),p=$("newPassword").value;if(!n||!e||!p)return toast("Please fill all fields.");localStorage.setItem("vibra_user",JSON.stringify({name:n,email:e}));toast("Account created.");setTimeout(login,500)}
+function login(){const e=$("loginEmail").value.trim(),p=$("loginPassword").value;if(!e||!p)return toast("Enter your email and password.");localStorage.setItem("vibra_user",JSON.stringify({name:e.split("@")[0],email:e}));startApp()}
+function startApp(){const u=JSON.parse(localStorage.getItem("vibra_user")||"{}");$("profileName").textContent=u.name||"VIBRA User";$("profileEmail").textContent=u.email||"user@example.com";$("loginScreen").classList.add("hidden");$("app").classList.remove("hidden");openScreen("home")}
+function logout(){localStorage.removeItem("vibra_user");$("app").classList.add("hidden");$("loginScreen").classList.remove("hidden");showLogin();toast("Logged out.")}
+function openScreen(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));const el=$(id);if(el)el.classList.add("active");document.querySelectorAll(".bottomnav button").forEach(b=>b.classList.remove("active"));const nav=document.querySelector('[data-nav="'+id+'"]');if(nav)nav.classList.add("active");window.scrollTo({top:0,behavior:"smooth"})}
+function goHome(){openScreen("home")}
+function sendMessage(){const i=$("chatInput"),v=i.value.trim();if(!v)return toast("Type a message.");const b=$("chatBox");const m=document.createElement("div");m.className="listitem";m.style.marginTop="8px";m.textContent=v;b.appendChild(m);i.value="";setTimeout(()=>{const r=document.createElement("div");r.className="listitem";r.style.marginTop="8px";r.textContent="VIBRA: Message received 👍";b.appendChild(r);b.scrollTop=b.scrollHeight},500)}
+function buildSite(){const n=$("siteName").value.trim(),t=$("siteText").value.trim();if(!n)return toast("Enter a website name.");$("sitePreview").innerHTML='<div class="card"><h3>'+esc(n)+'</h3><p>'+esc(t||"Welcome to my website.")+'</p></div>';toast("Preview created.")}
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHT
