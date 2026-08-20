@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07101f">
 <title>VIBRA TRIANGLE</title>
+<!-- VIBRA TRIANGLE PHASE 1 FINAL STRUCTURE v3 -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#060b14;--panel:#0d1626;--line:#20304a;--cyan:#22d8ee;--text:#f4f7fb;--muted:#8c9ab0;--green:#29d878;--red:#ff5f6d}
@@ -49,7 +50,7 @@ input:focus{box-shadow:0 0 0 3px rgba(34,216,238,.22)}
 .card h3{margin:8px 0}.icon{font-size:29px}
 .card .btn{width:100%;margin-top:12px}
 .back{background:#121e31;color:#fff;border:1px solid #2a3a55;border-radius:10px;padding:9px 12px;margin-bottom:16px}
-.bottom{display:none;position:fixed;bottom:0;left:0;right:0;height:76px;z-index:20;background:rgba(7,12,21,.97);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px}
+.bottom{position:fixed;bottom:0;left:0;right:0;height:76px;z-index:20;background:rgba(7,12,21,.97);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px}
 .bottom button{border:0;background:none;color:#738198;font-size:11px}
 .bottom b{display:block;font-size:21px;margin-bottom:2px}.bottom .on{color:var(--cyan)}
 .balance{font-size:38px;font-weight:900;color:var(--cyan);margin:10px 0}
@@ -174,14 +175,15 @@ input:focus{box-shadow:0 0 0 3px rgba(34,216,238,.22)}
   <section id="settings" class="page"><button class="back" data-go="me">← Me</button><h2>⚙️ Settings</h2><div class="card"><b>Account</b><p class="muted">Security, notifications and preferences will be expanded during backend development.</p></div></section>
 </div>
 
-<nav id="bottomNav" class="bottom">
+
+<div id="toast" class="toast"><nav id="bottomNav" class="bottom">
   <button data-go="home"><b>🏠</b>Home</button>
   <button data-go="chat"><b>💬</b>Chat</button>
   <button data-go="videos"><b>🎬</b>Videos</button>
   <button data-go="gifts"><b>🎁</b>Gifts</button>
   <button data-go="me"><b>👤</b>Me</button>
 </nav>
-<div id="toast" class="toast"></div>
+</div>
 
 <script>
 (function(){
@@ -205,8 +207,7 @@ function go(id){
 function enterApp(name,email){
   $("authScreen").classList.add("hidden");
   $("app").style.display="block";
-  $("bottomNav").style.display="grid";
-  $("name").textContent=name;
+    $("name").textContent=name;
   $("mail").textContent=email;
   $("welcome").textContent="WELCOME BACK, "+name.toUpperCase();
   go("home");
@@ -214,8 +215,7 @@ function enterApp(name,email){
 function successfulLogin(name,email){
   $("authScreen").classList.add("hidden");
   $("app").style.display="block";
-  $("bottomNav").style.display="grid";
-  $("name").textContent=name;
+    $("name").textContent=name;
   $("mail").textContent=email;
   $("welcome").textContent="WELCOME BACK, "+name.toUpperCase();
   go("home");
@@ -287,5 +287,6 @@ document.querySelectorAll("[data-demo]").forEach(b=>b.onclick=()=>toast(b.datase
 $("profileBtn").onclick=()=>go("me");
 $("logout").onclick=function(){
   localStorage.removeItem("vibraUser");
-  $("app").style.display="none";$("bottomNav").style.display="none";
-  $("appStatus").className="status";$("appSta
+  $("app").style.display="none";  $("appStatus").className="status";$("appStatus").textContent="";
+  $("authScreen").classList.remove("hidden");
+  $(
